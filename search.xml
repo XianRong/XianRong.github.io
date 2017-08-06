@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[我的第一篇博客]]></title>
+    <url>%2F2017%2F08%2F06%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[今天周末，兴致所致，想做一个素雅无任何广告的博客，用来记录一点生活和学习相关的东西，便有了此博客的诞生。 这是使用Github Pages + Hexo 搭建的博客，感谢 Github , 感谢 Hexo , 感谢 Line 的博客搭建教程。 基础命令1、如何创建博客文章？ 1$ hexo new "我的第一篇博客" 更多指令信息可查看文档: Writing 2、 清理缓存 1$ hexo clean 网页正常情况下可以忽略此条命令 3、 生成静态网页 1$ hexo generate 默认生成的静态网页放在public目录博客文章的编写都是Markdown文件，但是发布到github上的其实是html文件，将Markdown转换成html这个工作只要输入hexo generate命令即可，hexo会帮我们完成转换。Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown 语法说明 4、 开启预览访问端口 1$ hexo server 默认端口4000，’ctrl + c’关闭server 5、 将.deploy目录部署到GitHub 1$ hexo deploy]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+</search>
