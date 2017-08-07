@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[我的第一篇博客]]></title>
-    <url>%2F2017%2F08%2F06%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[今天周末，兴致所致，想做一个素雅无任何广告的博客，用来记录一点生活和学习相关的东西，便有了此博客的诞生。 这是使用Github Pages + Hexo 搭建的博客，感谢 Github , 感谢 Hexo , 感谢 Line 的博客搭建教程。 基础命令1、如何创建博客文章？ 1$ hexo new "我的第一篇博客" 更多指令信息可查看文档: Writing 2、 清理缓存 1$ hexo clean 网页正常情况下可以忽略此条命令 3、 生成静态网页 1$ hexo generate 默认生成的静态网页放在public目录博客文章的编写都是Markdown文件，但是发布到github上的其实是html文件，将Markdown转换成html这个工作只要输入hexo generate命令即可，hexo会帮我们完成转换。Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown 语法说明 4、 开启预览访问端口 1$ hexo server 默认端口4000，’ctrl + c’关闭server 5、 将.deploy目录部署到GitHub 1$ hexo deploy]]></content>
+    <title><![CDATA[UITableViewCell实现多选、全选、全不选]]></title>
+    <url>%2F2017%2F08%2F07%2FUITableViewCell%E5%AE%9E%E7%8E%B0%E5%A4%9A%E9%80%89%E3%80%81%E5%85%A8%E9%80%89%E3%80%81%E5%85%A8%E4%B8%8D%E9%80%89%2F</url>
+    <content type="text"><![CDATA[使用场景之一：购物车的时候用到1、设置cell可多选属性1self.tableV.allowsMultipleSelection = YES; 2、设置cell选择状态1cell.selectionStyle = UITableViewCellSelectionStyleNone 3、在cell上自定义一个选择Button(自定义名为：checkBtn)，Button的selected属性跟cell里的selected的属性绑定。设置Button的两种状态：UIControlStateNormal和UIControlStateSelected的不同状态图片。1234- (void)setSelected:(BOOL)selected animated:(BOOL)animated &#123; [super setSelected:selected animated:animated]; self.checkBtn.selected = selected;&#125; 4、获取所有被选中的cell的NSIndexPath数组1NSArray * selectRows = self.tableV.indexPathsForSelectedRows; 5、全选/取消全选1234567891011if (select) &#123; for (NSInteger i =0; i&lt;self.dataArr.count; i++) &#123; NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i]; [self.tableV selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone]; &#125; &#125;else&#123; for (NSInteger i =0; i&lt;self.dataArr.count; i++) &#123; NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i]; [self.tableV deselectRowAtIndexPath:indexPath animated:YES]; &#125; &#125;]]></content>
       <categories>
-        <category>生活</category>
+        <category>Objective-C</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>Objective-C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[我的第一篇博客]]></title>
+    <url>%2F2017%2F08%2F06%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[今天周末，兴致所致，想做一个素雅无任何广告的博客，用来记录一点生活和学习相关的东西，便有了此博客的诞生。 这是使用Github Pages + Hexo 搭建的博客。 在此感谢 Github , 感谢 Hexo , 感谢 Line 的博客搭建教学。 基础命令1、如何创建博客文章？ 1$ hexo new "我的第一篇博客" 更多指令信息可查看文档: Writing 2、 清理缓存 1$ hexo clean 网页正常情况下可以忽略此条命令 3、 生成静态网页 1$ hexo generate 默认生成的静态网页放在public目录博客文章的编写都是Markdown文件，但是发布到github上的其实是html文件，将Markdown转换成html这个工作只要输入hexo generate命令即可，hexo会帮我们完成转换。Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown 语法说明 4、 开启预览访问端口 1$ hexo server 默认端口4000，’ctrl + c’关闭server 5、 将.deploy目录部署到GitHub 1$ hexo deploy]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
       </tags>
   </entry>
 </search>
