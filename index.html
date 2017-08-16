@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -216,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -226,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -246,7 +246,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -312,7 +312,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T10:27:50+08:00">
                 2017-08-16
@@ -333,7 +333,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -375,11 +375,11 @@
 
       
         
-          <h3 id="一、基础使用"><a href="#一、基础使用" class="headerlink" title="一、基础使用"></a>一、基础使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 边框颜色</div><div class="line">self.iconView.layer.borderColor = [UIColor  orangeColor].CGColor;</div><div class="line">// 边框宽度</div><div class="line">self.iconView.layer.borderWidth = 10;</div><div class="line">// 圆角半径</div><div class="line">self.iconView.layer.cornerRadius = 10;</div><div class="line">// 超出图层边框的内容裁剪掉</div><div class="line">self.iconView.layer.masksToBounds = YES;</div><div class="line"></div><div class="line">// 颜色</div><div class="line">self.iconView.layer.shadowColor = [UIColor blackColor].CGColor;</div><div class="line">// 偏移量</div><div class="line">self.iconView.layer.shadowOffset = CGSizeMake(10, 10);</div><div class="line">// 透明度</div><div class="line">self.iconView.layer.shadowOpacity = 0.5;</div><div class="line">// 内容</div><div class="line">self.iconView.layer.contents = (id)[UIImage imageNamed:@<span class="string">"girl.png"</span>].CGImage;</div></pre></td></tr></table></figure>
+          <h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/16/CALayer/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -458,7 +458,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-16T09:56:30+08:00">
                 2017-08-16
@@ -479,7 +479,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -521,10 +521,15 @@
 
       
         
-          
-            <p>Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程(执行动画的时候还能点击UI其它控件触发别的事件）。它直接作用在CALayer上的，并非UIView。<br><img src="http://ouakkqmoq.bkt.clouddn.com/coreAnimation.png" alt="Image text"></p>
-
-          
+          <p>CoreAnimation是iOS与OS X平台上负责图形渲染与动画的基础设施。Core Animation可以动画视图和其他的可视元素，为你完成了动画所需的大部分绘帧工作。只需配置少量的动画参数（如开始点位置和结束点的位置）就可实现绚丽的Core Animation动画效果。<br>Core Animation将大部分实际的绘图任务交给了图形硬件来处理，图形硬件会加速图形渲染的速度。这种自动化的图形加速技术让动画拥有更高的帧率并且更加的平滑，而且不会加重CPU的负担而影响程序的运行速度。<br>Core Animation自身并不是一个绘图系统。它只是一个负责在硬件上合成和操纵应用内容的基础构件。Core Animation的核心是图层对象，图层对象用于管理和操控你的应用内容。图层将捕获的内容放到一副位图中，图形硬件能够非常容易的操控你的位图。</p>
+<p>当我们平时使用UIView动画不能满足需求的时候，可以直接对UIView的内容绘制的layer进行操作，CoreAnimation是UIview动画底层的实现，是对CALayer进行操作，所以CoreAnimation操作的对象是CALayer，而不是UIView。<br>Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程(执行动画的时候还能点击UI其它控件触发别的事件）。<br><img src="http://ouakkqmoq.bkt.clouddn.com/coreAnimation.png" alt="Image text"><br>CAAnimation：核心动画的基础类，不能直接使用，负责动画运行时间、速度的控制，本身实现了CAMediaTiming协议<br>CAPropertyAnimation：属性动画的基类（通过属性进行动画设置，注意是可动画属性），不能直接使用<br>CAAnimationGroup：动画组，动画组是一种组合模式设计，可以通过动画组来进行所有动画行为的统一控制，组中所有动画效果可以并发执行<br>CATransition：过度动画，主要通过滤镜进行动画效果设置<br>CABasicAnimation：基本动画，通过属性修改进行动画参数控制，只有初始状态和结束状态<br>CAKeyframeAnimation：关键帧动画，同样是通过属性进行动画参数控制，但是同基础动画不同的是它可以有多个状态控制</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/16/Core-Animation/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -600,7 +605,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-07T07:46:05+08:00">
                 2017-08-07
@@ -621,7 +626,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -667,7 +672,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/07/UITableViewCell实现多选、全选、全不选/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -746,7 +751,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-06T18:16:07+08:00">
                 2017-08-06
@@ -767,7 +772,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -814,7 +819,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/06/我的第一篇博客/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -898,7 +903,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -909,7 +914,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -920,7 +925,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -970,7 +975,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
