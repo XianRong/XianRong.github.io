@@ -283,6 +283,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/17/UIView动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/17/UIView动画/" itemprop="url">UIView动画</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-17T09:45:20+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>UIImageView设置动画组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// _afterWheel 是一个UIImageView</div><div class="line">NSMutableArray* after = [NSMutableArray array];</div><div class="line"><span class="keyword">for</span>(int i = 1;i&lt;4;i++)&#123;</div><div class="line">    [after addObject: [UIImage imageNamed:[NSString stringWithFormat:@<span class="string">"resource.bundle/%@%d"</span>,@<span class="string">"porche-f"</span>,i]]];</div><div class="line">&#125;</div><div class="line">_afterWheel.animationImages = after;</div><div class="line">_afterWheel.animationDuration = 0.05;</div><div class="line">_afterWheel.animationRepeatCount = 0;</div><div class="line">[_afterWheel startAnimating];</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/16/CALayer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -521,8 +663,14 @@
 
       
         
-          <p>CoreAnimation是iOS与OS X平台上负责图形渲染与动画的基础设施。Core Animation可以动画视图和其他的可视元素，为你完成了动画所需的大部分绘帧工作。只需配置少量的动画参数（如开始点位置和结束点的位置）就可实现绚丽的Core Animation动画效果。<br>Core Animation将大部分实际的绘图任务交给了图形硬件来处理，图形硬件会加速图形渲染的速度。这种自动化的图形加速技术让动画拥有更高的帧率并且更加的平滑，而且不会加重CPU的负担而影响程序的运行速度。<br>Core Animation自身并不是一个绘图系统。它只是一个负责在硬件上合成和操纵应用内容的基础构件。Core Animation的核心是图层对象，图层对象用于管理和操控你的应用内容。图层将捕获的内容放到一副位图中，图形硬件能够非常容易的操控你的位图。</p>
-<p>当我们平时使用UIView动画不能满足需求的时候，可以直接对UIView的内容绘制的layer进行操作，CoreAnimation是UIview动画底层的实现，是对CALayer进行操作，所以CoreAnimation操作的对象是CALayer，而不是UIView。<br>Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程(执行动画的时候还能点击UI其它控件触发别的事件）。<br><img src="http://ouakkqmoq.bkt.clouddn.com/coreAnimation.png" alt="Image text"><br>CAAnimation：核心动画的基础类，不能直接使用，负责动画运行时间、速度的控制，本身实现了CAMediaTiming协议<br>CAPropertyAnimation：属性动画的基类（通过属性进行动画设置，注意是可动画属性），不能直接使用<br>CAAnimationGroup：动画组，动画组是一种组合模式设计，可以通过动画组来进行所有动画行为的统一控制，组中所有动画效果可以并发执行<br>CATransition：过度动画，主要通过滤镜进行动画效果设置<br>CABasicAnimation：基本动画，通过属性修改进行动画参数控制，只有初始状态和结束状态<br>CAKeyframeAnimation：关键帧动画，同样是通过属性进行动画参数控制，但是同基础动画不同的是它可以有多个状态控制</p>
+          <p>CoreAnimation是iOS与OS X平台上负责图形渲染与动画的基础设施。Core Animation可以动画视图和其他的可视元素，为你完成了动画所需的大部分绘帧工作。只需配置少量的动画参数（如开始点位置和结束点的位置）就可实现绚丽的Core Animation动画效果。</p>
+<p>Core Animation将大部分实际的绘图任务交给了图形硬件来处理，图形硬件会加速图形渲染的速度。这种自动化的图形加速技术让动画拥有更高的帧率并且更加的平滑，而且不会加重CPU的负担而影响程序的运行速度。</p>
+<p>Core Animation自身并不是一个绘图系统。它只是一个负责在硬件上合成和操纵应用内容的基础构件。Core Animation的核心是图层对象，图层对象用于管理和操控你的应用内容。图层将捕获的内容放到一副位图中，图形硬件能够非常容易的操控你的位图。</p>
+<p>当我们平时使用UIView动画不能满足需求的时候，可以直接对UIView的内容绘制的layer进行操作，Core Animation是UIview动画底层的实现，是对CALayer进行操作，所以Core Animation操作的对象是CALayer，而不是UIView。</p>
+<p>Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程(执行动画的时候还能点击UI其它控件触发别的事件）。</p>
+<p><img src="http://ouakkqmoq.bkt.clouddn.com/coreAnima.png" alt="Image text"></p>
+<p>CAAnimation：核心动画的基础类，不能直接使用，负责动画运行时间、速度的控制，本身实现了CAMediaTiming协议<br>CAPropertyAnimation：属性动画的基类（通过属性进行动画设置，注意是可动画属性），不能直接使用</p>
+<p>CABasicAnimation：基本动画，通过属性修改进行动画参数控制，只有初始状态和结束状态<br>CAKeyframeAnimation：关键帧动画，同样是通过属性进行动画参数控制，但是同基础动画不同的是它可以有多个状态控制<br>CAAnimationGroup：动画组，动画组是一种组合模式设计，可以通过动画组来进行所有动画行为的统一控制，组中所有动画效果可以并发执行<br>CATransition：转场动画，主要通过滤镜进行动画效果设置<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/16/Core-Animation/#more" rel="contents">
@@ -902,7 +1050,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
