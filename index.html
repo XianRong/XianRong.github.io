@@ -283,6 +283,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/18/Quartz2D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/18/Quartz2D/" itemprop="url">Quartz2D</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T07:55:37+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Quartz 2D是一个二维图形绘制引擎，我们可以使用Quartz 2D 实现基本路径的绘制、透明度、描影、绘制阴影、透明层、颜色管理、反锯齿、PDF文档生成和PDF元数据访问。在需要的时候，Quartz 2D还可以借助图形硬件的功能。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/18/Quartz2D/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/17/runtime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -668,7 +814,9 @@
 
       
         
-          <h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。</p>
+          <p>如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。</p>
+<p>如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的view本身。</p>
+<h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/16/CALayer/#more" rel="contents">
@@ -1196,7 +1344,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -1218,7 +1366,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
               </a>
             </div>

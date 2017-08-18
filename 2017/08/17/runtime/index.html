@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Rong&#39;s Blog">
 <meta property="og:description" content="runtime是一套底层的C语言API（包含很多强大实用的C语言数据类型、C语言函数）运行时最主要的消息机制，是使用c语言给对象发送消息,对象接收到消息后, 找到匹配的方法执行。 常见的函数、头文件123456#import &amp;lt;objc/runtime.h&amp;gt; : 成员变量、类、方法Ivar * class_copyIvarList : 获得某个类内部的所有成员变量Method * cl">
 <meta property="og:locale" content="zh-Hans en">
-<meta property="og:updated_time" content="2017-08-17T16:12:18.000Z">
+<meta property="og:updated_time" content="2017-08-17T23:31:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="runtime">
 <meta name="twitter:description" content="runtime是一套底层的C语言API（包含很多强大实用的C语言数据类型、C语言函数）运行时最主要的消息机制，是使用c语言给对象发送消息,对象接收到消息后, 找到匹配的方法执行。 常见的函数、头文件123456#import &amp;lt;objc/runtime.h&amp;gt; : 成员变量、类、方法Ivar * class_copyIvarList : 获得某个类内部的所有成员变量Method * cl">
@@ -382,7 +382,7 @@
 <a id="more"></a>
 <h3 id="应用场景1：字典转模型"><a href="#应用场景1：字典转模型" class="headerlink" title="应用场景1：字典转模型"></a>应用场景1：字典转模型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">NSDictionary *dict =@&#123;@<span class="string">"name"</span>:@<span class="string">"普京"</span>,@<span class="string">"age"</span>:@18,@<span class="string">"score"</span>:@59&#125;;</div><div class="line">// 1、搜索类里的成员变量</div><div class="line">unsigned int count = 0;</div><div class="line">//    获取这个类所有的成员变量</div><div class="line">Ivar *Ivars = class_copyIvarList([XRPerson class], &amp;count);</div><div class="line">XRPerson *person = [[XRPerson alloc]init];</div><div class="line"><span class="keyword">for</span> (int i = 0; i&lt;count; i++) &#123;</div><div class="line">    Ivar ivar =Ivars[i];</div><div class="line">    const char *<span class="built_in">type</span> =ivar_getTypeEncoding(ivar);//获取成员变量的类型，这里没用到</div><div class="line">    const char *name = ivar_getName(ivar);</div><div class="line">//  2、C语言转OC，去掉成员变量的下划线<span class="string">"_"</span></div><div class="line">    NSMutableString *strM =[[NSMutableString alloc]initWithString:[NSString stringWithUTF8String:name]];</div><div class="line">    NSString *resultStr =[strM substringFromIndex:1];</div><div class="line">//  3、通过KVC为成员变量赋值</div><div class="line">    [person setValue:dict[resultStr] forKey:resultStr];</div><div class="line">&#125;</div><div class="line">NSLog(@<span class="string">"%@   %d   %.2lf"</span>,person.name,person.age,person.score);</div></pre></td></tr></table></figure>
 <h3 id="应用场景2：归档解档"><a href="#应用场景2：归档解档" class="headerlink" title="应用场景2：归档解档"></a>应用场景2：归档解档</h3><p>当你想把某个类里的所有成员变量拿出来做一些事情，或者成员变量非常多，你就可以利用运行时一次性的对这个类的所有成员变量进行归档解档。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)encodeWithCoder:(NSCoder *)encoder&#123;</div><div class="line">    unsigned int count = 0;</div><div class="line">    Ivar *ivars = class_copyIvarList([XRPerson class], &amp;count);</div><div class="line">    <span class="keyword">for</span> (int i = 0; i&lt;count; i++) &#123;</div><div class="line">        Ivar ivar = ivars[i];</div><div class="line">        const char *name = ivar_getName(ivar);</div><div class="line">        NSString *key = [NSString stringWithUTF8String:name];</div><div class="line">        [encoder encodeObject:[self valueForKeyPath:key] forKey:key];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="应用场景3：交换2个方法的实现（Method-Swizzle）"><a href="#应用场景3：交换2个方法的实现（Method-Swizzle）" class="headerlink" title="应用场景3：交换2个方法的实现（Method Swizzle）"></a>应用场景3：交换2个方法的实现（Method Swizzle）</h3><p>method_exchangeImplementations   交换2个方法的中的实现<br>class_replaceMethod              修改类<br>method_setImplementation         直接设置某个方法的实现</p>
+<h3 id="应用场景3：交换2个方法的实现（Method-Swizzle）"><a href="#应用场景3：交换2个方法的实现（Method-Swizzle）" class="headerlink" title="应用场景3：交换2个方法的实现（Method Swizzle）"></a>应用场景3：交换2个方法的实现（Method Swizzle）</h3><p>每个类都维护一个方法（Method）列表，Method则包含SEL和其对应IMP的信息，方法交换做的事情就是把SEL和IMP的对应关系断开，并和新的IMP生成对应关系。<br>method_exchangeImplementations   交换2个方法的中的实现<br>class_replaceMethod              修改类<br>method_setImplementation         直接设置某个方法的实现<br>class_getInstanceMethod          获取通过SEL获取一个方法<br>method_getTypeEncoding           获取一个OC实现的编码类型<br>class_addMethod                  給方法添加实现</p>
 <p>1、当你想对系统的方法做一些手脚，添加或者修改些什么的时候，就可以用runtime交换2方法的实现</p>
 <p>2、旧项目用的是imageNamed方法通过简单判断来适配图片的，图片多了，重复代码很垃圾，难更改，难维护。<br>解决方案：利用运行时交换两个方法的实现。写一个image分类，用分类写的方法与系统的方法实现交换了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#import &lt;objc/runtime.h&gt;</span></div><div class="line">@implementation UIImage (Extension)</div><div class="line">+(void)load&#123; // 只要分类被装载到内存中，就会调用1次</div><div class="line">    Method originMethod = class_getClassMethod(self, @selector(imageNamed:));</div><div class="line">    Method otherMethod = class_getClassMethod(self, @selector(imageWithName:));</div><div class="line">//    交换2个方法的实现</div><div class="line">    method_exchangeImplementations(originMethod, otherMethod);</div><div class="line">&#125;</div><div class="line"></div><div class="line">+(UIImage *)imageWithName:(NSString *)name&#123;</div><div class="line">    BOOL iOS8 = [[UIDevice currentDevice].systemVersion floatValue]&gt;=8.0;</div><div class="line">    UIImage *image =nil;</div><div class="line">    <span class="keyword">if</span> (iOS8) &#123;</div><div class="line">        NSString *newName=[name stringByAppendingString:@<span class="string">"_os8"</span>];</div><div class="line">        image=[UIImage imageWithName:newName];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (image==nil) &#123;</div><div class="line">        image =[UIImage imageWithName:name];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> image;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>4、屏蔽数组传nil报错,数组越界报错（负面效果是难找到报错，谨慎实用，看场合，权衡使用）<br>解决方案：利用运行时的交换方法的实现的办法<br>（1）只要外面传nil，我在内部就不管它，<br>（2）或者自己打印出来哪里传了nil，这样我们就能发现错在哪，要不然找不到报错的地方。<br>（3）还可以在里面做一些自己想做的事，过滤一些东西，比如：只有传的是string类型的，我才添加到数组中。</p>
@@ -456,6 +456,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/18/Quartz2D/" rel="prev" title="Quartz2D">
+                Quartz2D <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -532,7 +536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -554,7 +558,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
               </a>
             </div>

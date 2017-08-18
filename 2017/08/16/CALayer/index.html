@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="UIView和CALayer的关系UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UI">
+<meta name="description" content="如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。 如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的v">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CALayer">
 <meta property="og:url" content="https://xianrong.github.io/2017/08/16/CALayer/index.html">
 <meta property="og:site_name" content="Rong&#39;s Blog">
-<meta property="og:description" content="UIView和CALayer的关系UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UI">
+<meta property="og:description" content="如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。 如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的v">
 <meta property="og:locale" content="zh-Hans en">
-<meta property="og:updated_time" content="2017-08-16T16:09:36.000Z">
+<meta property="og:updated_time" content="2017-08-17T23:50:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CALayer">
-<meta name="twitter:description" content="UIView和CALayer的关系UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UI">
+<meta name="twitter:description" content="如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。 如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的v">
 
 
 
@@ -377,15 +377,18 @@
       
 
       
-        <h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。</p>
-<a id="more"></a>
+        <p>如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。</p>
+<p>如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的view本身。</p>
+<h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。<br><a id="more"></a></p>
 <h3 id="一、基础使用"><a href="#一、基础使用" class="headerlink" title="一、基础使用"></a>一、基础使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 边框颜色</div><div class="line">self.iconView.layer.borderColor = [UIColor  orangeColor].CGColor;</div><div class="line">// 边框宽度</div><div class="line">self.iconView.layer.borderWidth = 10;</div><div class="line">// 圆角半径</div><div class="line">self.iconView.layer.cornerRadius = 10;</div><div class="line">// 超出图层边框的内容裁剪掉</div><div class="line">self.iconView.layer.masksToBounds = YES;</div><div class="line"></div><div class="line">// 颜色</div><div class="line">self.iconView.layer.shadowColor = [UIColor blackColor].CGColor;</div><div class="line">// 偏移量</div><div class="line">self.iconView.layer.shadowOffset = CGSizeMake(10, 10);</div><div class="line">// 透明度</div><div class="line">self.iconView.layer.shadowOpacity = 0.5;</div><div class="line">// 内容</div><div class="line">self.iconView.layer.contents = (id)[UIImage imageNamed:@<span class="string">"girl.png"</span>].CGImage;</div></pre></td></tr></table></figure>
 <p>示例：实现UIImageView既能设置圆角,也能设置阴影? 思路：创建两个图层，一个负责圆角,一个负责阴影<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 创建背景图层用来设置阴影</div><div class="line">CALayer *bgLayer = [CALayer layer];</div><div class="line">bgLayer.frame = CGRectMake(100, 100, 100, 100);</div><div class="line">bgLayer.backgroundColor = [UIColor clearColor].CGColor;</div><div class="line">// 设置阴影</div><div class="line">bgLayer.shadowColor = [UIColor purpleColor].CGColor;</div><div class="line">bgLayer.shadowOffset = CGSizeMake(10, 10);</div><div class="line">bgLayer.shadowOpacity = 0.5;</div><div class="line"></div><div class="line">// 创建子图层负责显示图片和设置圆角</div><div class="line">CALayer *subLayer = [CALayer layer];</div><div class="line">subLayer.frame = bgLayer.bounds;</div><div class="line">subLayer.cornerRadius = 20;</div><div class="line">subLayer.masksToBounds = YES;</div><div class="line">subLayer.contents = (id) [UIImage imageNamed:@<span class="string">"girl.png"</span>].CGImage;</div><div class="line"></div><div class="line">[bgLayer addSublayer:subLayer];</div><div class="line">[self.view.layer addSublayer:bgLayer];</div></pre></td></tr></table></figure></p>
 <h3 id="二、CALayer的transform属性"><a href="#二、CALayer的transform属性" class="headerlink" title="二、CALayer的transform属性"></a>二、CALayer的transform属性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 平移</div><div class="line">self.iconView.layer.transform = CATransform3DMakeTranslation(100, 100, 13210);</div><div class="line"> //缩放</div><div class="line">self.iconView.layer.transform = CATransform3DMakeScale(0.5, 1, 100);</div><div class="line">// 旋转</div><div class="line">self.iconView.layer.transform = CATransform3DMakeRotation(M_PI_4, 0, 0, 1);</div><div class="line"></div><div class="line">self.iconView.transform = CGAffineTransformMakeRotation(M_PI_4);</div><div class="line">// 旋转 100弧度</div><div class="line">[self.iconView.layer setValue:@(100) forKeyPath:@<span class="string">"transform.rotation.z"</span>];</div><div class="line">// 全局缩放</div><div class="line">[self.iconView.layer setValue:@(2) forKeyPath:@<span class="string">"transform.scale"</span>];</div><div class="line">// 指定X轴方向缩放</div><div class="line">[self.iconView.layer setValue:@(2) forKeyPath:@<span class="string">"transform.scale.x"</span>];</div></pre></td></tr></table></figure>
 <p>注意：CALayer 还有一个锚点属性.anchorPoint，锚点默认是在图层的中心位置，如果改变锚点，会对图层position属性造成影响。</p>
 <h3 id="三、CALayer的隐式动画"><a href="#三、CALayer的隐式动画" class="headerlink" title="三、CALayer的隐式动画"></a>三、CALayer的隐式动画</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//直接修改layer的大小、位置等一些属性会默认执行动画(subLayer为自定义创建的layer,添加在self.view.layer上)</div><div class="line">self.subLayer.position = CGPointMake(200, 200);</div><div class="line">self.subLayer.bounds = CGRectMake(0, 0, 250, 250);</div><div class="line"></div><div class="line">// 开启事务</div><div class="line">[CATransaction begin];</div><div class="line">// 禁止执行隐式动画</div><div class="line">[CATransaction setDisableActions:YES];</div><div class="line">self.subLayer.position = CGPointMake(200, 200);</div><div class="line">// 提交事务</div><div class="line">[CATransaction commit];</div></pre></td></tr></table></figure>
 <p>我们自己写的动画都属于显式动画，当定义显示动画后，相应的隐式动画会自动取消。</p>
-<h3 id="四、CALayer可以动画的属性"><a href="#四、CALayer可以动画的属性" class="headerlink" title="四、CALayer可以动画的属性"></a>四、CALayer可以动画的属性</h3><p>由于CALayer在iOS中任务主要是内容展示和动画操作，并且动画操作是CALayer的一个重要功能，因此CALayer很多属性的值在变化的时都有动画效果，这个就是我们之前提到的“隐式动画”（手动创建的CALayer对象，都存在着隐式动画），但UIView的根图层是一个例外，根图层属性修改的时候不形成动画效果，因为根图层充当容器的作用，如果它的属性变化形成动画效果会直接干扰子图层。另外，根图层是是由UIView管理，不能重新创建。<br>常用的图层属性请参照苹果开发文档中的CALayer Animatable Properties<br>CALayer使用bounds和position属性，position在子图层的位置由anchorPoint决定，frame属性很少使用<br>CALayer透明度使用opacity，而不是alpha</p>
+<h3 id="四、CALayer可以动画的属性"><a href="#四、CALayer可以动画的属性" class="headerlink" title="四、CALayer可以动画的属性"></a>四、CALayer可以动画的属性</h3><p>由于CALayer在iOS中任务主要是内容展示和动画操作，并且动画操作是CALayer的一个重要功能，因此CALayer很多属性的值在变化的时都有动画效果，这个就是我们之前提到的“隐式动画”（手动创建的CALayer对象，都存在着隐式动画），但UIView的根图层是一个例外，根图层属性修改的时候不形成动画效果，因为根图层充当容器的作用，如果它的属性变化形成动画效果会直接干扰子图层。另外，根图层是是由UIView管理，不能重新创建。</p>
+<p>常用的图层属性请参照苹果开发文档中的CALayer Animatable Properties</p>
+<p>注意：CALayer使用bounds和position属性，position在子图层的位置由anchorPoint决定，frame属性很少使用<br>     CALayer透明度使用opacity，而不是alpha</p>
 <h3 id="五、CALayer的内容绘制"><a href="#五、CALayer的内容绘制" class="headerlink" title="五、CALayer的内容绘制"></a>五、CALayer的内容绘制</h3><p>1、使用图片为图层提供内容（适用于图层内容几乎不改变的情况）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.iconView.layer.contents = (id)[UIImage imageNamed:@<span class="string">"girl.png"</span>].CGImage;</div></pre></td></tr></table></figure></p>
 <p>2、使用代理提供图层内容<br>如果图层内容是动态改变的，则可以使用代理对象在需要的时候提供图层并更新内容。图层显示的时候，从代理方法获取内容，代理方法主要有以下两个：</p>
 <pre><code class="bash">- (void)displayLayer:(CALayer *)layer;
@@ -540,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -562,7 +565,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
               </a>
             </div>
