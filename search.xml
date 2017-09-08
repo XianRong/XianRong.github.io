@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[直播直播]]></title>
+    <url>%2F2017%2F09%2F08%2F%E7%9B%B4%E6%92%AD%E7%9B%B4%E6%92%AD%2F</url>
+    <content type="text"><![CDATA[今年接触了一个秀场直播项目，在此做一下简单总结。 一、功能介绍1、直播列表：关注、热门、明星、同城等等2、排行榜：贡献榜、财富榜3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等6、礼物：普通礼物、特效礼物、实体礼物、充值、提现、内购等7、用户逻辑：手机账号注册登陆、第三方账号登录、个人信息编辑、设置管理、直播回看、关注列表、粉丝列表、我的收益、我的礼物、等级、认证等8、管理后台：审核、禁播等等 二、架构1、使用MVC架构。（从广义上讲，MVVM也属于MVC的范畴，它只是把部分逻辑业务抽取到一个VM模块来分担一点C的压力，MVVM带来了一定解耦便于测试的优势，同时也带来了更多模块文件，对于简单的业务复杂化在一定层度上降低可读性。在iOS使用OC语言开发中，MVC依然是主流框架。）2、部分业务逻辑采用抽取manager来管理（比如：收发信息、请求发送礼物、礼物动画）3、网络请求业务，先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。 4、简单对MVC和MVVM的架构对比（1）先来一张斯坦福公开课的MVC架构图解 控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示 为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。 view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据 model只负责提供数据，不关心数据展示在哪里。 M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系 （2）再来看一下新秀:MVVM 个人使用体会：OC使用主流的核心MVC架构，通过抽取业务工具类、manager、分类等会比较舒畅，不是很复杂的业务没必要抽取多一个VM模块，文件多得头疼。Swift使用MVVM架构，配上Extension，会很爽。]]></content>
+      <categories>
+        <category>Live</category>
+      </categories>
+      <tags>
+        <tag>Live</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[UIBezierPath]]></title>
     <url>%2F2017%2F08%2F19%2FUIBezierPath%2F</url>
     <content type="text"><![CDATA[1、Bezier// cpx:控制点的x cpy:控制点的y x:结束点的x y:结束点的yCGContextAddQuadCurveToPoint(CGContextRef c, CGFloat cpx, CGFloat cpy, CGFloat x, CGFloat y)]]></content>
@@ -78,9 +89,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[我的第一篇博客]]></title>
-    <url>%2F2017%2F08%2F06%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[今天周末，兴致所致，想做一个素雅无任何广告的博客，用来记录一点生活和学习相关的东西，便有了此博客的诞生。 这是使用Github Pages + Hexo 搭建的博客。 在此感谢 Github , 感谢 Hexo , 感谢 Line 的博客搭建教学。 基础命令1、如何创建博客文章？ 1$ hexo new "我的第一篇博客" 更多指令信息可查看文档: Writing 2、 清理缓存 1$ hexo clean 网页正常情况下可以忽略此条命令 3、 生成静态网页 1$ hexo generate 默认生成的静态网页放在public目录博客文章的编写都是Markdown文件，但是发布到github上的其实是html文件，将Markdown转换成html这个工作只要输入hexo generate命令即可，hexo会帮我们完成转换。Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown 语法说明 4、 开启预览访问端口 1$ hexo server 默认端口4000，’ctrl + c’关闭server 5、 将.deploy目录部署到GitHub 1$ hexo deploy 文档编辑1、写标题12### 一、我是标题#### 1、我也是标题 2、插入图片（图片可以托管在七牛上，也可以放在hexo的资源文件夹里）1![Image text](http://ouakkqmoq.bkt.clouddn.com/coreAnimation.png) 3、不完全显示文章内容，在适当位置添加“查看全部”按钮1&lt;!--more--&gt; 4、写代码123``` bash这里是代码内容(```)只有三个点，没有这个括号]]></content>
+    <title><![CDATA[搭建博客]]></title>
+    <url>%2F2017%2F08%2F06%2F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[今天周末，兴致所致，有点强迫症的我还是想做一个素雅无任何广告的博客，用来记录一点生活和学习相关的东西，便有了此博客的诞生。 这是使用Github Pages + Hexo 搭建的博客。 在此感谢 Github , 感谢 Hexo , 感谢 Line 的博客搭建教学。 基础命令1、如何创建博客文章？ 1$ hexo new "搭建博客" 更多指令信息可查看文档: Writing 2、 清理缓存 1$ hexo clean 网页正常情况下可以忽略此条命令 3、 生成静态网页 1$ hexo generate 默认生成的静态网页放在public目录博客文章的编写都是Markdown文件，但是发布到github上的其实是html文件，将Markdown转换成html这个工作只要输入hexo generate命令即可，hexo会帮我们完成转换。Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown 语法说明 4、 开启预览访问端口 1$ hexo server 默认端口4000，’ctrl + c’关闭server 5、 将.deploy目录部署到GitHub 1$ hexo deploy 文档编辑1、写标题12### 一、我是标题#### 1、我也是标题 2、插入图片（图片可以托管在七牛上，也可以放在hexo的资源文件夹里）1![Image text](http://ouakkqmoq.bkt.clouddn.com/coreAnimation.png) 3、不完全显示文章内容，在适当位置添加“查看全部”按钮1&lt;!--more--&gt; 4、写代码123``` bash这里是代码内容(```)只有三个点，没有这个括号]]></content>
       <categories>
         <category>Life</category>
       </categories>
