@@ -102,14 +102,10 @@
 <meta property="og:site_name" content="XR&#39;s Blog">
 <meta property="og:description" content="今年接触了一个秀场直播项目，在此做一下简单总结。 一、功能介绍1、直播列表：关注、热门、明星、同城等等2、排行榜：贡献榜、财富榜3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等6、礼物：普通礼物、特效礼物、实体礼物、充值、提">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg">
-<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVVM1.png">
-<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVVM2.png">
-<meta property="og:updated_time" content="2017-09-08T16:54:46.000Z">
+<meta property="og:updated_time" content="2017-09-09T17:27:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="直播直播">
 <meta name="twitter:description" content="今年接触了一个秀场直播项目，在此做一下简单总结。 一、功能介绍1、直播列表：关注、热门、明星、同城等等2、排行榜：贡献榜、财富榜3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等6、礼物：普通礼物、特效礼物、实体礼物、充值、提">
-<meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg">
 
 
 
@@ -383,10 +379,7 @@
       
         <p>今年接触了一个秀场直播项目，在此做一下简单总结。</p>
 <h3 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h3><p>1、直播列表：关注、热门、明星、同城等等<br>2、排行榜：贡献榜、财富榜<br>3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付<br>4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等<br>5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等<br>6、礼物：普通礼物、特效礼物、实体礼物、充值、提现、内购等<br>7、用户逻辑：手机账号注册登陆、第三方账号登录、个人信息编辑、设置管理、直播回看、关注列表、粉丝列表、我的收益、我的礼物、等级、认证等<br>8、管理后台：审核、禁播等等<br><a id="more"></a></p>
-<h3 id="二、架构"><a href="#二、架构" class="headerlink" title="二、架构"></a>二、架构</h3><p>1、使用MVC架构。（从广义上讲，MVVM也属于MVC的范畴，它只是把部分逻辑业务抽取到一个VM模块来分担一点C的压力，MVVM带来了一定解耦便于测试的优势，同时也带来了更多模块文件，对于简单的业务复杂化在一定层度上降低可读性。在iOS使用OC语言开发中，MVC依然是主流框架。）<br>2、部分业务逻辑采用抽取manager来管理（比如：收发信息、请求发送礼物、礼物动画）<br>3、网络请求业务，先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。</p>
-<p>4、简单对MVC和MVVM的架构对比<br>（1）先来一张斯坦福公开课的MVC架构图解<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg" alt="Image text"><br>  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示<br>  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。<br>  view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据<br>  model只负责提供数据，不关心数据展示在哪里。<br>  M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系</p>
-<p>（2）再来看一下新秀:MVVM<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVVM1.png" alt="Image text"><br><img src="http://ouakkqmoq.bkt.clouddn.com/MVVM2.png" alt="Image text"></p>
-<p>个人使用体会：OC使用主流的核心MVC架构，通过抽取业务工具类、manager、分类等会比较舒畅，不是很复杂的业务没必要抽取多一个VM模块，文件多得头疼。Swift使用MVVM架构，配上Extension，会很爽。</p>
+<h3 id="二、架构"><a href="#二、架构" class="headerlink" title="二、架构"></a>二、架构</h3><p>1、使用最经典的MVC架构。<br>2、部分业务逻辑采用抽取manager来管理（比如：收发信息、请求发送礼物、礼物动画）<br>3、网络请求业务，先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。</p>
 
       
     </div>
@@ -455,6 +448,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/10/iOS项目架构那些事/" rel="prev" title="iOS项目架构那些事">
+                iOS项目架构那些事 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -531,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -542,7 +539,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -553,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
