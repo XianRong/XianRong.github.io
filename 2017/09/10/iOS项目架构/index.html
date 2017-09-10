@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。  v">
+<meta name="description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了">
 <meta name="keywords" content="comprehensive">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS项目架构那些事">
-<meta property="og:url" content="https://xianrong.github.io/2017/09/10/iOS项目架构那些事/index.html">
+<meta property="og:title" content="iOS项目架构">
+<meta property="og:url" content="https://xianrong.github.io/2017/09/10/iOS项目架构/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。  v">
+<meta property="og:description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVVM1.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVVM2.png">
-<meta property="og:updated_time" content="2017-09-10T09:47:09.000Z">
+<meta property="og:updated_time" content="2017-09-10T14:08:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS项目架构那些事">
-<meta name="twitter:description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。  v">
+<meta name="twitter:title" content="iOS项目架构">
+<meta name="twitter:description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了">
 <meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg">
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/09/10/iOS项目架构那些事/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2017/09/10/iOS项目架构/"/>
 
 
 
 
 
-  <title>iOS项目架构那些事 | XR's Blog</title>
+  <title>iOS项目架构 | XR's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/iOS项目架构那些事/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/iOS项目架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS项目架构那些事</h1>
+          <h1 class="post-title" itemprop="name headline">iOS项目架构</h1>
         
 
         <div class="post-meta">
@@ -381,7 +381,7 @@
       
 
       
-        <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写<br>是 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html" target="_blank" rel="external">苹果官方文档</a> 推荐使用的一个设计模式，经典中的经典。<br>看懂斯坦福公开课上的这张图就够了<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg" alt="Image text"><br>  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示<br>  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。<br>  view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据<br>  model只负责提供数据，不关心数据展示在哪里。<br>  M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系</p>
+        <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写<br>是 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html" target="_blank" rel="external">苹果官方文档</a> 推荐使用的一个设计模式，经典中的经典。<br>看懂斯坦福公开课上的这张图就够了<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg" alt="Image text"><br><a id="more"></a><br>  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示<br>  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。<br>  view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据<br>  model只负责提供数据，不关心数据展示在哪里。<br>  M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系</p>
 <p>个人体会：简单明了够清晰。加上写分类，抽取工具类，按需抽取业务manager就挺好的。<br>例如：网络请求数据，可以先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。</p>
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>从广义上讲，MVVM也属于MVC的编程思想范畴，它是把业务逻辑抽取成一个VM模块，减轻C的压力，弱化C，以便于重用和测试，且兼容MVC<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVVM1.png" alt="Image text"><br><img src="http://ouakkqmoq.bkt.clouddn.com/MVVM2.png" alt="Image text"></p>
 <p>最近用Swift写项目用MVVM，配上Extension，感觉挺爽的。</p>

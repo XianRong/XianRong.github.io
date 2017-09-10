@@ -375,19 +375,14 @@
 
       
         
-          
-            <h4 id="直播APP主要实现的流程"><a href="#直播APP主要实现的流程" class="headerlink" title="直播APP主要实现的流程"></a>直播APP主要实现的流程</h4><p>1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动</p>
-<h4 id="直播APP架构"><a href="#直播APP架构" class="headerlink" title="直播APP架构"></a>直播APP架构</h4><p><img src="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiaGou.png" alt="Image text"></p>
-<h4 id="直播APP技术点"><a href="#直播APP技术点" class="headerlink" title="直播APP技术点"></a>直播APP技术点</h4><p><img src="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiShuDian.jpg" alt="Image text"></p>
-<h4 id="已有框架的支撑"><a href="#已有框架的支撑" class="headerlink" title="已有框架的支撑"></a>已有框架的支撑</h4><p>1、视频采集端<br>LFLiveKit：一个OC写的可读性非常好的开源推流框架</p>
-<p>2、视频处理框架<br><a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="external">GPUImage</a>：一个基于OpenGL ES的一个强大的图像/视频处理框架,封装好了各种滤镜同时也可以编写自定义的滤镜,其本身内置了多达120多种常见的滤镜效果。</p>
-<p>美颜功能也可以直接使用的是BeautifyFace，它可以很快速的实现美颜功能，效果不错，它的底层还是基于的GPUImage</p>
-<p>3、视频播放端<br><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">ijkplayer</a>:一个基于FFmpeg的开源Android/iOS视频播放器<br>把ijkplayer编译成对应使用的平台，最好把IJKMediaPlayer打包成静态库，然后倒入到项目中，有直播的拉流地址就可以播放啦<br>映客主播url:<a href="http://116.211.167.106/api/live/aggregation?uid=133825214&amp;interest=1" target="_blank" rel="external">http://116.211.167.106/api/live/aggregation?uid=133825214&amp;interest=1</a></p>
-<p>FFmpeg：是一个跨平台的开源视频框架,能实现如视频编码,解码,转码,串流,播放等丰富的功能。其支持的视频格式以及播放协议非常丰富,几乎包含了所有音视频编解码、封装格式以及播放协议。</p>
-<p>4、配置流媒体服务器尝试<br>在Mac上搭建nginx+rtmp服务器<br>nginx:免费开源web服务器，用它来做hls或者rtmp流媒体服务器是非常不错</p>
-<p>5、聊天互动<br>使用网易云信、腾讯云、融云等第三方SDK</p>
-
-          
+          <h4 id="直播APP主要实现的流程"><a href="#直播APP主要实现的流程" class="headerlink" title="直播APP主要实现的流程"></a>直播APP主要实现的流程</h4><p>1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/10/直播试炼/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -434,7 +429,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/iOS项目架构那些事/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/iOS项目架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -453,7 +448,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/10/iOS项目架构那些事/" itemprop="url">iOS项目架构那些事</a></h1>
+                <a class="post-title-link" href="/2017/09/10/iOS项目架构/" itemprop="url">iOS项目架构</a></h1>
         
 
         <div class="post-meta">
@@ -526,16 +521,14 @@
 
       
         
-          
-            <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写<br>是 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html" target="_blank" rel="external">苹果官方文档</a> 推荐使用的一个设计模式，经典中的经典。<br>看懂斯坦福公开课上的这张图就够了<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg" alt="Image text"><br>  控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示<br>  为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。<br>  view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据<br>  model只负责提供数据，不关心数据展示在哪里。<br>  M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系</p>
-<p>个人体会：简单明了够清晰。加上写分类，抽取工具类，按需抽取业务manager就挺好的。<br>例如：网络请求数据，可以先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。</p>
-<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>从广义上讲，MVVM也属于MVC的编程思想范畴，它是把业务逻辑抽取成一个VM模块，减轻C的压力，弱化C，以便于重用和测试，且兼容MVC<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVVM1.png" alt="Image text"><br><img src="http://ouakkqmoq.bkt.clouddn.com/MVVM2.png" alt="Image text"></p>
-<p>最近用Swift写项目用MVVM，配上Extension，感觉挺爽的。</p>
-<h3 id="MVVM-With-RAC"><a href="#MVVM-With-RAC" class="headerlink" title="MVVM With RAC"></a>MVVM With RAC</h3><p>ReactiveCocoa简称RAC，是由Github开源的一个应用于iOS和OS开发的新框架。<br>RAC吸纳了函数式编程(Funtional Programming)和响应式编程(Reactive Programing)的编程思想，它也被描述为函数响应式编程（FRP）框架。<br>RAC最大的优点是 提供了一个单一的、统一的方法去处理异步的行为，包括 Delegate，Blocks Callbacks，Target-Action机制，Notifications和KVO。<br>它最大的与众不同是提供了一种新的写代码的思维，由于RAC将Cocoa中KVO、UIKit Event、Delegate、Selector等都增加了RAC支持，所以都不用去做很多跨函数的事，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要考虑调用顺序，直接考虑结果，把每一次操作都写成一系列嵌套的方法中，使代码高聚合，方便管理。。<br>推荐参考学习的博文：<br><a href="http://www.jianshu.com/p/87ef6720a096" target="_blank" rel="external">最快让你上手ReactiveCocoa之基础篇</a><br><a href="http://www.jianshu.com/p/e10e5ca413b7" target="_blank" rel="external">最快让你上手ReactiveCocoa之进阶篇</a><br><a href="https://tech.meituan.com/tag/ReactiveCocoa" target="_blank" rel="external">美团点评技术团队的博文</a></p>
-<h3 id="保留经典的MVC模式，而对View-Controller进行改进方案"><a href="#保留经典的MVC模式，而对View-Controller进行改进方案" class="headerlink" title="保留经典的MVC模式，而对View Controller进行改进方案"></a>保留经典的MVC模式，而对View Controller进行改进方案</h3><p>请参阅喵神的这篇博文：<a href="https://onevcat.com/2017/07/state-based-viewcontroller/" target="_blank" rel="external">单向数据流动的函数式 View Controller</a></p>
-<p>小结：本人觉得在公司开发实际项目，最重要的还是一个稳字，平时练习学习项目可以多做尝试。</p>
-
-          
+          <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写<br>是 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html" target="_blank" rel="external">苹果官方文档</a> 推荐使用的一个设计模式，经典中的经典。<br>看懂斯坦福公开课上的这张图就够了<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg" alt="Image text"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/10/iOS项目架构/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
