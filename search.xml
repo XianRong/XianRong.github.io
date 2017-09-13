@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ReactiveSwift示例]]></title>
+    <url>%2F2017%2F09%2F13%2FReactiveSwift%E7%A4%BA%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &#123; (btn) in print("点到我了")&#125; 2、UItextfield监听123456789101112131415161718 // 监听tf的输入值tf.reactive.continuousTextValues.observeValues &#123; (text) in print(text ?? "")&#125;&lt;!--more--&gt;// 监听tf的输入长度tf.reactive.continuousTextValues.map &#123; (text) -&gt; Int in return text!.characters.count&#125;.observeValues &#123; (count) in print(count)&#125;// 当输入字符长度大于3时，才会接收到信息tf.reactive.continuousTextValues.filter &#123; (text) -&gt; Bool in return text!.characters.count&gt;3&#125;.observeValues &#123; (text) in print(text ?? "")&#125; 3、监听UIViewController的viewWillAppear方法123self.reactive.trigger(for: #selector(UIViewController.viewWillAppear(_:))).observeValues &#123; () in print("viewWillAppear被调用了哦")&#125; 4、在OneVC里，监听TwoVC的deinit12345let twoVC = TwoVC()twoVC.reactive.lifetime.ended.observeCompleted &#123; print("textVC已成功销毁")&#125;navigationController?.pushViewController(twoVC, animated: true)]]></content>
+      <categories>
+        <category>Swift</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[直播试炼]]></title>
     <url>%2F2017%2F09%2F10%2F%E7%9B%B4%E6%92%AD%E8%AF%95%E7%82%BC%2F</url>
     <content type="text"><![CDATA[直播APP主要实现的流程1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动 直播APP架构 直播APP技术点 已有框架的支撑1、视频采集端LFLiveKit：一个OC写的可读性非常好的开源推流框架 2、视频处理框架GPUImage：一个基于OpenGL ES的一个强大的图像/视频处理框架,封装好了各种滤镜同时也可以编写自定义的滤镜,其本身内置了多达120多种常见的滤镜效果。 美颜功能也可以直接使用的是BeautifyFace，它可以很快速的实现美颜功能，效果不错，它的底层还是基于的GPUImage 3、视频播放端ijkplayer:一个基于FFmpeg的开源Android/iOS视频播放器把ijkplayer编译成对应使用的平台，最好把IJKMediaPlayer打包成静态库，然后倒入到项目中，有直播的拉流地址就可以播放啦映客主播url:http://116.211.167.106/api/live/aggregation?uid=133825214&amp;interest=1 FFmpeg：是一个跨平台的开源视频框架,能实现如视频编码,解码,转码,串流,播放等丰富的功能。其支持的视频格式以及播放协议非常丰富,几乎包含了所有音视频编解码、封装格式以及播放协议。 4、配置流媒体服务器尝试在Mac上搭建nginx+rtmp服务器nginx:免费开源web服务器，用它来做hls或者rtmp流媒体服务器是非常不错 5、聊天互动使用网易云信、腾讯云、融云等第三方SDK]]></content>
@@ -14,7 +25,7 @@
   <entry>
     <title><![CDATA[iOS项目架构]]></title>
     <url>%2F2017%2F09%2F10%2FiOS%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%2F</url>
-    <content type="text"><![CDATA[MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了 控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示 为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。 view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据 model只负责提供数据，不关心数据展示在哪里。 M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系 个人体会：简单明了够清晰。加上写分类，抽取工具类，按需抽取业务manager就挺好的。例如：网络请求数据，可以先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。 MVVM从广义上讲，MVVM也属于MVC的编程思想范畴，它是把业务逻辑抽取成一个VM模块，减轻C的压力，弱化C，以便于重用和测试，且兼容MVC 最近用Swift写项目用MVVM，配上Extension，感觉挺爽的。 MVVM With RACReactiveCocoa简称RAC，是由Github开源的一个应用于iOS和OS开发的新框架。RAC吸纳了函数式编程(Funtional Programming)和响应式编程(Reactive Programing)的编程思想，它也被描述为函数响应式编程（FRP）框架。RAC最大的优点是 提供了一个单一的、统一的方法去处理异步的行为，包括 Delegate，Blocks Callbacks，Target-Action机制，Notifications和KVO。它最大的与众不同是提供了一种新的写代码的思维，由于RAC将Cocoa中KVO、UIKit Event、Delegate、Selector等都增加了RAC支持，所以都不用去做很多跨函数的事，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要考虑调用顺序，直接考虑结果，把每一次操作都写成一系列嵌套的方法中，使代码高聚合，方便管理。。推荐参考学习的博文：最快让你上手ReactiveCocoa之基础篇最快让你上手ReactiveCocoa之进阶篇美团点评技术团队的博文 保留经典的MVC模式，而对View Controller进行改进方案请参阅喵神的这篇博文：单向数据流动的函数式 View Controller 小结：本人觉得在公司开发实际项目，最重要的还是一个稳字，平时练习学习项目可以多做尝试。]]></content>
+    <content type="text"><![CDATA[MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了 控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示 为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。 view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据 model只负责提供数据，不关心数据展示在哪里。 M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系 个人体会：简单明了够清晰。加上写分类，抽取工具类，按需抽取业务manager就挺好的。MVC是一个非常成熟的架构，在业务开始复杂的时候，合理的将网络请求，数据持久化等相关与控制器耦合不严重的公共抽取出来，足够满足日常开发需求。例如：网络请求数据，可以先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。 MVVM从广义上讲，MVVM也属于MVC的编程思想范畴，它是把业务逻辑抽取成一个VM模块，减轻C的压力，弱化C，以便于重用和测试，且兼容MVC 最近用Swift写项目用MVVM，配上Extension，感觉挺爽的。 MVVM With RACReactiveCocoa简称RAC，是由Github开源的一个应用于iOS和OS开发的新框架。RAC吸纳了函数式编程(Funtional Programming)和响应式编程(Reactive Programing)的编程思想，它也被描述为函数响应式编程（FRP）框架。RAC最大的优点是 提供了一个单一的、统一的方法去处理异步的行为，包括 Delegate，Blocks Callbacks，Target-Action机制，Notifications和KVO。它最大的与众不同是提供了一种新的写代码的思维，由于RAC将Cocoa中KVO、UIKit Event、Delegate、Selector等都增加了RAC支持，所以都不用去做很多跨函数的事，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要考虑调用顺序，直接考虑结果，把每一次操作都写成一系列嵌套的方法中，使代码高聚合，方便管理。。推荐参考学习的博文：最快让你上手ReactiveCocoa之基础篇最快让你上手ReactiveCocoa之进阶篇美团点评技术团队的博文 保留经典的MVC模式，而对View Controller进行改进方案请参阅喵神的这篇博文：单向数据流动的函数式 View Controller 小结：本人觉得在公司开发实际项目，最重要的还是一个稳字，平时练习学习项目可以多做尝试。]]></content>
       <categories>
         <category>comprehensive</category>
       </categories>
@@ -25,7 +36,7 @@
   <entry>
     <title><![CDATA[直播小总结]]></title>
     <url>%2F2017%2F09%2F08%2F%E7%9B%B4%E6%92%AD%E5%B0%8F%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[今年接触了一个秀场直播项目，在此做一下简单小总结。 一、功能介绍1、直播列表：关注、热门、明星、同城等等2、排行榜：贡献榜、财富榜3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等6、礼物：普通礼物、特效礼物、实体礼物、充值、提现、内购等7、用户逻辑：手机账号注册登陆、第三方账号登录、个人信息编辑、设置管理、直播回看、关注列表、粉丝列表、我的收益、我的礼物、等级、认证等8、管理后台：审核、禁播等等 二、架构1、使用最经典的MVC架构。2、部分业务逻辑采用抽取manager来管理（比如：收发信息、请求发送礼物、礼物动画）3、网络请求业务，先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。4、项目结构图简图待续… 功能实现待续… 部分业务思路流程待续…]]></content>
+    <content type="text"><![CDATA[今年接触了一个秀场直播项目，在此做一下简单小总结。 一、功能介绍1、直播列表：关注、热门、明星、同城等等2、排行榜：贡献榜、财富榜3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等6、礼物：普通礼物、特效礼物、实体礼物、充值、提现、内购等7、用户逻辑：手机账号注册登陆、第三方账号登录、个人信息编辑、设置管理、直播回看、关注列表、粉丝列表、我的收益、我的礼物、等级、认证等8、管理后台：审核、禁播等等 二、架构1、使用最经典的MVC架构。（MVC是一个非常成熟的架构，在业务开始复杂的时候，合理的将网络请求，数据持久化等相关与控制器耦合不严重的公共抽取出来，足够满足日常开发需求）2、部分业务逻辑采用抽取manager来管理（比如：收发信息、请求发送礼物、礼物动画）3、网络请求业务，先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。4、项目结构图简图待续… 功能实现待续… 部分业务思路流程待续…]]></content>
       <categories>
         <category>Live</category>
       </categories>
