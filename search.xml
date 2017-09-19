@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Swift第三方框架]]></title>
+    <url>%2F2017%2F09%2F15%2FSwift%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[图片加载pod ‘Kingfisher’ json-&gt;modelpod ‘HandyJSON’ 布局约束pod ‘SnapKit’ 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’ 网络请求pod ‘Moya/RxSwift’pod ‘Alamofire’ 日期格式化pod ‘SwiftDate’ pod ‘Then’]]></content>
+      <categories>
+        <category>Swift</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ReactiveSwift示例]]></title>
     <url>%2F2017%2F09%2F13%2FReactiveSwift%E7%A4%BA%E4%BE%8B%2F</url>
     <content type="text"><![CDATA[1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &#123; (btn) in print("点到我了")&#125; 2、UItextfield监听123456789101112131415161718 // 监听tf的输入值tf.reactive.continuousTextValues.observeValues &#123; (text) in print(text ?? "")&#125;&lt;!--more--&gt;// 监听tf的输入长度tf.reactive.continuousTextValues.map &#123; (text) -&gt; Int in return text!.characters.count&#125;.observeValues &#123; (count) in print(count)&#125;// 当输入字符长度大于3时，才会接收到信息tf.reactive.continuousTextValues.filter &#123; (text) -&gt; Bool in return text!.characters.count&gt;3&#125;.observeValues &#123; (text) in print(text ?? "")&#125; 3、监听UIViewController的viewWillAppear方法123self.reactive.trigger(for: #selector(UIViewController.viewWillAppear(_:))).observeValues &#123; () in print("viewWillAppear被调用了哦")&#125; 4、在OneVC里，监听TwoVC的deinit12345let twoVC = TwoVC()twoVC.reactive.lifetime.ended.observeCompleted &#123; print("textVC已成功销毁")&#125;navigationController?.pushViewController(twoVC, animated: true)]]></content>
@@ -25,7 +36,7 @@
   <entry>
     <title><![CDATA[iOS项目架构]]></title>
     <url>%2F2017%2F09%2F10%2FiOS%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%2F</url>
-    <content type="text"><![CDATA[MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了 控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示 为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。 view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据 model只负责提供数据，不关心数据展示在哪里。 M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系 个人体会：简单明了够清晰。加上写分类，抽取工具类，按需抽取业务manager就挺好的。MVC是一个非常成熟的架构，在业务开始复杂的时候，合理的将网络请求，数据持久化等相关与控制器耦合不严重的公共抽取出来，足够满足日常开发需求。例如：网络请求数据，可以先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。 MVVM从广义上讲，MVVM也属于MVC的编程思想范畴，它是把业务逻辑抽取成一个VM模块，减轻C的压力，弱化C，以便于重用和测试，且兼容MVC 最近用Swift写项目用MVVM，配上Extension，感觉挺爽的。 MVVM With RACReactiveCocoa简称RAC，是由Github开源的一个应用于iOS和OS开发的新框架。RAC吸纳了函数式编程(Funtional Programming)和响应式编程(Reactive Programing)的编程思想，它也被描述为函数响应式编程（FRP）框架。RAC最大的优点是 提供了一个单一的、统一的方法去处理异步的行为，包括 Delegate，Blocks Callbacks，Target-Action机制，Notifications和KVO。它最大的与众不同是提供了一种新的写代码的思维，由于RAC将Cocoa中KVO、UIKit Event、Delegate、Selector等都增加了RAC支持，所以都不用去做很多跨函数的事，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要考虑调用顺序，直接考虑结果，把每一次操作都写成一系列嵌套的方法中，使代码高聚合，方便管理。。推荐参考学习的博文：最快让你上手ReactiveCocoa之基础篇最快让你上手ReactiveCocoa之进阶篇美团点评技术团队的博文 保留经典的MVC模式，而对View Controller进行改进方案请参阅喵神的这篇博文：单向数据流动的函数式 View Controller 小结：本人觉得在公司开发实际项目，最重要的还是一个稳字，平时练习学习项目可以多做尝试。]]></content>
+    <content type="text"><![CDATA[一、MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了 控制器可以直接访问模型数据，控制器通过懒加载数据，再把数据给view展示 为了保持model和View的重用性，M和V都不能直接拥有C，M和C之间也不能相互访问。 view展示什么数据，只有控制器知道，view是通过控制器的数据源来获得数据 model只负责提供数据，不关心数据展示在哪里。 M不知道V的存在，V不知道M的存在，他们2个只能通过C建立联系 个人体会：简单明了够清晰。加上写分类，抽取工具类，按需抽取业务manager就挺好的。MVC是一个非常成熟的架构，在业务开始复杂的时候，合理的将网络请求，数据持久化等相关与控制器耦合不严重的公共抽取出来，足够满足日常开发需求。例如：网络请求数据，可以先对AFN框架进行通用基础封装，再进行业务层封装，使用block回调数据。 二、MVVM从广义上讲，MVVM也属于MVC的编程思想范畴，它是把业务逻辑抽取成一个VM模块，减轻C的压力，弱化C，以便于重用和测试，且兼容MVC 1、MVVM With RACReactiveCocoa简称RAC，是由Github开源的一个应用于iOS和OS开发的新框架。RAC吸纳了函数式编程(Funtional Programming)和响应式编程(Reactive Programing)的编程思想，它也被描述为函数响应式编程（FRP）框架。RAC最大的优点是 提供了一个单一的、统一的方法去处理异步的行为，包括 Delegate，Blocks Callbacks，Target-Action机制，Notifications和KVO。它最大的与众不同是提供了一种新的写代码的思维，由于RAC将Cocoa中KVO、UIKit Event、Delegate、Selector等都增加了RAC支持，所以都不用去做很多跨函数的事，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要考虑调用顺序，直接考虑结果，把每一次操作都写成一系列嵌套的方法中，使代码高聚合，方便管理。。推荐参考学习：最快让你上手ReactiveCocoa之基础篇最快让你上手ReactiveCocoa之进阶篇美团点评技术团队的博文 2、MVVM With RxSwiftRxSwift是整个ReactiveX套件里针对Swift语言的库，里面包括Java，JS，.Net, Swift，Android,PHP等，它们内部都用了ReactiveX的逻辑思想。Rx（ReactiveX） 是一种编程模型，最初由微软开发，结合了观察者模式、迭代器模式和函数式编程的精华，来更方便地处理异步数据流。其中最重要的一个概念是 Observable。在 Rx 中，基本上所有东西要么是一个可观察序列对象，要么就是需要和可观察序列对象进行协同工作的。因此，序列对象将会按需推出其中的内容，这些内容都属于技术事件。您可以订阅一个可观察序列，以便对推出的这些事件作出响应。再强调一遍，这个机制和 NSNotificationCenter 极其类似，但是 Rx 更加优秀。RxSwift 是针对 Swift 响应式扩展的官方实现。响应式编程的关键在于：将异步可观察序列对象模型化RxSwift 操作符将执行各种任务，它们是基于事件的。它们通常以异步方式执行，此外 Rx 还是函数式的，因此您可以采用函数式响应式编程 (Functional Reactive Programming, FRP) 模式。RxSwift Workflow推荐参考学习：RxSwiftReactiveXwhy use rx?Marbles使用 RxSwift 进行响应式编程是时候学习 RxSwift 了坠入链式编程的幻乐里–用RxSwift仿写知乎日报 小结：在Swift项目里使用MVVM模式会很好用，可以尝试Moya+RxSwift+HandyJSON这几个框架一起使用。其实RAC和RxSwift都很棒,都能很好的实现函数式响应式编程。最终还是喜欢用RxSwift的原因是因为其文档写得更清晰优秀，且相对来说比较轻量级，语法更新相对来说比较少，RAC后期也吸纳了一些Rx的思想。 三、单向数据流的架构模式ReSwiftReSwift介绍 保留经典的MVC模式，而对View Controller进行改进方案。单向数据流动的函数式 View Controller 小结：本人觉得在公司开发实际项目，最重要的还是一个稳字，平时练习学习项目可以多做尝试。]]></content>
       <categories>
         <category>comprehensive</category>
       </categories>
