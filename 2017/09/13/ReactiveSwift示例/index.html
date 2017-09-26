@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &amp;#123; (btn) in    print(&quot;点到我了&quot;)&amp;#125; 2、UItextfield监听123456789101112131415161718 // 监听tf的输入值tf.reactive.continuousTextValues.">
+<meta name="description" content="1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &amp;#123; (btn) in    print(&quot;点到我了&quot;)&amp;#125;">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactiveSwift示例">
 <meta property="og:url" content="https://xianrong.github.io/2017/09/13/ReactiveSwift示例/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &amp;#123; (btn) in    print(&quot;点到我了&quot;)&amp;#125; 2、UItextfield监听123456789101112131415161718 // 监听tf的输入值tf.reactive.continuousTextValues.">
+<meta property="og:description" content="1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &amp;#123; (btn) in    print(&quot;点到我了&quot;)&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-13T08:09:21.000Z">
+<meta property="og:updated_time" content="2017-09-26T15:54:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveSwift示例">
-<meta name="twitter:description" content="1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &amp;#123; (btn) in    print(&quot;点到我了&quot;)&amp;#125; 2、UItextfield监听123456789101112131415161718 // 监听tf的输入值tf.reactive.continuousTextValues.">
+<meta name="twitter:description" content="1、UIButton监听点击123btn.reactive.controlEvents(.touchUpInside).observeValues &amp;#123; (btn) in    print(&quot;点到我了&quot;)&amp;#125;">
 
 
 
@@ -181,7 +181,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Welcome to your visit</p>
+        <p class="site-subtitle">好学若饥，谦卑若愚</p>
       
   </div>
 
@@ -378,7 +378,8 @@
 
       
         <p>1、UIButton监听点击<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">btn.reactive.controlEvents(.touchUpInside).observeValues &#123; (btn) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"点到我了"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、UItextfield监听<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> // 监听tf的输入值</div><div class="line">tf.reactive.continuousTextValues.observeValues &#123; (text) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(text ?? <span class="string">""</span>)</div><div class="line">&#125;</div><div class="line">&lt;!--more--&gt;</div><div class="line">// 监听tf的输入长度</div><div class="line">tf.reactive.continuousTextValues.map &#123; (text) -&gt; Int <span class="keyword">in</span></div><div class="line">    <span class="built_in">return</span> text!.characters.count</div><div class="line">&#125;.observeValues &#123; (count) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(count)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 当输入字符长度大于3时，才会接收到信息</div><div class="line">tf.reactive.continuousTextValues.filter &#123; (text) -&gt; Bool <span class="keyword">in</span></div><div class="line">    <span class="built_in">return</span> text!.characters.count&gt;3</div><div class="line">&#125;.observeValues &#123; (text) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(text ?? <span class="string">""</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2、UItextfield监听<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> // 监听tf的输入值</div><div class="line">tf.reactive.continuousTextValues.observeValues &#123; (text) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(text ?? <span class="string">""</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 监听tf的输入长度</div><div class="line">tf.reactive.continuousTextValues.map &#123; (text) -&gt; Int <span class="keyword">in</span></div><div class="line">    <span class="built_in">return</span> text!.characters.count</div><div class="line">&#125;.observeValues &#123; (count) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(count)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 当输入字符长度大于3时，才会接收到信息</div><div class="line">tf.reactive.continuousTextValues.filter &#123; (text) -&gt; Bool <span class="keyword">in</span></div><div class="line">    <span class="built_in">return</span> text!.characters.count&gt;3</div><div class="line">&#125;.observeValues &#123; (text) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(text ?? <span class="string">""</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>3、监听UIViewController的viewWillAppear方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">self.reactive.trigger(<span class="keyword">for</span>: <span class="comment">#selector(UIViewController.viewWillAppear(_:))).observeValues &#123; () in</span></div><div class="line">     <span class="built_in">print</span>(<span class="string">"viewWillAppear被调用了哦"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>4、在OneVC里，监听TwoVC的deinit<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> twoVC = TwoVC()</div><div class="line">twoVC.reactive.lifetime.ended.observeCompleted &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"textVC已成功销毁"</span>)</div><div class="line">&#125;</div><div class="line">navigationController?.pushViewController(twoVC, animated: <span class="literal">true</span>)</div></pre></td></tr></table></figure></p>
 
@@ -520,7 +521,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -181,7 +181,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Welcome to your visit</p>
+        <p class="site-subtitle">好学若饥，谦卑若愚</p>
       
   </div>
 
@@ -269,6 +269,152 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/26/OC与Swift混合编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/26/OC与Swift混合编程/" itemprop="url">OC与Swift混合编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T23:39:37+08:00">
+                2017-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br>2、把Product Module Name 设置为你的项目工程名字<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift2.png" alt="Image text"><br>3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）<br>注意：XXXX-Swift.h这个文件是系统帮你生成的。<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift3.png" alt="Image text"><br>4、在需要引用到的导入这个头文件即可,这样就可以在OC中调用Swift的了<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift4.png" alt="Image text"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/26/OC与Swift混合编程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -375,16 +521,15 @@
 
       
         
-          
-            <p>// 图片加载<br>pod ‘Kingfisher’</p>
-<p>// json-&gt;model<br>pod ‘HandyJSON’</p>
-<p>// 布局约束<br>pod ‘SnapKit’</p>
+          <p>// 图片加载<br>pod ‘Kingfisher’</p>
 <p>// 函数式链式编程<br>pod ‘RxSwift’<br>pod ‘RxCocoa’<br>pod ‘RxDataSources’</p>
-<p>// 网络请求<br>pod ‘Moya/RxSwift’<br>pod ‘Alamofire’</p>
-<p>//  日期格式化<br>pod ‘SwiftDate’</p>
-<p>//<br> pod ‘Then’</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/Swift第三方框架/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -523,13 +668,14 @@
 
       
         
-          
-            <p>1、UIButton监听点击<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">btn.reactive.controlEvents(.touchUpInside).observeValues &#123; (btn) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"点到我了"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、UItextfield监听<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> // 监听tf的输入值</div><div class="line">tf.reactive.continuousTextValues.observeValues &#123; (text) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(text ?? <span class="string">""</span>)</div><div class="line">&#125;</div><div class="line">&lt;!--more--&gt;</div><div class="line">// 监听tf的输入长度</div><div class="line">tf.reactive.continuousTextValues.map &#123; (text) -&gt; Int <span class="keyword">in</span></div><div class="line">    <span class="built_in">return</span> text!.characters.count</div><div class="line">&#125;.observeValues &#123; (count) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(count)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 当输入字符长度大于3时，才会接收到信息</div><div class="line">tf.reactive.continuousTextValues.filter &#123; (text) -&gt; Bool <span class="keyword">in</span></div><div class="line">    <span class="built_in">return</span> text!.characters.count&gt;3</div><div class="line">&#125;.observeValues &#123; (text) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(text ?? <span class="string">""</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、监听UIViewController的viewWillAppear方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">self.reactive.trigger(<span class="keyword">for</span>: <span class="comment">#selector(UIViewController.viewWillAppear(_:))).observeValues &#123; () in</span></div><div class="line">     <span class="built_in">print</span>(<span class="string">"viewWillAppear被调用了哦"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>4、在OneVC里，监听TwoVC的deinit<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> twoVC = TwoVC()</div><div class="line">twoVC.reactive.lifetime.ended.observeCompleted &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"textVC已成功销毁"</span>)</div><div class="line">&#125;</div><div class="line">navigationController?.pushViewController(twoVC, animated: <span class="literal">true</span>)</div></pre></td></tr></table></figure></p>
-
-          
+          <p>1、UIButton监听点击<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">btn.reactive.controlEvents(.touchUpInside).observeValues &#123; (btn) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"点到我了"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/ReactiveSwift示例/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1583,154 +1729,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/16/CALayer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/16/CALayer/" itemprop="url">CALayer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T10:27:50+08:00">
-                2017-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。</p>
-<p>如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的view本身。</p>
-<h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/16/CALayer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1781,7 +1779,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
