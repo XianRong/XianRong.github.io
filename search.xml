@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数组变形]]></title>
+    <url>%2F2017%2F09%2F29%2F%E6%95%B0%E7%BB%84%E5%8F%98%E5%BD%A2%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162// 一、Map 转换let arr1 = [0,1,2,3,5]let result1 = arr1.map &#123;$0 * $0&#125;print(result1) // [0, 1, 4, 9, 25]// 二、FlatMaplet arr2 = [[1,2,3],[4,5,6]];let res = arr2.map &#123; $0.map&#123; $0 + 2 &#125; &#125;print(res) // [[3, 4, 5], [6, 7, 8]]var flatRes = arr2.flatMap &#123; $0.map&#123; $0 + 2 &#125; &#125;print(flatRes) // [3, 4, 5, 6, 7, 8]// 三、Fliter 过滤let arr3 = [0,1,2,3,4,5,6,7,8,9,10]let result3 = arr3.filter &#123;$0 % 2 == 0&#125;print(result3) //[0, 2, 4, 6, 8, 10]//map和fliter组合使用，寻找 100 以内同时满足是偶数并且是其他数字的 平方的数let result31 = (1..&lt;10).map &#123; $0 * $0 &#125;.filter &#123; $0 % 2 == 0 &#125;print(result31) // [4, 16, 36, 64]// 四、Reduce 合并let arr4 = [0,1,2,3,5]let result4 = arr4.reduce(0,+)print(result4) //11// 五、Zip 是将两个序列的元素，一一对应合并成元组，生成一个新序列let a = [1, 2, 3, 4]let b = ["a", "b", "c", "d", "e"]let c = zip(a, b).map &#123; $0 &#125;print(c) // [(1, "a"), (2, "b"), (3, "c"), (4, "d")]/*zip 生成的序列通常会进行下一步处理。比如func loadColors(colors: [UIColor]) &#123; zip(self.colorButtons, colors).forEach &#123; (bt, color) in bt.color = color &#125;&#125;*/// zip和速记+来通过添加两个冲突的值来解析重复的键let keyNames2 = ["a", "b", "c", "a", "b"]let dict = Dictionary(zip(keyNames2, repeatElement(1, count: keyNames2.count)), uniquingKeysWith: +)print(dict) //["b": 2, "a": 2, "c": 1]// 六、 ForEach 跟for类型，forEach不返回任何值（有return的时候，使用for比forEach比较好）//theViews.forEach(view.addSubview)// 七、其它/* $0代表传入的元素本身，而不是下标 $0.0代表传入的元组的第一个值，如果元组被命名过了，则可以直接带名字 $0.age代表传入的模型的age属性 // 年龄升序排列 people.sort &#123; $0.age &lt; $1.age &#125; // 检查是否有小于18岁的 people.contains &#123; $0.age &lt; 18 &#125; // 忽略大小写的排序 people.sort &#123; $0.name.uppercased() &lt; $1.name.uppercased() &#125; */]]></content>
+      <categories>
+        <category>Swift</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[拥抱Swift]]></title>
+    <url>%2F2017%2F09%2F27%2F%E6%8B%A5%E6%8A%B1Swift%2F</url>
+    <content type="text"><![CDATA[随着秋季发布会过后Swift4也正式放出，Switf4已趋向于稳健，为Swift3提供了源码兼容。无论是旧OC项目慢慢迁移到Swift4还是新项目直接使用Swift4，时机已然成熟，让我们拥抱Swift吧。Swift的灵活与优雅真让人神往。 Swift 既是一⻔高层级语言，又是一⻔低层级语言。 你可以在 Swift 中用 map 或者 reduce 来 写出十分类似于 Ruby 和 Python 的代码，你也可以很容易地创建自己的高阶函数。Swift 让你有能力快速完成代码编写，并将它们直接编译为原生的二进制可执行文件，这使得性能上可以与C 代码编写的程序相媲美。我们可以兼顾高低两个层级。将一个数组通过闭包表 达式映射到另一个数组所编译得到的汇编码，与直接对一块连续内存进行循环所得到的结果是一致的。 Swift 是一⻔多范式的语言。你可以用 Swift 来编写类似于OC语言那样面向对象的代码，也可以使用不变量的值来写纯函数式的程序。 Swift 拥有泛型，协议，协议扩展，值类型以及闭包等特性，这些特性是对函数式⻛格的很好的介绍。 如果一个函数接受别的函数作为参数，或者一个函数的返回值是函数，那么这样的函数就叫做高阶函数(higher-order function)。 定义在类或者协议中的函数就是方法 (method)自由函数和那些在结构体上调用的方法是静态派发 (statically dispatched) 的类或者协议上的方法可能是动态派发 (dynamically dispatched) 的。 实现多态（polymorphic）的三种方式：1、子类型和方法重写 (overriding)2、函数重载 (overloading)，它是指为不同的类型多次写同一个函数的行为3、通过泛型，也就是一次性地编写能够接受任意类型的的函数或者方法 优先选择结构体，只在确实需要使用到类特有的特性或者是引用语义时才使用类。尽可能地对现有的类型和协议进行扩展，而不是写一些全局函数。这有助于提高可读性， 让别人更容易发现你的代码]]></content>
+      <categories>
+        <category>Swift</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[OC与Swift混合编程]]></title>
     <url>%2F2017%2F09%2F26%2FOC%E4%B8%8ESwift%E6%B7%B7%E5%90%88%E7%BC%96%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[OC中使用Swift1、设置DefinesModule为Yes2、把Product Module Name 设置为你的项目工程名字3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）注意：XXXX-Swift.h这个文件是系统帮你生成的。4、在需要引用到的导入这个头文件即可,这样就可以在OC中调用Swift的了 Swift中使用OC1、当你在Swift项目中尝试创建OC文件时，，系统会弹出一个对话框让你选择是否让系统帮你创建一个XXXXX-Bridging-Header.h的桥接文件，你只需要点Yes即可。假如你错点了其它选项或者没有此对话框，你也可以通过手动创建一个.h文件，文件名随意，但最好还是以XXXXX-Bridging-Header.h这种格式比较规范，然后为这个文件设置对应的路径即可2、你把需要引用的OC头文件添加到XXXXX-Bridging-Header.h这个文件里即可。同理Swift引用第三方OC库也是这样设置的。]]></content>
