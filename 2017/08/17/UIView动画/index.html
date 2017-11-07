@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Objective-C," />
+  <meta name="keywords" content="动画," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。对于简单的应用场景，使用UIView动画非常方便简洁。">
-<meta name="keywords" content="Objective-C">
+<meta name="description" content="UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。对于简单的应用场景，使用UIView动画非常方便简洁。 一、基础动画12345678[UIView animateWithDuration:(NSTimeInterval) //动画持续时间                       delay:(NSTimeInterval) //动画延迟执行的时间">
+<meta name="keywords" content="动画">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIView动画">
 <meta property="og:url" content="https://xianrong.github.io/2017/08/17/UIView动画/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。对于简单的应用场景，使用UIView动画非常方便简洁。">
+<meta property="og:description" content="UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。对于简单的应用场景，使用UIView动画非常方便简洁。 一、基础动画12345678[UIView animateWithDuration:(NSTimeInterval) //动画持续时间                       delay:(NSTimeInterval) //动画延迟执行的时间">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-17T16:05:57.000Z">
+<meta property="og:updated_time" content="2017-11-07T15:37:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIView动画">
-<meta name="twitter:description" content="UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。对于简单的应用场景，使用UIView动画非常方便简洁。">
+<meta name="twitter:description" content="UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。对于简单的应用场景，使用UIView动画非常方便简洁。 一、基础动画12345678[UIView animateWithDuration:(NSTimeInterval) //动画持续时间                       delay:(NSTimeInterval) //动画延迟执行的时间">
 
 
 
@@ -288,7 +288,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -335,8 +335,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
+                  <a href="/categories/动画/" itemprop="url" rel="index">
+                    <span itemprop="name">动画</span>
                   </a>
                 </span>
 
@@ -377,8 +377,9 @@
       
 
       
-        <p>UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。<br>对于简单的应用场景，使用UIView动画非常方便简洁。<br><a id="more"></a></p>
+        <p>UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。<br>对于简单的应用场景，使用UIView动画非常方便简洁。</p>
 <h3 id="一、基础动画"><a href="#一、基础动画" class="headerlink" title="一、基础动画"></a>一、基础动画</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[UIView animateWithDuration:(NSTimeInterval) //动画持续时间</div><div class="line">                       delay:(NSTimeInterval) //动画延迟执行的时间</div><div class="line">                     options:(UIViewAnimationOptions) //动画的过渡效果</div><div class="line">                  animations:^&#123;</div><div class="line">                   //执行的动画</div><div class="line"> &#125;                completion:^(BOOL finished) &#123;</div><div class="line">                   //动画执行完毕后的操作</div><div class="line"> &#125;];</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>UIViewAnimationOptions的枚举值如下，可组合使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">UIViewAnimationOptionLayoutSubviews            //进行动画时布局子控件</div><div class="line"> UIViewAnimationOptionAllowUserInteraction      //进行动画时允许用户交互</div><div class="line"> UIViewAnimationOptionBeginFromCurrentState     //从当前状态开始动画</div><div class="line"> UIViewAnimationOptionRepeat                    //无限重复执行动画</div><div class="line"> UIViewAnimationOptionAutoreverse               //执行动画回路</div><div class="line"> UIViewAnimationOptionOverrideInheritedDuration //忽略嵌套动画的执行时间设置</div><div class="line"> UIViewAnimationOptionOverrideInheritedCurve    //忽略嵌套动画的曲线设置</div><div class="line"> UIViewAnimationOptionAllowAnimatedContent      //转场：进行动画时重绘视图</div><div class="line"> UIViewAnimationOptionShowHideTransitionViews   //转场：移除（添加和移除图层的）动画效果</div><div class="line"> UIViewAnimationOptionOverrideInheritedOptions  //不继承父动画设置</div><div class="line"></div><div class="line"> UIViewAnimationOptionCurveEaseInOut            //时间曲线，慢进慢出（默认值）</div><div class="line"> UIViewAnimationOptionCurveEaseIn               //时间曲线，慢进</div><div class="line"> UIViewAnimationOptionCurveEaseOut              //时间曲线，慢出</div><div class="line"> UIViewAnimationOptionCurveLinear               //时间曲线，匀速</div><div class="line"></div><div class="line"> UIViewAnimationOptionTransitionNone            //转场，不使用动画</div><div class="line"> UIViewAnimationOptionTransitionFlipFromLeft    //转场，从左向右旋转翻页</div><div class="line"> UIViewAnimationOptionTransitionFlipFromRight   //转场，从右向左旋转翻页</div><div class="line"> UIViewAnimationOptionTransitionCurlUp          //转场，下往上卷曲翻页</div><div class="line"> UIViewAnimationOptionTransitionCurlDown        //转场，从上往下卷曲翻页</div><div class="line"> UIViewAnimationOptionTransitionCrossDissolve   //转场，交叉消失和出现</div><div class="line"> UIViewAnimationOptionTransitionFlipFromTop     //转场，从上向下旋转翻页</div><div class="line"> UIViewAnimationOptionTransitionFlipFromBottom  //转场，从下向上旋转翻页</div></pre></td></tr></table></figure></p>
 <h3 id="二、Spring动画"><a href="#二、Spring动画" class="headerlink" title="二、Spring动画"></a>二、Spring动画</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[UIView animateWithDuration:(NSTimeInterval)</div><div class="line">                       delay:(NSTimeInterval)</div><div class="line">      usingSpringWithDamping:(CGFloat)//震动效果，范围0~1，数值越小震动效果越明显</div><div class="line">       initialSpringVelocity:(CGFloat)//初始速度，数值越大初始速度越快</div><div class="line">                     options:(UIViewAnimationOptions)</div><div class="line">                  animations:^&#123;</div><div class="line">                     </div><div class="line"> &#125;</div><div class="line">                  completion:^(BOOL finished) &#123;</div><div class="line">                   </div><div class="line"> &#125;];</div></pre></td></tr></table></figure>
 <h3 id="三、Keyframes动画"><a href="#三、Keyframes动画" class="headerlink" title="三、Keyframes动画"></a>三、Keyframes动画</h3><p>只支持属性关键帧，不支持路径关键帧<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[UIView animateKeyframesWithDuration:(NSTimeInterval)</div><div class="line">                                delay:(NSTimeInterval)</div><div class="line">                              options:(UIViewKeyframeAnimationOptions)</div><div class="line">                           animations:^&#123;</div><div class="line">                         //执行的关键帧动画</div><div class="line"> &#125;</div><div class="line">                           completion:^(BOOL finished) &#123;</div><div class="line">              </div><div class="line"> &#125;];</div></pre></td></tr></table></figure></p>
@@ -433,7 +434,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+            <a href="/tags/动画/" rel="tag"># 动画</a>
           
         </div>
       
@@ -523,7 +524,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/logo.jpg"
+               src="/coder.png"
                alt="XianRong" />
           <p class="site-author-name" itemprop="name">XianRong</p>
            
@@ -535,7 +536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -546,7 +547,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -557,7 +558,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

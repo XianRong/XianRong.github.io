@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="OC中使用Swift1、设置DefinesModule为Yes2、把Product Module Name 设置为你的项目工程名字3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）注意：XXXX-Swif">
+<meta name="description" content="OC中使用Swift1、设置DefinesModule为Yes">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC与Swift混合编程">
 <meta property="og:url" content="https://xianrong.github.io/2017/09/26/OC与Swift混合编程/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="OC中使用Swift1、设置DefinesModule为Yes2、把Product Module Name 设置为你的项目工程名字3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）注意：XXXX-Swif">
+<meta property="og:description" content="OC中使用Swift1、设置DefinesModule为Yes">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift2.png">
@@ -108,10 +108,10 @@
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift4.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift5.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift6.png">
-<meta property="og:updated_time" content="2017-09-26T16:44:52.000Z">
+<meta property="og:updated_time" content="2017-11-07T15:54:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC与Swift混合编程">
-<meta name="twitter:description" content="OC中使用Swift1、设置DefinesModule为Yes2、把Product Module Name 设置为你的项目工程名字3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）注意：XXXX-Swif">
+<meta name="twitter:description" content="OC中使用Swift1、设置DefinesModule为Yes">
 <meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png">
 
 
@@ -295,7 +295,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -384,7 +384,7 @@
       
 
       
-        <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br>2、把Product Module Name 设置为你的项目工程名字<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift2.png" alt="Image text"><br>3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）<br>注意：XXXX-Swift.h这个文件是系统帮你生成的。<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift3.png" alt="Image text"><br>4、在需要引用到的导入这个头文件即可,这样就可以在OC中调用Swift的了<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift4.png" alt="Image text"><br><a id="more"></a></p>
+        <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br><a id="more"></a><br>2、把Product Module Name 设置为你的项目工程名字<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift2.png" alt="Image text"><br>3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）<br>注意：XXXX-Swift.h这个文件是系统帮你生成的。<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift3.png" alt="Image text"><br>4、在需要引用到的导入这个头文件即可,这样就可以在OC中调用Swift的了<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift4.png" alt="Image text"></p>
 <h3 id="Swift中使用OC"><a href="#Swift中使用OC" class="headerlink" title="Swift中使用OC"></a>Swift中使用OC</h3><p>1、当你在Swift项目中尝试创建OC文件时，，系统会弹出一个对话框让你选择是否让系统帮你创建一个XXXXX-Bridging-Header.h的桥接文件，你只需要点Yes即可。<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift5.png" alt="Image text"><br>假如你错点了其它选项或者没有此对话框，你也可以通过手动创建一个.h文件，文件名随意，但最好还是以XXXXX-Bridging-Header.h这种格式比较规范，然后为这个文件设置对应的路径即可<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift6.png" alt="Image text"><br>2、你把需要引用的OC头文件添加到XXXXX-Bridging-Header.h这个文件里即可。<br>同理Swift引用第三方OC库也是这样设置的。</p>
 
       
@@ -522,7 +522,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/logo.jpg"
+               src="/coder.png"
                alt="XianRong" />
           <p class="site-author-name" itemprop="name">XianRong</p>
            
@@ -534,7 +534,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -545,7 +545,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -556,7 +556,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

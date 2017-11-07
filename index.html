@@ -283,12 +283,450 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/07/CAShapeLayer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/07/CAShapeLayer/" itemprop="url">CAShapeLayer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T17:53:12+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/绘图/" itemprop="url" rel="index">
+                    <span itemprop="name">绘图</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>CAShapeLayer 是 CALayer 的子类，但是比 CALayer 更灵活，可以画出各种图形。<br>CAShapeLayer 还有一个神奇的属性 path 用这个属性配合上 UIBezierPath 这个类就可以达到超神的效果。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/07/CAShapeLayer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/07/贝塞尔曲线/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/07/贝塞尔曲线/" itemprop="url">贝塞尔曲线</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T11:47:30+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/绘图/" itemprop="url" rel="index">
+                    <span itemprop="name">绘图</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Bézier curve(贝塞尔曲线)是应用于二维图形应用程序的数学曲线。 曲线定义：起始点、终止点（也称锚点）、控制点。通过调整控制点，贝塞尔曲线的形状会发生变化。 1962年，法国数学家Pierre Bézier第一个研究了这种矢量绘制曲线的方法，并给出了详细的计算公式，因此按照这样的公式绘制出来的曲线就用他的姓氏来命名，称为贝塞尔曲线。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/07/贝塞尔曲线/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/07/UICollectionView实现多选且组内单选/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/07/UICollectionView实现多选且组内单选/" itemprop="url">UICollectionView实现多选且组内单选</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T09:58:34+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index">
+                    <span itemprop="name">OC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;<br>2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell<br>3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];<br>4、获取所有选中的：NSArray * selectIndexPaths = collectionView.indexPathsForSelectedItems;<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/07/UICollectionView实现多选且组内单选/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/10/17/Swift的协议/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -375,33 +813,14 @@
 
       
         
-          
-            <p>我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。</p>
-<p>Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。<br>Swift 协议与 OC 的协议最大的不同：<br>（1）可以让结构体和枚举类型满足协议<br>（2）可以有关联类型<br>（3）通过协议扩展的方式为协议添加方法实现</p>
-<p>协议允许我们进行动态派发，也就是说，在运行时程序会根据消息接收者的类型去选择正确的<br>方法实现。</p>
-<p>协议可以当做类型约束,也可以当做独立类型：关联类型的协议、Self约束的协议</p>
-<p>Swift 的协议的另一个强大特性是我们可以使用完整的方法实现来扩展一个协议。</p>
-<p>可以通过协议和协议扩展的方式实现代码共享</p>
-<p>协议扩展是一种可以在不共享基类的前提下共享代码的方法。协议定义了一组最小可行的方法<br>集合，以供类型进行实现。而类型通过扩展的方式在这些最小方法上实现更多更复杂的特性。</p>
-<p>通过协议进行代码共享相比与通过继承的共享，有这几个优势:<br>1、我们不需要被强制使用某个父类。<br>2、我们可以让已经存在的类型满足协议。子类就没那么灵活了，我们无法以追溯的方式去变更 CGContext 的父类。<br>3、协议既可以用于类，也可以用于结构体，而父类就无法和结构体一起使用了。<br>4、最后，当处理协议时，我们无需担心方法重写或者在正确的时间调用super这样的问题。</p>
-<p>协议的最强大的特性之一就是我们可以以追溯的方式来修改任意类型，让它们满足协议。</p>
-<p>mutating关键字：使用 mutating 关键字修饰方法是为了能在该方法中修改 struct 或是 enum 的变量，在设计接口的时候，也要考虑到使用者程序的扩展性。所以要多考虑使用mutating来修饰方法。</p>
-<p>面向协议编程：<br>1、根据需求功能，抽象出方法，定义协议<br>2、为协议添加对应扩展<br>3、遵守协议，然后满足协议要求的，都能使用协议和协议扩展中的功能方法。</p>
-<p>协议要求的方法（把方法声明在定义的协议里）是动态派发的，而仅定义在扩展中的方法是静态派发的。</p>
-<p>协议的特性理解：<br>1、定义协议Drawing（抽象出来的方法集）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">protocol Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect, fill: UIColor) </div><div class="line">    mutating func addRectangle(rect: CGRect, fill: UIColor)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、CGContext、SVG 遵守协议Drawing，实现协议的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">extension CGContext: Drawing &#123;</div><div class="line">     func addEllipse(rect: CGRect, fill : UIColor) &#123;</div><div class="line">	     setFillColor( fill .cgColor)  </div><div class="line">	     fillEllipse (<span class="keyword">in</span>: rect)</div><div class="line">     &#125;</div><div class="line">     func addRectangle(rect: CGRect, fill  fillColor : UIColor) &#123; </div><div class="line">	     setFillColor(fillColor .cgColor)</div><div class="line">	     fill (rect) </div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">struct SVG &#123;</div><div class="line">    var rootNode = XMLNode(tag: <span class="string">"svg"</span>) </div><div class="line">    mutating func append(node: XMLNode) &#123;</div><div class="line">        rootNode.children.append(node)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension SVG: Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect, fill: UIColor) &#123;</div><div class="line">       var attributes: [String:String] = rect.svgAttributes </div><div class="line">       attributes[<span class="string">"fill "</span>] = String(hexColor:fill )</div><div class="line">       append(node: XMLNode(tag: <span class="string">"ellipse"</span>, attributes: attributes))</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mutating func addRectangle(rect: CGRect,fill: UIColor) &#123;</div><div class="line">       var attributes: [String:String] = rect.svgAttributes </div><div class="line">       attributes[<span class="string">"fill"</span>] = String(hexColor:fill )</div><div class="line">       append(node: XMLNode(tag: <span class="string">"rect"</span>, attributes: attributes))</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3、写协议扩展，协议扩展里可以定义完整的方法实现。如果协议扩展里的方法没有声明到定义的协议中就是静态派发，如果也声明到协议中就是动态派发<br>  （也就是协议要求的方法是动态派发的，而仅定义在扩展中 的方法是静态派发的）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extension Drawing &#123;</div><div class="line">    mutating func addCircle(center: CGPoint, radius: CGFloat,fill: UIColor) &#123;</div><div class="line">	    <span class="built_in">let</span> diameter = radius/2</div><div class="line">	    <span class="built_in">let</span> origin = CGPoint(x: center.x - diameter, y: center.y - diameter) <span class="built_in">let</span> size = CGSize(width: radius, height: radius)</div><div class="line">	    <span class="built_in">let</span> rect = CGRect(origin: origin, size: size)</div><div class="line">	    addEllipse(rect: rect, fill : fill )</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>4、集成了协议的类、结构体、枚举等，他们都能拥有协议扩展里的方法。<br>CGContext、SVG遵守了协议Drawing的话，那么他们也将拥有了addCircle方法。</p>
-<p>5、遵守了协议的类、结构体、对象等，他们可以在自己内部重写协议或者协议扩展中的方法，使得功能更具体更接近自己的业务逻辑需求。（如果这时候创建的）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">extension SVG &#123;</div><div class="line">	mutating func addCircle(center: CGPoint, radius: CGFloat,fill: UIColor) &#123;</div><div class="line">		var attributes: [String:String] = [ </div><div class="line">		<span class="string">"cx"</span>: <span class="string">"\(center.x)"</span>,</div><div class="line">		<span class="string">"cy"</span>: <span class="string">"\(center.y)"</span>,</div><div class="line">		<span class="string">"r"</span>: <span class="string">"\(radius)"</span>,</div><div class="line">		]</div><div class="line">		attributes[<span class="string">"fill "</span>] = String(hexColor:fill )</div><div class="line">		append(node: XMLNode(tag: <span class="string">"circle"</span>, attributes: attributes))</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>6、如果 SVG 不遵守 Drawing 协议的情况下调用addCircle方法，则是调用了的是SVG内重写的addCircle方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var sample = SVG()</div><div class="line">sample.addCircle(center: .zero, radius: 20, fill: .red) </div><div class="line"><span class="built_in">print</span> (sample)</div></pre></td></tr></table></figure></p>
-<p>如果 SVG 遵守了 Drawing 协议的情况下调用addCircle方法，则是调用了的是的协议扩展中的addCircle方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var sample : Drawing = SVG() //编译器会自动将 SVG 值封装到一个代表协议的类型中，这个封装被称作存在容器</div><div class="line">sample.addCircle(center: .zero, radius: 20, fill: .red)  //静态派发,它总是会使用 Drawing 的扩展。如果它是动态派发，那么它肯定需要将方法的接收者 SVG 类型考虑在内</div><div class="line"><span class="built_in">print</span> (sample)</div></pre></td></tr></table></figure></p>
-<p>7、将 addCircle 变为动态派发，即把它添加到协议定义里<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protocol Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect,fill: UIColor)</div><div class="line">    mutating func addRectangle(rect: CGRect,fill: UIColor)</div><div class="line">    mutating func addCircle(center: CGPoint, radius: CGFloat,fill: UIColor)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>我们依旧可以像之前那样提供一个默认的实现。而且和之前一样，具体的类型还是可以自由地重写addCircle。因为现在它是协议定义的一部份了，它将被动态派发。在运行时，根据方法接收者的动态类型的不同，存在容器将会在自定义实现存在时对其进行调用。如果自定义实现不存在，那么它将使用协议扩展中的默认实现。addCircle 方法变为了协议的一个自定义入口。<br>Swift 标准库大量使用了这样的技术。像是Sequence这样的协议有非常多的必要方法，不过几乎所有的方法都有默认实现。因为方法是动态派发的，所以实现Sequence 协议的类型可以自定义默认实现，不过这并不是必须的。</p>
-<p>在 Swift 中，协议是非常重要的构建单元。使用协议，我们可以写出灵活的代码，而不必拘泥于接口和实现的耦合。<br>不要过度使用协议。有时候，一个独立的像是结构体或者类的类型要比定义一个协议容易理解得多，简单的类型系统也有利于增加代码的可读性。</p>
-<p>   使用协议最大的好处在于它们提供了一种最小的实现接口。协议只对某个接口究竟应该做什么<br>进行定义，而把使用多种类型来具体实现这个接口的工作留给我们。同样，这也让测试变得更<br>加容易。我们只需要创建一个满足协议的简单的测试类型就可以开始测试工作了，而不必引入<br>和建立一串复杂的依赖关系。</p>
-
-          
+          <p>我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。<br>Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。<br>Swift 协议与 OC 的协议最大的不同：<br>（1）可以让结构体和枚举类型满足协议<br>（2）可以有关联类型<br>（3）通过协议扩展的方式为协议添加方法实现<br>协议允许我们进行动态派发，也就是说，在运行时程序会根据消息接收者的类型去选择正确的<br>方法实现。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/17/Swift的协议/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -453,7 +872,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -540,9 +959,7 @@
 
       
         
-          <p>在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。<br>在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)<br>但是开发中赋值nil,在所难免.因此推出了可选类型<br>可选类型的取值:有值、空值<br>可选值的目的：让代码更严谨</p>
-<h3 id="可选值概览"><a href="#可选值概览" class="headerlink" title="可选值概览"></a>可选值概览</h3><p>1、 定义<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 定义可选值</div><div class="line">var name :String?</div><div class="line">name = <span class="string">"科比"</span></div><div class="line">// 1、可选值解包</div><div class="line"><span class="keyword">if</span> name != nil &#123;</div><div class="line">    <span class="built_in">print</span>(name!) //科比</div><div class="line">&#125;</div><div class="line">// 2、可选绑定</div><div class="line"><span class="keyword">if</span> <span class="built_in">let</span> str = name &#123;</div><div class="line">    <span class="built_in">print</span>(str) //科比</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、应用场景<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 将字符串类型转成Int类型</div><div class="line"><span class="built_in">let</span> str = <span class="string">"123"</span></div><div class="line"><span class="built_in">let</span> result : Int? = Int(str)  // nil/Int</div><div class="line"><span class="built_in">print</span>(result) //Optional(123)</div><div class="line"></div><div class="line">// 根据文件名称,读取路径</div><div class="line"><span class="built_in">let</span> path : String? = Bundle.main.path(forResource: <span class="string">"123.plist"</span>, ofType: nil)</div><div class="line"><span class="built_in">print</span>(path) // nil</div><div class="line"></div><div class="line">// 从字典中取内容</div><div class="line"><span class="built_in">let</span> dict : [String:Any] = [<span class="string">"name"</span>:<span class="string">"阿呆"</span>,<span class="string">"age"</span>:18]</div><div class="line"><span class="built_in">print</span>(dict[<span class="string">"name"</span>]) //Optional(<span class="string">"阿呆"</span>)</div><div class="line"><span class="built_in">print</span>(dict[<span class="string">"age"</span>]) //Optional(18)</div></pre></td></tr></table></figure></p>
+          <p>在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。<br>在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)<br>但是开发中赋值nil,在所难免.因此推出了可选类型<br>可选类型的取值:有值、空值<br>可选值的目的：让代码更严谨<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/11/可选值/#more" rel="contents">
@@ -601,7 +1018,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -743,7 +1160,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -890,7 +1307,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -977,7 +1394,7 @@
 
       
         
-          <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br>2、把Product Module Name 设置为你的项目工程名字<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift2.png" alt="Image text"><br>3、编译一下你的项目，再在Objective-C Generated Interface Header Name 中查看是否系统已经帮你生成了XXXX-Swift.h（如果未生成，可以先随意创建一份OC的文件，再编译一下，就能看到这个文件生成了）<br>注意：XXXX-Swift.h这个文件是系统帮你生成的。<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift3.png" alt="Image text"><br>4、在需要引用到的导入这个头文件即可,这样就可以在OC中调用Swift的了<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift4.png" alt="Image text"><br>
+          <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/26/OC与Swift混合编程/#more" rel="contents">
@@ -1036,7 +1453,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1183,7 +1600,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1311,450 +1728,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/直播试炼/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/10/直播试炼/" itemprop="url">直播试炼</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T18:33:30+08:00">
-                2017-09-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Live/" itemprop="url" rel="index">
-                    <span itemprop="name">Live</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="直播APP主要实现的流程"><a href="#直播APP主要实现的流程" class="headerlink" title="直播APP主要实现的流程"></a>直播APP主要实现的流程</h4><p>1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/10/直播试炼/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/iOS项目架构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/10/iOS项目架构/" itemprop="url">iOS项目架构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T00:30:18+08:00">
-                2017-09-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/comprehensive/" itemprop="url" rel="index">
-                    <span itemprop="name">comprehensive</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写<br>是 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html" target="_blank" rel="external">苹果官方文档</a> 推荐使用的一个设计模式，经典中的经典。<br>看懂斯坦福公开课上的这张图就够了<br><img src="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg" alt="Image text"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/10/iOS项目架构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/08/直播小总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/08/直播小总结/" itemprop="url">直播小总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T22:37:40+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Live/" itemprop="url" rel="index">
-                    <span itemprop="name">Live</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今年接触了一个秀场直播项目，在此做一下简单小总结。</p>
-<h3 id="一、功能介绍"><a href="#一、功能介绍" class="headerlink" title="一、功能介绍"></a>一、功能介绍</h3><p>1、直播列表：关注、热门、明星、同城等等<br>2、排行榜：贡献榜、财富榜<br>3、商城：商品展示、购物车，订单地址管理、订单状态、支付宝微信支付<br>4、直播端：录制、推流、美颜、背景音乐、分享，主播对观众的禁言、拉黑、设置管理员等<br>5、观看端：单聊、聊天室、私聊、@TA,点亮爱心，举报、个人名片、个人主页等<br>6、礼物：普通礼物、特效礼物、实体礼物、充值、提现、内购等<br>7、用户逻辑：手机账号注册登陆、第三方账号登录、个人信息编辑、设置管理、直播回看、关注列表、粉丝列表、我的收益、我的礼物、等级、认证等<br>8、管理后台：审核、禁播等等<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/08/直播小总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1788,7 +1766,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/logo.jpg"
+               src="/coder.png"
                alt="XianRong" />
           <p class="site-author-name" itemprop="name">XianRong</p>
            
@@ -1800,7 +1778,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1811,7 +1789,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1822,7 +1800,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

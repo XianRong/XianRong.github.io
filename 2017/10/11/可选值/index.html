@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)但是开发中赋值nil,在所难免.因此推出了可选类型可选类型的取值:有值、空值可选值的目的：让代码更严谨 可选值概览1、 定义1234567891011// 定义可选值var name :String?name = &quot;科比&quot;/">
+<meta name="description" content="在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)但是开发中赋值nil,在所难免.因此推出了可选类型可选类型的取值:有值、空值可选值的目的：让代码更严谨">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="可选值">
 <meta property="og:url" content="https://xianrong.github.io/2017/10/11/可选值/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)但是开发中赋值nil,在所难免.因此推出了可选类型可选类型的取值:有值、空值可选值的目的：让代码更严谨 可选值概览1、 定义1234567891011// 定义可选值var name :String?name = &quot;科比&quot;/">
+<meta property="og:description" content="在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)但是开发中赋值nil,在所难免.因此推出了可选类型可选类型的取值:有值、空值可选值的目的：让代码更严谨">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T02:51:32.000Z">
+<meta property="og:updated_time" content="2017-11-07T15:59:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="可选值">
-<meta name="twitter:description" content="在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)但是开发中赋值nil,在所难免.因此推出了可选类型可选类型的取值:有值、空值可选值的目的：让代码更严谨 可选值概览1、 定义1234567891011// 定义可选值var name :String?name = &quot;科比&quot;/">
+<meta name="twitter:description" content="在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)但是开发中赋值nil,在所难免.因此推出了可选类型可选类型的取值:有值、空值可选值的目的：让代码更严谨">
 
 
 
@@ -288,7 +288,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -377,10 +377,9 @@
       
 
       
-        <p>在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。<br>在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)<br>但是开发中赋值nil,在所难免.因此推出了可选类型<br>可选类型的取值:有值、空值<br>可选值的目的：让代码更严谨</p>
+        <p>在编程世界中有一种非常通用的模式，那就是某个操作是否要返回一个有效值。<br>在swift开发中,nil也是一个特殊的类型.因为和真实的类型不匹配是不能赋值的(swift是强类型语言)<br>但是开发中赋值nil,在所难免.因此推出了可选类型<br>可选类型的取值:有值、空值<br>可选值的目的：让代码更严谨<br><a id="more"></a></p>
 <h3 id="可选值概览"><a href="#可选值概览" class="headerlink" title="可选值概览"></a>可选值概览</h3><p>1、 定义<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 定义可选值</div><div class="line">var name :String?</div><div class="line">name = <span class="string">"科比"</span></div><div class="line">// 1、可选值解包</div><div class="line"><span class="keyword">if</span> name != nil &#123;</div><div class="line">    <span class="built_in">print</span>(name!) //科比</div><div class="line">&#125;</div><div class="line">// 2、可选绑定</div><div class="line"><span class="keyword">if</span> <span class="built_in">let</span> str = name &#123;</div><div class="line">    <span class="built_in">print</span>(str) //科比</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>2、应用场景<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 将字符串类型转成Int类型</div><div class="line"><span class="built_in">let</span> str = <span class="string">"123"</span></div><div class="line"><span class="built_in">let</span> result : Int? = Int(str)  // nil/Int</div><div class="line"><span class="built_in">print</span>(result) //Optional(123)</div><div class="line"></div><div class="line">// 根据文件名称,读取路径</div><div class="line"><span class="built_in">let</span> path : String? = Bundle.main.path(forResource: <span class="string">"123.plist"</span>, ofType: nil)</div><div class="line"><span class="built_in">print</span>(path) // nil</div><div class="line"></div><div class="line">// 从字典中取内容</div><div class="line"><span class="built_in">let</span> dict : [String:Any] = [<span class="string">"name"</span>:<span class="string">"阿呆"</span>,<span class="string">"age"</span>:18]</div><div class="line"><span class="built_in">print</span>(dict[<span class="string">"name"</span>]) //Optional(<span class="string">"阿呆"</span>)</div><div class="line"><span class="built_in">print</span>(dict[<span class="string">"age"</span>]) //Optional(18)</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>3、if let<br>当遇到 nil 时终止的循环<br>使用if let来进行可选绑定(optional binding)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var array = [<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>, <span class="string">"four"</span>]</div><div class="line"><span class="keyword">if</span> <span class="built_in">let</span> idx = array.index(of: <span class="string">"four"</span>) &#123;</div><div class="line">    array.remove(at: idx)</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(array) //[<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>]</div><div class="line"></div><div class="line">// <span class="keyword">if</span> 的可选绑定也可以跟一个布尔限定语句搭配</div><div class="line"><span class="keyword">if</span> <span class="built_in">let</span> idx = array.index(of: <span class="string">"two"</span> ), idx != array.startIndex &#123;</div><div class="line">    array.remove(at: idx)</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(array) //[<span class="string">"one"</span>, <span class="string">"three"</span>]</div><div class="line"></div><div class="line">// 多个 <span class="built_in">let</span> 的每一部分也能拥有一个布尔值限定的语句</div><div class="line"><span class="built_in">let</span> urlString = <span class="string">"http://www.objc.io/logo.png"</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">let</span> url = URL(string: urlString ), url.pathExtension == <span class="string">"png"</span>,</div><div class="line">   <span class="built_in">let</span> data = try? Data(contentsOf: url),</div><div class="line">   <span class="built_in">let</span> image = UIImage(data: data)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">let</span> view = UIImageView(image: image)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>4、while let<br>当遇到 nil 时终止的循环<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">let</span> line = readLine(), !line.isEmpty&#123;</div><div class="line">    <span class="built_in">print</span> ( line )</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> 0..&lt;10 <span class="built_in">where</span> i % 2 == 0&#123;</div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="nil-合并运算符"><a href="#nil-合并运算符" class="headerlink" title="nil 合并运算符"></a>nil 合并运算符</h3><p>?? 操作符连接的使用默认值的语句，它代表 “这是一个默认值”<br>1、基本使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> str = <span class="string">"wda"</span></div><div class="line"><span class="built_in">let</span> num = Int(str) ?? 0</div><div class="line"><span class="built_in">print</span>(num) // 0</div><div class="line"></div><div class="line">// 数组的 first和last 返回的是可选值</div><div class="line"><span class="built_in">let</span> array = [1,2,3]</div><div class="line"><span class="built_in">let</span> a = array.first ?? 0</div><div class="line"><span class="built_in">print</span>(a) // 1</div><div class="line"></div><div class="line">// 通过数组下标取值返回的不是可选值</div><div class="line">array.count &gt; 5 ? array[5] : 0 // 0</div><div class="line"></div><div class="line">// 这时可以给Array写扩展实现</div><div class="line">extension Array &#123;</div><div class="line">    subscript(safe idx: Int ) -&gt; Element? &#123;</div><div class="line">        <span class="built_in">return</span> idx &lt; endIndex ? self[idx] : nil</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 调用扩展</div><div class="line">array[safe: 5] ?? 0 // 0</div></pre></td></tr></table></figure></p>
@@ -531,7 +530,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/logo.jpg"
+               src="/coder.png"
                alt="XianRong" />
           <p class="site-author-name" itemprop="name">XianRong</p>
            
@@ -543,7 +542,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -554,7 +553,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -565,7 +564,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。 Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。Swift 协议与 OC 的协议最大的不同：（1）可以让结构体和枚举类型满足协议（2）可以有关联类型（3）通过协议扩展的方式为协议添加方法实现 协议允许我们进行动态派发，也就是说">
+<meta name="description" content="我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。Swift 协议与 OC 的协议最大的不同：（1）可以让结构体和枚举类型满足协议（2）可以有关联类型（3）通过协议扩展的方式为协议添加方法实现协议允许我们进行动态派发，也就是说，在">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift的协议">
 <meta property="og:url" content="https://xianrong.github.io/2017/10/17/Swift的协议/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。 Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。Swift 协议与 OC 的协议最大的不同：（1）可以让结构体和枚举类型满足协议（2）可以有关联类型（3）通过协议扩展的方式为协议添加方法实现 协议允许我们进行动态派发，也就是说">
+<meta property="og:description" content="我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。Swift 协议与 OC 的协议最大的不同：（1）可以让结构体和枚举类型满足协议（2）可以有关联类型（3）通过协议扩展的方式为协议添加方法实现协议允许我们进行动态派发，也就是说，在">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T03:44:00.000Z">
+<meta property="og:updated_time" content="2017-11-07T06:15:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift的协议">
-<meta name="twitter:description" content="我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。 Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。Swift 协议与 OC 的协议最大的不同：（1）可以让结构体和枚举类型满足协议（2）可以有关联类型（3）通过协议扩展的方式为协议添加方法实现 协议允许我们进行动态派发，也就是说">
+<meta name="twitter:description" content="我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。Swift 协议与 OC 的协议最大的不同：（1）可以让结构体和枚举类型满足协议（2）可以有关联类型（3）通过协议扩展的方式为协议添加方法实现协议允许我们进行动态派发，也就是说，在">
 
 
 
@@ -288,7 +288,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/logo.jpg">
+      <meta itemprop="image" content="/coder.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -377,19 +377,12 @@
       
 
       
-        <p>我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。</p>
-<p>Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。<br>Swift 协议与 OC 的协议最大的不同：<br>（1）可以让结构体和枚举类型满足协议<br>（2）可以有关联类型<br>（3）通过协议扩展的方式为协议添加方法实现</p>
-<p>协议允许我们进行动态派发，也就是说，在运行时程序会根据消息接收者的类型去选择正确的<br>方法实现。</p>
-<p>协议可以当做类型约束,也可以当做独立类型：关联类型的协议、Self约束的协议</p>
-<p>Swift 的协议的另一个强大特性是我们可以使用完整的方法实现来扩展一个协议。</p>
-<p>可以通过协议和协议扩展的方式实现代码共享</p>
-<p>协议扩展是一种可以在不共享基类的前提下共享代码的方法。协议定义了一组最小可行的方法<br>集合，以供类型进行实现。而类型通过扩展的方式在这些最小方法上实现更多更复杂的特性。</p>
-<p>通过协议进行代码共享相比与通过继承的共享，有这几个优势:<br>1、我们不需要被强制使用某个父类。<br>2、我们可以让已经存在的类型满足协议。子类就没那么灵活了，我们无法以追溯的方式去变更 CGContext 的父类。<br>3、协议既可以用于类，也可以用于结构体，而父类就无法和结构体一起使用了。<br>4、最后，当处理协议时，我们无需担心方法重写或者在正确的时间调用super这样的问题。</p>
-<p>协议的最强大的特性之一就是我们可以以追溯的方式来修改任意类型，让它们满足协议。</p>
+        <p>我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。<br>Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。<br>Swift 协议与 OC 的协议最大的不同：<br>（1）可以让结构体和枚举类型满足协议<br>（2）可以有关联类型<br>（3）通过协议扩展的方式为协议添加方法实现<br>协议允许我们进行动态派发，也就是说，在运行时程序会根据消息接收者的类型去选择正确的<br>方法实现。<br><a id="more"></a></p>
+<h4 id="Swift协议的特性："><a href="#Swift协议的特性：" class="headerlink" title="Swift协议的特性："></a>Swift协议的特性：</h4><p> 可以以追溯的方式来修改任意类型，让它们满足协议。<br> 可以使用完整的方法实现来扩展一个协议。<br> 可以当做类型约束,也可以当做独立类型（关联类型的协议、Self约束的协议）。</p>
+<h4 id="代码共享"><a href="#代码共享" class="headerlink" title="代码共享"></a>代码共享</h4><p>可以通过协议和协议扩展的方式实现代码共享。<br>协议扩展是一种可以在不共享基类的前提下共享代码的方法。协议定义了一组最小可行的方法<br>集合，以供类型进行实现。而类型通过扩展的方式在这些最小方法上实现更多更复杂的特性。</p>
+<p>通过协议进行代码共享 与 通过继承的共享 相比有这几个优势:<br>1、我们不需要被强制使用某个父类。<br>2、我们可以让已经存在的类型满足协议。子类就没那么灵活了，我们无法以追溯的方式去变更 CGContext 的父类。<br>3、协议既可以用于类，也可以用于结构体，而父类就无法和结构体一起使用了。<br>4、最后，当处理协议时，我们无需担心方法重写或者在正确的时间调用super这样的问题。</p>
+<h4 id="示例代码理解"><a href="#示例代码理解" class="headerlink" title="示例代码理解"></a>示例代码理解</h4><p>1、定义协议Drawing（抽象出来的方法集）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">protocol Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect, fill: UIColor) </div><div class="line">    mutating func addRectangle(rect: CGRect, fill: UIColor)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>mutating关键字：使用 mutating 关键字修饰方法是为了能在该方法中修改 struct 或是 enum 的变量，在设计接口的时候，也要考虑到使用者程序的扩展性。所以要多考虑使用mutating来修饰方法。</p>
-<p>面向协议编程：<br>1、根据需求功能，抽象出方法，定义协议<br>2、为协议添加对应扩展<br>3、遵守协议，然后满足协议要求的，都能使用协议和协议扩展中的功能方法。</p>
-<p>协议要求的方法（把方法声明在定义的协议里）是动态派发的，而仅定义在扩展中的方法是静态派发的。</p>
-<p>协议的特性理解：<br>1、定义协议Drawing（抽象出来的方法集）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">protocol Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect, fill: UIColor) </div><div class="line">    mutating func addRectangle(rect: CGRect, fill: UIColor)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>2、CGContext、SVG 遵守协议Drawing，实现协议的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">extension CGContext: Drawing &#123;</div><div class="line">     func addEllipse(rect: CGRect, fill : UIColor) &#123;</div><div class="line">	     setFillColor( fill .cgColor)  </div><div class="line">	     fillEllipse (<span class="keyword">in</span>: rect)</div><div class="line">     &#125;</div><div class="line">     func addRectangle(rect: CGRect, fill  fillColor : UIColor) &#123; </div><div class="line">	     setFillColor(fillColor .cgColor)</div><div class="line">	     fill (rect) </div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">struct SVG &#123;</div><div class="line">    var rootNode = XMLNode(tag: <span class="string">"svg"</span>) </div><div class="line">    mutating func append(node: XMLNode) &#123;</div><div class="line">        rootNode.children.append(node)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension SVG: Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect, fill: UIColor) &#123;</div><div class="line">       var attributes: [String:String] = rect.svgAttributes </div><div class="line">       attributes[<span class="string">"fill "</span>] = String(hexColor:fill )</div><div class="line">       append(node: XMLNode(tag: <span class="string">"ellipse"</span>, attributes: attributes))</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mutating func addRectangle(rect: CGRect,fill: UIColor) &#123;</div><div class="line">       var attributes: [String:String] = rect.svgAttributes </div><div class="line">       attributes[<span class="string">"fill"</span>] = String(hexColor:fill )</div><div class="line">       append(node: XMLNode(tag: <span class="string">"rect"</span>, attributes: attributes))</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>3、写协议扩展，协议扩展里可以定义完整的方法实现。如果协议扩展里的方法没有声明到定义的协议中就是静态派发，如果也声明到协议中就是动态派发<br>  （也就是协议要求的方法是动态派发的，而仅定义在扩展中 的方法是静态派发的）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extension Drawing &#123;</div><div class="line">    mutating func addCircle(center: CGPoint, radius: CGFloat,fill: UIColor) &#123;</div><div class="line">	    <span class="built_in">let</span> diameter = radius/2</div><div class="line">	    <span class="built_in">let</span> origin = CGPoint(x: center.x - diameter, y: center.y - diameter) <span class="built_in">let</span> size = CGSize(width: radius, height: radius)</div><div class="line">	    <span class="built_in">let</span> rect = CGRect(origin: origin, size: size)</div><div class="line">	    addEllipse(rect: rect, fill : fill )</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -400,7 +393,8 @@
 <p>7、将 addCircle 变为动态派发，即把它添加到协议定义里<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">protocol Drawing &#123;</div><div class="line">    mutating func addEllipse(rect: CGRect,fill: UIColor)</div><div class="line">    mutating func addRectangle(rect: CGRect,fill: UIColor)</div><div class="line">    mutating func addCircle(center: CGPoint, radius: CGFloat,fill: UIColor)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我们依旧可以像之前那样提供一个默认的实现。而且和之前一样，具体的类型还是可以自由地重写addCircle。因为现在它是协议定义的一部份了，它将被动态派发。在运行时，根据方法接收者的动态类型的不同，存在容器将会在自定义实现存在时对其进行调用。如果自定义实现不存在，那么它将使用协议扩展中的默认实现。addCircle 方法变为了协议的一个自定义入口。<br>Swift 标准库大量使用了这样的技术。像是Sequence这样的协议有非常多的必要方法，不过几乎所有的方法都有默认实现。因为方法是动态派发的，所以实现Sequence 协议的类型可以自定义默认实现，不过这并不是必须的。</p>
 <p>在 Swift 中，协议是非常重要的构建单元。使用协议，我们可以写出灵活的代码，而不必拘泥于接口和实现的耦合。<br>不要过度使用协议。有时候，一个独立的像是结构体或者类的类型要比定义一个协议容易理解得多，简单的类型系统也有利于增加代码的可读性。</p>
-<p>   使用协议最大的好处在于它们提供了一种最小的实现接口。协议只对某个接口究竟应该做什么<br>进行定义，而把使用多种类型来具体实现这个接口的工作留给我们。同样，这也让测试变得更<br>加容易。我们只需要创建一个满足协议的简单的测试类型就可以开始测试工作了，而不必引入<br>和建立一串复杂的依赖关系。</p>
+<p>使用协议最大的好处在于它们提供了一种最小的实现接口。协议只对某个接口究竟应该做什么<br>进行定义，而把使用多种类型来具体实现这个接口的工作留给我们。同样，这也让测试变得更<br>加容易。我们只需要创建一个满足协议的简单的测试类型就可以开始测试工作了，而不必引入<br>和建立一串复杂的依赖关系。</p>
+<h4 id="面向协议编程："><a href="#面向协议编程：" class="headerlink" title="面向协议编程："></a>面向协议编程：</h4><p>1、根据需求功能，抽象出方法，定义协议<br>2、为协议添加对应扩展<br>3、遵守协议，然后满足协议要求的，都能使用协议和协议扩展中的功能方法。<br>声明在协议里的方法是动态派发，而仅定义在扩展中的方法是静态派发的。</p>
 
       
     </div>
@@ -470,6 +464,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/11/07/UICollectionView实现多选且组内单选/" rel="prev" title="UICollectionView实现多选且组内单选">
+                UICollectionView实现多选且组内单选 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -520,11 +518,20 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/logo.jpg"
+               src="/coder.png"
                alt="XianRong" />
           <p class="site-author-name" itemprop="name">XianRong</p>
            
@@ -536,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,7 +554,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -558,7 +565,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -583,6 +590,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Swift协议的特性："><span class="nav-number">1.</span> <span class="nav-text">Swift协议的特性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码共享"><span class="nav-number">2.</span> <span class="nav-text">代码共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例代码理解"><span class="nav-number">3.</span> <span class="nav-text">示例代码理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向协议编程："><span class="nav-number">4.</span> <span class="nav-text">面向协议编程：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
