@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、获">
+<meta name="description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、选">
 <meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UICollectionView实现多选且组内单选">
 <meta property="og:url" content="https://xianrong.github.io/2017/11/07/UICollectionView实现多选且组内单选/index.html">
 <meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、获">
+<meta property="og:description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、选">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-07T15:33:23.000Z">
+<meta property="og:updated_time" content="2017-11-08T02:22:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UICollectionView实现多选且组内单选">
-<meta name="twitter:description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、获">
+<meta name="twitter:description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、选">
 
 
 
@@ -181,7 +181,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">好学若饥，谦卑若愚</p>
+        <p class="site-subtitle">Stay hungry，Stay foolish</p>
       
   </div>
 
@@ -377,7 +377,7 @@
       
 
       
-        <p>1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;<br>2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell<br>3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];<br>4、获取所有选中的：NSArray * selectIndexPaths = collectionView.indexPathsForSelectedItems;<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">    CommodityTypeCell * cell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    [cell setBackgroundColor:[UIColor grayColor]];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    </div><div class="line">//     取消当前组内已选中的</div><div class="line">    CommodityType * <span class="built_in">type</span> = self.commodity.proAttributeList[indexPath.section];</div><div class="line">    <span class="keyword">for</span> (SkuList * skut <span class="keyword">in</span> type.attribute_vals) &#123;</div><div class="line">        <span class="keyword">if</span> (skut.select == YES) &#123;</div><div class="line">            skut.select = NO;</div><div class="line">            CommodityTypeCell * oldCell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:skut.indexPath];</div><div class="line">            [oldCell setBackgroundColor:[UIColor grayColor]];</div><div class="line">            [collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 选中当前点击的item</div><div class="line">    SkuList * sku = type.attribute_vals[indexPath.item];</div><div class="line">    sku.select = YES;</div><div class="line">    sku.indexPath = indexPath;</div><div class="line">    CommodityTypeCell * cell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    [cell setBackgroundColor:[UIColor orangeColor]];</div><div class="line"></div><div class="line">    // 获取所有选中的</div><div class="line">    NSArray * selectIndexPaths = collectionView.indexPathsForSelectedItems;</div><div class="line">    // 业务逻辑</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;<br>2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell<br>3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];<br>4、选中：[collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];<br>5、获取所有选中的：NSArray * selectIndexPaths = collectionView.indexPathsForSelectedItems;<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">    CommodityTypeCell * cell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    [cell setBackgroundColor:[UIColor grayColor]];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (collectionView.indexPathsForSelectedItems.count!=self.commodity.proAttributeList.count) &#123;</div><div class="line">        // 做对应的业务处理（比如商品分类标签，改为显示价格区间）</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    </div><div class="line">//     取消当前组内已选中的</div><div class="line">    CommodityType * <span class="built_in">type</span> = self.commodity.proAttributeList[indexPath.section];</div><div class="line">    <span class="keyword">for</span> (SkuList * skut <span class="keyword">in</span> type.attribute_vals) &#123;</div><div class="line">        <span class="keyword">if</span> (skut.select == YES) &#123;</div><div class="line">            skut.select = NO;</div><div class="line">            CommodityTypeCell * oldCell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:skut.indexPath];</div><div class="line">            [oldCell setBackgroundColor:[UIColor grayColor]];</div><div class="line">            [collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];// 取消选中</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 选中当前点击的item</div><div class="line">    SkuList * sku = type.attribute_vals[indexPath.item];</div><div class="line">    sku.select = YES;</div><div class="line">    sku.indexPath = indexPath;</div><div class="line">    CommodityTypeCell * cell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];// 需要添加选中</div><div class="line">    [cell setBackgroundColor:[UIColor orangeColor]];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (collectionView.indexPathsForSelectedItems.count!=self.commodity.proAttributeList.count) &#123;</div><div class="line">        // 做对应的业务处理（比如商品分类标签，显示该商品的唯一价格和库存）</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -517,7 +517,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -528,7 +528,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -539,7 +539,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
