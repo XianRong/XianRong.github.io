@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/12/链式编程思想/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/13/函数式编程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -302,7 +302,431 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/12/链式编程思想/" itemprop="url">链式编程思想</a></h1>
+                <a class="post-title-link" href="/2017/11/13/函数式编程/" itemprop="url">函数式编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T12:01:27+08:00">
+                2017-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>函数式编程思想：是把操作尽量写成一系列嵌套的函数或者方法调用。<br>函数式编程特点：每个方法必须有返回值（本身对象）,把函数或者Block当做参数,block参数（需要操作的值）block返回值（操作结果）</p>
+<p>需求:写一个加法计算器,并且加法计算器自带判断是否等于某个值.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1、创建计算机对象，封装对应的需求实现方法</div><div class="line">@interface Caculator : NSObject</div><div class="line">@property (nonatomic, assign) int result;</div><div class="line">@property (nonatomic, assign) BOOL isEqule;</div><div class="line">- (instancetype)add:(int(^)(int result))block;</div><div class="line">- (instancetype)equle:(BOOL(^)(int result))block;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation Caculator</div><div class="line">- (instancetype)add:(int (^)(int result))block</div><div class="line">&#123;</div><div class="line">    _result = block(_result);</div><div class="line">    <span class="built_in">return</span> self;</div><div class="line">&#125;</div><div class="line">- (instancetype)equle:(BOOL (^)(int))block</div><div class="line">&#123;</div><div class="line">    _isEqule = block(_result);</div><div class="line">    <span class="built_in">return</span> self;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">2、外部调用，把一个操作写成一系列的方法</div><div class="line">Caculator *caculator = [[Caculator alloc] init];</div><div class="line">BOOL isEqule = [[[caculator add:^(int result)&#123;</div><div class="line">        result += 10;</div><div class="line">        result += 20;</div><div class="line">        result += 30;</div><div class="line">        result += 40;</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;] equle:^BOOL(int result) &#123;</div><div class="line">        <span class="built_in">return</span> result == 100;</div><div class="line">    &#125;] isEqule];</div><div class="line">    </div><div class="line">    NSLog(@<span class="string">"%d"</span>,isEqule);</div></pre></td></tr></table></figure>
+<h3 id="Swift的函数式编程"><a href="#Swift的函数式编程" class="headerlink" title="Swift的函数式编程"></a>Swift的函数式编程</h3><p>一.函数可以像 Int 或者 String 那样被赋值给变量，也可以作为另一个函数的输入参数，或者另一个函数的返回值来使用<br>二. 函数能够捕获存在于其局部作用域之外的变量<br>三. 有两种方法可以创建函数，一种是使用 func 关键字，另一种是 { }。在 Swift 中，后一种被称为闭包表达式</p>
+<p>1、把函数赋值给变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">func printInt(i: Int) &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"you passed \(i)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> funVar = printInt</div><div class="line">funVar(2) //you passed 2</div></pre></td></tr></table></figure></p>
+<p>2、把函数作为另一个函数的参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">func useFunction(<span class="keyword">function</span>: (Int) -&gt; () )&#123;</div><div class="line">    <span class="keyword">function</span>(3)</div><div class="line">&#125;</div><div class="line">useFunction(<span class="keyword">function</span>: printInt) // you passed 3</div><div class="line">useFunction(<span class="keyword">function</span>: funVar) // you passed 3</div></pre></td></tr></table></figure></p>
+<p>3、把函数作为另一个函数的返回值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">func returnFunc() -&gt; (Int) -&gt; String&#123;</div><div class="line">    func innerFunc(i:Int) -&gt; String&#123;</div><div class="line">        <span class="built_in">return</span> <span class="string">"you passed\(i)"</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> innerFunc</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> myFunc = returnFunc()</div><div class="line">myFunc(4)</div></pre></td></tr></table></figure></p>
+<p>4、函数可以捕获存在于它们作用范围之外的变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">func counterFunc() -&gt; (Int) -&gt; String &#123;</div><div class="line">    var counter = 0</div><div class="line">    func innerFunc(i: Int ) -&gt; String &#123;</div><div class="line">        counter += i // counter is captured</div><div class="line">        <span class="built_in">return</span> <span class="string">"running total: \(counter)"</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> innerFunc</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> f = counterFunc()</div><div class="line">f(3) // running total: 3</div><div class="line">f(4) // running total: 7</div><div class="line"><span class="built_in">let</span> g = counterFunc()</div><div class="line">g(2) // running total: 2</div><div class="line">g(2) // runningtotal: 4</div></pre></td></tr></table></figure></p>
+<p>innerFunc捕获了counter变量属性<br>一个函数和它所捕获的变量环境组合起来被称为闭包<br>上面 f 和 g 都是闭包的 例子，因为它们捕获并使用了一个在它们外部声明的非局部变量 counter。</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>闭包指的是一个函数以及被它所捕获的所有变量的组合。而使用{ } 来创建的函数被称为闭包表达式<br>可以把闭包表达式理解为匿名的函数，可以理解为把闭包赋值给了以函数名为名的变量<br>闭包的优点：简洁，像是 map 这样的将一个快速实现的函数传递给另一个函数时，这个特点更为明显<br> 如果函数的最后一个参数是闭包表达式的话，你可以将这个闭包表达式移到函数调用的 圆括号的外部。这样的尾随闭包语法<br>如果一个函数除了闭包表达式外没有别的参数，那么方法名后面的调用时的圆括 号也可以一并省略。</p>
+<p>1、使用func定义函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func doubler(i: Int) -&gt; Int &#123;</div><div class="line">    <span class="built_in">return</span> i * 2</div><div class="line">&#125;</div><div class="line">[1, 2, 3, 4].map(doubler) // [2, 4, 6, 8]</div></pre></td></tr></table></figure></p>
+<p>2、使用闭包表达式的语法来写相同的函数，像之前那样将它传给 map:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> doublerAlt = &#123; (i: Int) -&gt; Int <span class="keyword">in</span> <span class="built_in">return</span> i*2 &#125;</div><div class="line">[1, 2, 3, 4].map(doublerAlt) // [2, 4, 6, 8]</div></pre></td></tr></table></figure></p>
+<p>3、使用Swift 中的一些特性，来让代码更加简洁<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].map&#123;<span class="variable">$0</span>*2 &#125; // [2, 4, 6]</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/13/响应式编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/13/响应式编程/" itemprop="url">响应式编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T11:08:40+08:00">
+                2017-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>不需要考虑调用顺序，只考虑结果，产生一个事件，会影响很多东西，这些事件像流一样的传播出去，然后影响结果，万物皆是流。代表作：KVO运用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/13/泛型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/13/泛型/" itemprop="url">泛型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T10:02:30+08:00">
+                2017-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用泛型代码，你可以 写出可重用的函数和数据结构，只要它们满足你所定义的约束，它们就能够适用于各种类型。<br>比如，像是 Array 和 Set 等多个类型，实际上是它们中的元素类型就是泛型抽象。<br>我们也可以 创建泛型方法，它们可以对输入或者输出的类型进行泛型处理。<br>func identity<a>(input: A) -&gt; A 就定义了一个可以作用于任意类型 A 的函数。<br>某种意义上，我们甚至可以认为带有关联类型的协议是 “泛型协议”。关联类型允许我们对特定的实现进行抽 象。IteratorProtocol 协议就是一个这样的例子:它所生成的 Element 就是一个泛型。</a></p>
+<p>泛型编程的目的是表达算法或者数据结构所要求的核心接口。<br>使用泛型数据类型来重构代码，能使它们易于测试，更加灵活。</p>
+<h4 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h4><p>重载：拥有同样名字，但是参数或返回类型不同的多个方法互相称为重载方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">func raise(_ base: Double, to exponent: Double) -&gt; Double &#123;</div><div class="line">    <span class="built_in">return</span> pow(base, exponent)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func raise(_ base: Float, to exponent: Float) -&gt; Float &#123;</div><div class="line">    <span class="built_in">return</span> powf(base, exponent)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">let</span> double = raise(2.0, to: 3.0)</div><div class="line"><span class="built_in">print</span>(double)  // 8.0</div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(of: double)) // Double</div><div class="line"></div><div class="line"><span class="built_in">let</span> <span class="built_in">float</span>:Float = raise(2.0, to: 3.0)</div><div class="line"><span class="built_in">print</span>(<span class="built_in">float</span>) // 8.0</div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(of: <span class="built_in">float</span>)) // Float</div></pre></td></tr></table></figure></p>
+<p>Swift 有一系列的复杂规则来确定到底使用哪个重载函数，这套规则基于函数是否是泛型，以及传入的参数是怎样的类型来确定使用优先级。整套规则十分复杂，不过它们可以被总结为一句话，那就是 “选择最具体的一个”。也就是说，非通用的函数会优先于通用函数被使用。</p>
+<p>重载的使用是在编译期间静态决定的。也就是说，编译器会依据变量的静态类型来决定要调用哪一个重载，而不是在运行时根据值的动态类型来决定。</p>
+<h4 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h4><p>泛型编程让我们的资源类型更加简单，耦合更少，这也让测试更加容易</p>
+<p>1、创建泛型数据类型，泛型函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">struct Resource&lt;A&gt; &#123;</div><div class="line">    <span class="built_in">let</span> path: String</div><div class="line">    <span class="built_in">let</span> parse: (Any) -&gt; A?</div><div class="line">    <span class="built_in">let</span> webserviceURL : URL = URL(string: <span class="string">"https://baidu.com"</span>)!</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension Resource &#123;</div><div class="line">    func loadSynchronously(callback: (A?) -&gt; ()) &#123;</div><div class="line">        <span class="built_in">let</span> resourceURL = webserviceURL.appendingPathComponent(path)</div><div class="line">        <span class="built_in">let</span> data = try? Data(contentsOf: resourceURL)</div><div class="line">        <span class="built_in">let</span> json = data.flatMap &#123;</div><div class="line">            try? JSONSerialization.jsonObject(with: <span class="variable">$0</span>, options: []) &#125;</div><div class="line">        callback(json.flatMap(parse))</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">struct User&#123;</div><div class="line">    var name:String?</div><div class="line">    var age = 0</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 辅助函数： 将一个 Any 转换为一个 Any 的数组</div><div class="line">func jsonArray&lt;A&gt;(_ transform: @escaping (Any) -&gt; A?) -&gt; (Any) -&gt; [A]? &#123;</div><div class="line">    <span class="built_in">return</span> &#123; array <span class="keyword">in</span></div><div class="line">    guard <span class="built_in">let</span> array = array as? [Any] <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">return</span> nil</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> array.flatMap(transform)&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">let</span> usersResource: Resource&lt;[User]&gt; =</div><div class="line">    Resource(path: <span class="string">"/users"</span>, parse: jsonArray(User.init))</div></pre></td></tr></table></figure></p>
+<p>2、标准库中的 min函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">T是泛型参数</div><div class="line">func min&lt;T: Comparable&gt;(_ x: T, _ y: T) -&gt; T &#123;</div><div class="line">    <span class="built_in">return</span> y &lt; x ? y : x</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、全模块优化 之 泛型特化<br>Swift 中有一个叫做 @_specialize 的半官方标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@_specialize(Int)</div><div class="line">@_specialize(String)</div><div class="line">public func min&lt;T: Comparable&gt;(_ x: T, _ y: T) -&gt; T &#123;</div><div class="line">    <span class="built_in">return</span> y &lt; x ? y : x</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/12/链式编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/12/链式编程/" itemprop="url">链式编程</a></h1>
         
 
         <div class="post-meta">
@@ -375,10 +799,10 @@
 
       
         
-          <p>我们平时编码习惯是把事情封装到一个方法中。<br>链式编程思想：是把要做的事情封装到block，给外界提供一个返回这个Block的方法<br>链式编程思想方法的特点：<br>（1）方法的返回值必须是block<br>（2）block参数：放需要操作的内容<br>（3）block返回值:方法调用者<br>链式编程的优点：增加代码可读性，利用block的特点使代码高聚合<br>
+          <p>链式编程：将多个操作通过点号（.）链接在一起成为一句代码，代表作：masonry框架<br>我们平时编码习惯是把事情封装到一个方法中。而链式编程思想则是把要做的事情封装到block，给外界提供一个返回这个Block的方法<br>链式编程思想方法的特点：<br>（1）方法的返回值必须是block<br>（2）block参数：放需要操作的内容<br>（3）block返回值:方法调用者<br>链式编程的优点：增加代码可读性，利用block的特点使代码高聚合<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/12/链式编程思想/#more" rel="contents">
+            <a class="btn" href="/2017/11/12/链式编程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -522,10 +946,8 @@
       
         
           
-            <h4 id="核心途径"><a href="#核心途径" class="headerlink" title="核心途径"></a>核心途径</h4><p>1、WWDC开发者大会视频<br>2、苹果官方文档<br>   查看每个版本更新的内容：- General -&gt; Guides -&gt; iOS x.x API Diffs<br>   需要时按需查阅：- Sample Code(示例代码)</p>
-<pre><code>- Guides(指南)
-- Reference(API参考)
-</code></pre><h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4><p><a href="https://github.com" target="_blank" rel="external">github</a><br><a href="http://www.cocoachina.com" target="_blank" rel="external">cocoachina</a><br><a href="http://objccn.io/" target="_blank" rel="external">objc中国</a><br><a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">优秀博客汇总</a></p>
+            <h4 id="核心途径"><a href="#核心途径" class="headerlink" title="核心途径"></a>核心途径</h4><p>1、WWDC开发者大会视频<br>2、苹果官方文档<br>   查看每个版本更新的内容：General -&gt; Guides -&gt; iOS x.x API Diffs<br>   需要时按需查阅：Sample Code(示例代码) Guides(指南) Reference(API参考)</p>
+<h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4><p><a href="https://github.com" target="_blank" rel="external">github</a><br><a href="http://www.cocoachina.com" target="_blank" rel="external">cocoachina</a><br><a href="http://objccn.io/" target="_blank" rel="external">objc中国</a><br><a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">优秀博客汇总</a></p>
 
           
         
@@ -1291,441 +1713,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/29/数组变形/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/29/数组变形/" itemprop="url">数组变形</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T23:55:48+08:00">
-                2017-09-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">// 一、Map 转换</div><div class="line"><span class="built_in">let</span> arr1 = [0,1,2,3,5]</div><div class="line"><span class="built_in">let</span> result1 = arr1.map &#123;<span class="variable">$0</span> * <span class="variable">$0</span>&#125;</div><div class="line"><span class="built_in">print</span>(result1) // [0, 1, 4, 9, 25]</div><div class="line"></div><div class="line">// 二、FlatMap</div><div class="line"><span class="built_in">let</span> arr2 = [[1,2,3],[4,5,6]];</div><div class="line"><span class="built_in">let</span> res = arr2.map &#123; <span class="variable">$0</span>.map&#123; <span class="variable">$0</span> + 2 &#125; &#125;</div><div class="line"><span class="built_in">print</span>(res) // [[3, 4, 5], [6, 7, 8]]</div><div class="line">var flatRes = arr2.flatMap &#123; <span class="variable">$0</span>.map&#123; <span class="variable">$0</span> + 2 &#125; &#125;</div><div class="line"><span class="built_in">print</span>(flatRes) // [3, 4, 5, 6, 7, 8]</div><div class="line"></div><div class="line">// 三、Fliter 过滤</div><div class="line"><span class="built_in">let</span> arr3 = [0,1,2,3,4,5,6,7,8,9,10]</div><div class="line"><span class="built_in">let</span> result3 = arr3.filter &#123;<span class="variable">$0</span> % 2 == 0&#125;</div><div class="line"><span class="built_in">print</span>(result3) //[0, 2, 4, 6, 8, 10]</div><div class="line"></div><div class="line">//map和fliter组合使用，寻找 100 以内同时满足是偶数并且是其他数字的 平方的数</div><div class="line"><span class="built_in">let</span> result31 = (1..&lt;10).map &#123; <span class="variable">$0</span> * <span class="variable">$0</span> &#125;.filter &#123; <span class="variable">$0</span> % 2 == 0 &#125;</div><div class="line"><span class="built_in">print</span>(result31) // [4, 16, 36, 64]</div><div class="line"></div><div class="line">// 四、Reduce 合并</div><div class="line"><span class="built_in">let</span> arr4 = [0,1,2,3,5]</div><div class="line"><span class="built_in">let</span> result4 = arr4.reduce(0,+)</div><div class="line"><span class="built_in">print</span>(result4) //11</div><div class="line"></div><div class="line">// 五、Zip 是将两个序列的元素，一一对应合并成元组，生成一个新序列</div><div class="line"><span class="built_in">let</span> a = [1, 2, 3, 4]</div><div class="line"><span class="built_in">let</span> b = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>]</div><div class="line"><span class="built_in">let</span> c = zip(a, b).map &#123; <span class="variable">$0</span> &#125;</div><div class="line"><span class="built_in">print</span>(c) // [(1, <span class="string">"a"</span>), (2, <span class="string">"b"</span>), (3, <span class="string">"c"</span>), (4, <span class="string">"d"</span>)]</div><div class="line"></div><div class="line">/*</div><div class="line">zip 生成的序列通常会进行下一步处理。比如</div><div class="line">func loadColors(colors: [UIColor]) &#123;</div><div class="line">    zip(self.colorButtons, colors).forEach &#123; (bt, color) <span class="keyword">in</span></div><div class="line">        bt.color = color</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">*/</div><div class="line"></div><div class="line">// zip和速记+来通过添加两个冲突的值来解析重复的键</div><div class="line"><span class="built_in">let</span> keyNames2 = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"a"</span>, <span class="string">"b"</span>]</div><div class="line"><span class="built_in">let</span> dict = Dictionary(zip(keyNames2, repeatElement(1, count: keyNames2.count)), uniquingKeysWith: +)</div><div class="line"><span class="built_in">print</span>(dict) //[<span class="string">"b"</span>: 2, <span class="string">"a"</span>: 2, <span class="string">"c"</span>: 1]</div><div class="line"></div><div class="line">// 六、 ForEach 跟<span class="keyword">for</span>类型，forEach不返回任何值（有<span class="built_in">return</span>的时候，使用<span class="keyword">for</span>比forEach比较好）</div><div class="line">//theViews.forEach(view.addSubview)</div><div class="line"></div><div class="line">// 七、其它</div><div class="line">/*</div><div class="line"> <span class="variable">$0</span>代表传入的元素本身，而不是下标</div><div class="line"> <span class="variable">$0</span>.0代表传入的元组的第一个值，如果元组被命名过了，则可以直接带名字</div><div class="line"> <span class="variable">$0</span>.age代表传入的模型的age属性</div><div class="line"> </div><div class="line"> // 年龄升序排列</div><div class="line"> people.sort &#123; <span class="variable">$0</span>.age &lt; <span class="variable">$1</span>.age &#125;</div><div class="line"> // 检查是否有小于18岁的</div><div class="line"> people.contains &#123; <span class="variable">$0</span>.age &lt; 18 &#125;</div><div class="line"> // 忽略大小写的排序</div><div class="line"> people.sort &#123; <span class="variable">$0</span>.name.uppercased() &lt; <span class="variable">$1</span>.name.uppercased() &#125;</div><div class="line"> */</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/27/拥抱Swift/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/27/拥抱Swift/" itemprop="url">拥抱Swift</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T23:12:32+08:00">
-                2017-09-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>随着秋季发布会过后Swift4也正式放出，Switf4已趋向于稳健，为Swift3提供了源码兼容。无论是旧OC项目慢慢迁移到Swift4还是新项目直接使用Swift4，时机已然成熟，让我们拥抱Swift吧。Swift的灵活与优雅真让人神往。</p>
-<p>Swift 既是一⻔高层级语言，又是一⻔低层级语言。 你可以在 Swift 中用 map 或者 reduce 来 写出十分类似于 Ruby 和 Python 的代码，你也可以很容易地创建自己的高阶函数。Swift 让你有能力快速完成代码编写，并将它们直接编译为原生的二进制可执行文件，这使得性能上可以与C 代码编写的程序相媲美。<br>我们可以兼顾高低两个层级。将一个数组通过闭包表 达式映射到另一个数组所编译得到的汇编码，与直接对一块连续内存进行循环所得到的结果是一致的。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/27/拥抱Swift/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/26/OC与Swift混合编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/26/OC与Swift混合编程/" itemprop="url">OC与Swift混合编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T23:39:37+08:00">
-                2017-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/26/OC与Swift混合编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1776,7 +1763,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

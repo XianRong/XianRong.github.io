@@ -283,6 +283,441 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/29/数组变形/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/29/数组变形/" itemprop="url">数组变形</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T23:55:48+08:00">
+                2017-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">// 一、Map 转换</div><div class="line"><span class="built_in">let</span> arr1 = [0,1,2,3,5]</div><div class="line"><span class="built_in">let</span> result1 = arr1.map &#123;<span class="variable">$0</span> * <span class="variable">$0</span>&#125;</div><div class="line"><span class="built_in">print</span>(result1) // [0, 1, 4, 9, 25]</div><div class="line"></div><div class="line">// 二、FlatMap</div><div class="line"><span class="built_in">let</span> arr2 = [[1,2,3],[4,5,6]];</div><div class="line"><span class="built_in">let</span> res = arr2.map &#123; <span class="variable">$0</span>.map&#123; <span class="variable">$0</span> + 2 &#125; &#125;</div><div class="line"><span class="built_in">print</span>(res) // [[3, 4, 5], [6, 7, 8]]</div><div class="line">var flatRes = arr2.flatMap &#123; <span class="variable">$0</span>.map&#123; <span class="variable">$0</span> + 2 &#125; &#125;</div><div class="line"><span class="built_in">print</span>(flatRes) // [3, 4, 5, 6, 7, 8]</div><div class="line"></div><div class="line">// 三、Fliter 过滤</div><div class="line"><span class="built_in">let</span> arr3 = [0,1,2,3,4,5,6,7,8,9,10]</div><div class="line"><span class="built_in">let</span> result3 = arr3.filter &#123;<span class="variable">$0</span> % 2 == 0&#125;</div><div class="line"><span class="built_in">print</span>(result3) //[0, 2, 4, 6, 8, 10]</div><div class="line"></div><div class="line">//map和fliter组合使用，寻找 100 以内同时满足是偶数并且是其他数字的 平方的数</div><div class="line"><span class="built_in">let</span> result31 = (1..&lt;10).map &#123; <span class="variable">$0</span> * <span class="variable">$0</span> &#125;.filter &#123; <span class="variable">$0</span> % 2 == 0 &#125;</div><div class="line"><span class="built_in">print</span>(result31) // [4, 16, 36, 64]</div><div class="line"></div><div class="line">// 四、Reduce 合并</div><div class="line"><span class="built_in">let</span> arr4 = [0,1,2,3,5]</div><div class="line"><span class="built_in">let</span> result4 = arr4.reduce(0,+)</div><div class="line"><span class="built_in">print</span>(result4) //11</div><div class="line"></div><div class="line">// 五、Zip 是将两个序列的元素，一一对应合并成元组，生成一个新序列</div><div class="line"><span class="built_in">let</span> a = [1, 2, 3, 4]</div><div class="line"><span class="built_in">let</span> b = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>]</div><div class="line"><span class="built_in">let</span> c = zip(a, b).map &#123; <span class="variable">$0</span> &#125;</div><div class="line"><span class="built_in">print</span>(c) // [(1, <span class="string">"a"</span>), (2, <span class="string">"b"</span>), (3, <span class="string">"c"</span>), (4, <span class="string">"d"</span>)]</div><div class="line"></div><div class="line">/*</div><div class="line">zip 生成的序列通常会进行下一步处理。比如</div><div class="line">func loadColors(colors: [UIColor]) &#123;</div><div class="line">    zip(self.colorButtons, colors).forEach &#123; (bt, color) <span class="keyword">in</span></div><div class="line">        bt.color = color</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">*/</div><div class="line"></div><div class="line">// zip和速记+来通过添加两个冲突的值来解析重复的键</div><div class="line"><span class="built_in">let</span> keyNames2 = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"a"</span>, <span class="string">"b"</span>]</div><div class="line"><span class="built_in">let</span> dict = Dictionary(zip(keyNames2, repeatElement(1, count: keyNames2.count)), uniquingKeysWith: +)</div><div class="line"><span class="built_in">print</span>(dict) //[<span class="string">"b"</span>: 2, <span class="string">"a"</span>: 2, <span class="string">"c"</span>: 1]</div><div class="line"></div><div class="line">// 六、 ForEach 跟<span class="keyword">for</span>类型，forEach不返回任何值（有<span class="built_in">return</span>的时候，使用<span class="keyword">for</span>比forEach比较好）</div><div class="line">//theViews.forEach(view.addSubview)</div><div class="line"></div><div class="line">// 七、其它</div><div class="line">/*</div><div class="line"> <span class="variable">$0</span>代表传入的元素本身，而不是下标</div><div class="line"> <span class="variable">$0</span>.0代表传入的元组的第一个值，如果元组被命名过了，则可以直接带名字</div><div class="line"> <span class="variable">$0</span>.age代表传入的模型的age属性</div><div class="line"> </div><div class="line"> // 年龄升序排列</div><div class="line"> people.sort &#123; <span class="variable">$0</span>.age &lt; <span class="variable">$1</span>.age &#125;</div><div class="line"> // 检查是否有小于18岁的</div><div class="line"> people.contains &#123; <span class="variable">$0</span>.age &lt; 18 &#125;</div><div class="line"> // 忽略大小写的排序</div><div class="line"> people.sort &#123; <span class="variable">$0</span>.name.uppercased() &lt; <span class="variable">$1</span>.name.uppercased() &#125;</div><div class="line"> */</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/27/拥抱Swift/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/拥抱Swift/" itemprop="url">拥抱Swift</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T23:12:32+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>随着秋季发布会过后Swift4也正式放出，Switf4已趋向于稳健，为Swift3提供了源码兼容。无论是旧OC项目慢慢迁移到Swift4还是新项目直接使用Swift4，时机已然成熟，让我们拥抱Swift吧。Swift的灵活与优雅真让人神往。</p>
+<p>Swift 既是一⻔高层级语言，又是一⻔低层级语言。 你可以在 Swift 中用 map 或者 reduce 来 写出十分类似于 Ruby 和 Python 的代码，你也可以很容易地创建自己的高阶函数。Swift 让你有能力快速完成代码编写，并将它们直接编译为原生的二进制可执行文件，这使得性能上可以与C 代码编写的程序相媲美。<br>我们可以兼顾高低两个层级。将一个数组通过闭包表 达式映射到另一个数组所编译得到的汇编码，与直接对一块连续内存进行循环所得到的结果是一致的。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/27/拥抱Swift/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/26/OC与Swift混合编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/26/OC与Swift混合编程/" itemprop="url">OC与Swift混合编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T23:39:37+08:00">
+                2017-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="OC中使用Swift"><a href="#OC中使用Swift" class="headerlink" title="OC中使用Swift"></a>OC中使用Swift</h3><p>1、设置DefinesModule为Yes<br><img src="http://ouakkqmoq.bkt.clouddn.com/ocAndSwift1.png" alt="Image text"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/26/OC与Swift混合编程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/15/Swift第三方框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1291,448 +1726,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/17/runtime/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/17/runtime/" itemprop="url">runtime</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T22:36:07+08:00">
-                2017-08-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OC/" itemprop="url" rel="index">
-                    <span itemprop="name">OC</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>runtime是一套底层的C语言API（包含很多强大实用的C语言数据类型、C语言函数）<br>运行时最主要的消息机制，是使用c语言给对象发送消息,对象接收到消息后, 找到匹配的方法执行。</p>
-<p>常见的函数、头文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#import &lt;objc/runtime.h&gt; : 成员变量、类、方法</span></div><div class="line">Ivar * class_copyIvarList : 获得某个类内部的所有成员变量</div><div class="line">Method * class_copyMethodList : 获得某个类内部的所有方法</div><div class="line">Method class_getInstanceMethod : 获得某个实例方法</div><div class="line">Method class_getClassMethod : 获得某个类方法</div><div class="line">method_exchangeImplementations : 交换2个方法的具体实现</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/17/runtime/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/17/UIView动画/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/17/UIView动画/" itemprop="url">UIView动画</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T09:45:20+08:00">
-                2017-08-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/动画/" itemprop="url" rel="index">
-                    <span itemprop="name">动画</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>UIView动画实质上是对Core Animation的封装，提供简洁的动画接口。<br>对于简单的应用场景，使用UIView动画非常方便简洁。</p>
-<h3 id="一、基础动画"><a href="#一、基础动画" class="headerlink" title="一、基础动画"></a>一、基础动画</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[UIView animateWithDuration:(NSTimeInterval) //动画持续时间</div><div class="line">                       delay:(NSTimeInterval) //动画延迟执行的时间</div><div class="line">                     options:(UIViewAnimationOptions) //动画的过渡效果</div><div class="line">                  animations:^&#123;</div><div class="line">                   //执行的动画</div><div class="line"> &#125;                completion:^(BOOL finished) &#123;</div><div class="line">                   //动画执行完毕后的操作</div><div class="line"> &#125;];</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/17/UIView动画/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/16/CALayer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/16/CALayer/" itemprop="url">CALayer</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T10:27:50+08:00">
-                2017-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/动画/" itemprop="url" rel="index">
-                    <span itemprop="name">动画</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如果一个layer是被一个view创建的,那么这个view通常会自动被赋值给这个layer的delegate属性(也就算说这个view就是这个layer的代理)。你不应该改变这种关系。对于你自己创建的layer,你可以赋值一个代理对象用来动态提供layer的内容和执行其他的任务。</p>
-<p>如果一个layer已经关联了一个view对象。那么layer的delegate属性必须设置为这个拥有这个layer的view本身。</p>
-<h3 id="UIView和CALayer的关系"><a href="#UIView和CALayer的关系" class="headerlink" title="UIView和CALayer的关系"></a>UIView和CALayer的关系</h3><p>UIView是iOS页面控件的基类，因为UIView直接继承自UIResponder，所以可以响应用户事件，在iOS中创建的每一个UIView都有一个属性layer（CALayer），layer继承自己NSObject，不能响应用户事件，但layer提供了UIView内容的绘制功能，也就是说UIView侧重于对显示内容的管理，CALayer侧重于对内容的绘制。UIView和CALayer相互依赖，UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容，UIView可以理解为是CALayer的高级封装。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/16/CALayer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1783,7 +1776,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
