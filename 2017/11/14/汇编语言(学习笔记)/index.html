@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。学习汇编语言的用途：弄清代码的本质推荐阅读：《汇编语言》王爽 汇编语言的特点1、可以直接访问、控制各种硬件设备，比如存储器、CPU等，能最大限度地发挥硬件的功能2、能够不受编译器的限制，对生成的二进制代码进行完全的控制3、目标代码简短，占用内存少，执行速度快4、汇编指令是机器指令的助记符，同机器指令一一对应">
+<meta name="description" content="汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。学习汇编语言的用途：弄清代码的本质推荐阅读：《汇编语言》王爽">
 <meta name="keywords" content="综合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编语言(学习笔记)">
 <meta property="og:url" content="https://xianrong.github.io/2017/11/14/汇编语言(学习笔记)/index.html">
-<meta property="og:site_name" content="XR&#39;s Blog">
-<meta property="og:description" content="汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。学习汇编语言的用途：弄清代码的本质推荐阅读：《汇编语言》王爽 汇编语言的特点1、可以直接访问、控制各种硬件设备，比如存储器、CPU等，能最大限度地发挥硬件的功能2、能够不受编译器的限制，对生成的二进制代码进行完全的控制3、目标代码简短，占用内存少，执行速度快4、汇编指令是机器指令的助记符，同机器指令一一对应">
+<meta property="og:site_name" content="XR">
+<meta property="og:description" content="汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。学习汇编语言的用途：弄清代码的本质推荐阅读：《汇编语言》王爽">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://xianrong.github.io/Img/hbyy01.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/hbyy02.png">
-<meta property="og:updated_time" content="2017-11-13T23:36:54.000Z">
+<meta property="og:updated_time" content="2017-11-28T09:03:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编语言(学习笔记)">
-<meta name="twitter:description" content="汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。学习汇编语言的用途：弄清代码的本质推荐阅读：《汇编语言》王爽 汇编语言的特点1、可以直接访问、控制各种硬件设备，比如存储器、CPU等，能最大限度地发挥硬件的功能2、能够不受编译器的限制，对生成的二进制代码进行完全的控制3、目标代码简短，占用内存少，执行速度快4、汇编指令是机器指令的助记符，同机器指令一一对应">
+<meta name="twitter:description" content="汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。学习汇编语言的用途：弄清代码的本质推荐阅读：《汇编语言》王爽">
 <meta name="twitter:image" content="https://xianrong.github.io/Img/hbyy01.png">
 
 
@@ -143,7 +143,7 @@
 
 
 
-  <title>汇编语言(学习笔记) | XR's Blog</title>
+  <title>汇编语言(学习笔记) | XR</title>
   
 
 
@@ -179,12 +179,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">XR's Blog</span>
+        <span class="site-title">XR</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Stay hungry，Stay foolish</p>
+        <p class="site-subtitle">Stay hungry Stay foolish</p>
       
   </div>
 
@@ -295,7 +295,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
+      <meta itemprop="name" content="XR">
     </span>
 
     
@@ -380,7 +380,7 @@
       
 
       
-        <p>汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。<br>学习汇编语言的用途：弄清代码的本质<br>推荐阅读：《汇编语言》王爽<br><img src="/Img/hbyy01.png" alt="Image text"></p>
+        <p>汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。<br>学习汇编语言的用途：弄清代码的本质<br>推荐阅读：《汇编语言》王爽<br><img src="/Img/hbyy01.png" alt="Image text"><br><a id="more"></a></p>
 <h4 id="汇编语言的特点"><a href="#汇编语言的特点" class="headerlink" title="汇编语言的特点"></a>汇编语言的特点</h4><p>1、可以直接访问、控制各种硬件设备，比如存储器、CPU等，能最大限度地发挥硬件的功能<br>2、能够不受编译器的限制，对生成的二进制代码进行完全的控制<br>3、目标代码简短，占用内存少，执行速度快<br>4、汇编指令是机器指令的助记符，同机器指令一一对应。每一种CPU都有自己的机器指令集\汇编指令集，所以汇编语言不具备可移植性<br>5、知识点过多，开发者需要对CPU等硬件结构有所了解，不易于编写、调试、维护<br>6、不区分大小写，比如mov和MOV是一样的</p>
 <h4 id="汇编语言种类"><a href="#汇编语言种类" class="headerlink" title="汇编语言种类"></a>汇编语言种类</h4><p>1、8086汇编（8086处理器是16bit的CPU）<br>2、Win32汇编<br>3、Win64汇编<br>4、ARM汇编（嵌入式、Mac、iOS）<br>5、……</p>
 <h4 id="学前须知"><a href="#学前须知" class="headerlink" title="学前须知"></a>学前须知</h4><p>1、要想学好汇编语言，首先要对CPU等硬件结构有一定的了解<br>2、软件\程序的执行过程<br>3、最为关键的是需要了解CPU和内存<br>4、在学习汇编语言过程中，遇到的绝大部分指令都是跟内存、CPU有关的<br><img src="/Img/hbyy02.png" alt="Image text"></p>

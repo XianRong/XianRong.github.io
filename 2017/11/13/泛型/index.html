@@ -99,10 +99,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛型">
 <meta property="og:url" content="https://xianrong.github.io/2017/11/13/泛型/index.html">
-<meta property="og:site_name" content="XR&#39;s Blog">
+<meta property="og:site_name" content="XR">
 <meta property="og:description" content="使用泛型代码，你可以 写出可重用的函数和数据结构，只要它们满足你所定义的约束，它们就能够适用于各种类型。比如，像是 Array 和 Set 等多个类型，实际上是它们中的元素类型就是泛型抽象。我们也可以 创建泛型方法，它们可以对输入或者输出的类型进行泛型处理。func identity(input: A) -&amp;gt; A 就定义了一个可以作用于任意类型 A 的函数。某种意义上，我们甚至可以认为带有关">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-13T07:16:10.000Z">
+<meta property="og:updated_time" content="2017-11-28T09:05:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛型">
 <meta name="twitter:description" content="使用泛型代码，你可以 写出可重用的函数和数据结构，只要它们满足你所定义的约束，它们就能够适用于各种类型。比如，像是 Array 和 Set 等多个类型，实际上是它们中的元素类型就是泛型抽象。我们也可以 创建泛型方法，它们可以对输入或者输出的类型进行泛型处理。func identity(input: A) -&amp;gt; A 就定义了一个可以作用于任意类型 A 的函数。某种意义上，我们甚至可以认为带有关">
@@ -140,7 +140,7 @@
 
 
 
-  <title>泛型 | XR's Blog</title>
+  <title>泛型 | XR</title>
   
 
 
@@ -176,12 +176,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">XR's Blog</span>
+        <span class="site-title">XR</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Stay hungry，Stay foolish</p>
+        <p class="site-subtitle">Stay hungry Stay foolish</p>
       
   </div>
 
@@ -292,7 +292,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
+      <meta itemprop="name" content="XR">
     </span>
 
     
@@ -378,7 +378,7 @@
 
       
         <p>使用泛型代码，你可以 写出可重用的函数和数据结构，只要它们满足你所定义的约束，它们就能够适用于各种类型。<br>比如，像是 Array 和 Set 等多个类型，实际上是它们中的元素类型就是泛型抽象。<br>我们也可以 创建泛型方法，它们可以对输入或者输出的类型进行泛型处理。<br>func identity<a>(input: A) -&gt; A 就定义了一个可以作用于任意类型 A 的函数。<br>某种意义上，我们甚至可以认为带有关联类型的协议是 “泛型协议”。关联类型允许我们对特定的实现进行抽 象。IteratorProtocol 协议就是一个这样的例子:它所生成的 Element 就是一个泛型。</a></p>
-<p>泛型编程的目的是表达算法或者数据结构所要求的核心接口。<br>使用泛型数据类型来重构代码，能使它们易于测试，更加灵活。</p>
+<p>泛型编程的目的是表达算法或者数据结构所要求的核心接口。<br>使用泛型数据类型来重构代码，能使它们易于测试，更加灵活。<br><a id="more"></a></p>
 <h4 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h4><p>重载：拥有同样名字，但是参数或返回类型不同的多个方法互相称为重载方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">func raise(_ base: Double, to exponent: Double) -&gt; Double &#123;</div><div class="line">    <span class="built_in">return</span> pow(base, exponent)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func raise(_ base: Float, to exponent: Float) -&gt; Float &#123;</div><div class="line">    <span class="built_in">return</span> powf(base, exponent)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">let</span> double = raise(2.0, to: 3.0)</div><div class="line"><span class="built_in">print</span>(double)  // 8.0</div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(of: double)) // Double</div><div class="line"></div><div class="line"><span class="built_in">let</span> <span class="built_in">float</span>:Float = raise(2.0, to: 3.0)</div><div class="line"><span class="built_in">print</span>(<span class="built_in">float</span>) // 8.0</div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(of: <span class="built_in">float</span>)) // Float</div></pre></td></tr></table></figure></p>
 <p>Swift 有一系列的复杂规则来确定到底使用哪个重载函数，这套规则基于函数是否是泛型，以及传入的参数是怎样的类型来确定使用优先级。整套规则十分复杂，不过它们可以被总结为一句话，那就是 “选择最具体的一个”。也就是说，非通用的函数会优先于通用函数被使用。</p>
 <p>重载的使用是在编译期间静态决定的。也就是说，编译器会依据变量的静态类型来决定要调用哪一个重载，而不是在运行时根据值的动态类型来决定。</p>

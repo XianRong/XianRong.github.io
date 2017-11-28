@@ -99,14 +99,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS项目架构">
 <meta property="og:url" content="https://xianrong.github.io/2017/09/10/iOS项目架构/index.html">
-<meta property="og:site_name" content="XR&#39;s Blog">
+<meta property="og:site_name" content="XR">
 <meta property="og:description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVC.jpg">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVVM1.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/MVVM2.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/RxSwift%20Workflow.jpg">
-<meta property="og:updated_time" content="2017-11-07T02:10:15.000Z">
+<meta property="og:updated_time" content="2017-11-28T09:24:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS项目架构">
 <meta name="twitter:description" content="MVCMVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写是 苹果官方文档 推荐使用的一个设计模式，经典中的经典。看懂斯坦福公开课上的这张图就够了">
@@ -145,7 +145,7 @@
 
 
 
-  <title>iOS项目架构 | XR's Blog</title>
+  <title>iOS项目架构 | XR</title>
   
 
 
@@ -181,12 +181,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">XR's Blog</span>
+        <span class="site-title">XR</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Stay hungry，Stay foolish</p>
+        <p class="site-subtitle">Stay hungry Stay foolish</p>
       
   </div>
 
@@ -297,7 +297,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR's Blog">
+      <meta itemprop="name" content="XR">
     </span>
 
     
@@ -389,7 +389,7 @@
 <h4 id="MVVM-With-RxSwift"><a href="#MVVM-With-RxSwift" class="headerlink" title="MVVM With RxSwift"></a>MVVM With RxSwift</h4><p><a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="external">RxSwift</a>是整个<a href="https://github.com/ReactiveX" target="_blank" rel="external">ReactiveX</a>里针对Swift语言的库，ReactiveX里面还有针对Java，JS，.Net, Swift，Android，PHP等使用的库，它们内部都用了ReactiveX的逻辑思想。</p>
 <p><a href="http://reactivex.io" target="_blank" rel="external">ReactiveX</a>是Reactive Extensions的缩写，一般简写为Rx。<br>Rx(函数库) = Observables(异步数据流) + LINQ(操作符查询异步数据流) + Schedulers(参数化异步数据流的并发处理)。<br>Rx是一种编程模型，最初由微软开发，结合了观察者模式、迭代器模式和函数式编程的精华，来更方便地处理异步数据流。其中最重要的一个概念是 Observable。<br>Rx提供了观察者模式来处理事件序列，还提供了很多强大的操作符，操作符让你可以变换、组合、操纵和处理Observable发射的数据；让你可以用声明式的风格组合异步操作序列，它拥有回调的所有效率优势，同时又避免了典型的异步系统中嵌套回调的缺点。</p>
 <p>RxSwift 也被描述为函数响应式编程(Functional Reactive Programming, FRP)框架。<br><img src="http://ouakkqmoq.bkt.clouddn.com/RxSwift%20Workflow.jpg" alt="Image text"><br>推荐参考学习：<br><a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="external">RxSwift</a><br><a href="https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Why.md" target="_blank" rel="external">why use rx?</a><br><a href="http://rxmarbles.com" target="_blank" rel="external">Marbles</a><br><a href="https://academy.realm.io/cn/posts/altconf-scott-gardner-reactive-programming-with-rxswift/" target="_blank" rel="external">使用 RxSwift 进行响应式编程</a><br><a href="http://limboy.me/tech/2016/12/11/time-to-learn-rxswift.html" target="_blank" rel="external">是时候学习 RxSwift 了</a><br><a href="http://www.jianshu.com/p/7ca8e4b438af" target="_blank" rel="external">坠入链式编程的幻乐里–用RxSwift仿写知乎日报</a><br><a href="https://github.com/jhw-dev/RxSwift-CN" target="_blank" rel="external">RxSwift/Documentation/的中文翻译</a><br><a href="https://www.gitbook.com/book/mcxiaoke/rxdocs/details" target="_blank" rel="external">ReactiveX文档中文翻译</a></p>
-<p>小结：在Swift项目里使用MVVM模式会很棒，可以尝试Moya+RxSwift+HandyJSON这几个框架一起使用。其实RAC和RxSwift都很棒,都能实现函数式响应式编程，满足你的开发编码需求。个人最终还是喜欢用RxSwift的原因是因为其文档写得更清晰优秀，且相对来说比较轻量级，语法更新比较少，RAC后期也是吸纳了一些Rx的思想。</p>
+<p>小结：在Swift项目里使用MVVM模式会很爽，可以尝试Moya+RxSwift+HandyJSON这几个框架一起使用。其实RAC和RxSwift都能实现函数式响应式编程，满足你的开发编码需求。如果是使用OC的项目可以使用RAC，Swift项目可以使用RxSwift。个人还是比较喜欢RxSwift，因为其文档写得更清晰优秀，且相对来说比较轻量级，语法更新比较少，RAC后期也是吸纳了一些Rx的思想。</p>
 <h3 id="单向数据流的架构模式"><a href="#单向数据流的架构模式" class="headerlink" title="单向数据流的架构模式"></a>单向数据流的架构模式</h3><p><a href="https://github.com/ReSwift/ReSwift" target="_blank" rel="external">ReSwift</a><br><a href="http://limboy.me/tech/2016/12/04/reswift-analyze.html" target="_blank" rel="external">ReSwift介绍</a><br><a href="https://onevcat.com/2017/07/state-based-viewcontroller/" target="_blank" rel="external">单向数据流动的函数式 View Controller</a></p>
 
       
