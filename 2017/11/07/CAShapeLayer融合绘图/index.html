@@ -94,28 +94,22 @@
 
 
 
-<meta name="description" content="Bézier curve(贝塞尔曲线)是应用于二维图形应用程序的数学曲线。 曲线定义：起始点、终止点（也称锚点）、控制点。通过调整控制点，贝塞尔曲线的形状会发生变化。 1962年，法国数学家Pierre Bézier第一个研究了这种矢量绘制曲线的方法，并给出了详细的计算公式，因此按照这样的公式绘制出来的曲线就用他的姓氏来命名，称为贝塞尔曲线。">
+<meta name="description" content="CAShapeLayer属于Core Animation框架下。CAShapeLayer 是 CALayer 的子类，但是比 CALayer 更灵活，可以画出各种图形。CAShapeLayer 还有一个神奇的属性 path 用这个属性配合上 UIBezierPath 这个类就可以达到超神的效果。">
 <meta name="keywords" content="绘图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贝塞尔曲线（转）">
-<meta property="og:url" content="https://xianrong.github.io/2017/11/07/贝塞尔曲线(转)/index.html">
+<meta property="og:title" content="CAShapeLayer融合绘图">
+<meta property="og:url" content="https://xianrong.github.io/2017/11/07/CAShapeLayer融合绘图/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="Bézier curve(贝塞尔曲线)是应用于二维图形应用程序的数学曲线。 曲线定义：起始点、终止点（也称锚点）、控制点。通过调整控制点，贝塞尔曲线的形状会发生变化。 1962年，法国数学家Pierre Bézier第一个研究了这种矢量绘制曲线的方法，并给出了详细的计算公式，因此按照这样的公式绘制出来的曲线就用他的姓氏来命名，称为贝塞尔曲线。">
+<meta property="og:description" content="CAShapeLayer属于Core Animation框架下。CAShapeLayer 是 CALayer 的子类，但是比 CALayer 更灵活，可以画出各种图形。CAShapeLayer 还有一个神奇的属性 path 用这个属性配合上 UIBezierPath 这个类就可以达到超神的效果。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve1.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve2.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve3.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve4.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve5.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve6.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve7.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve8.gif">
-<meta property="og:image" content="https://xianrong.github.io/Img/BezierCurve9.gif">
-<meta property="og:updated_time" content="2017-11-30T09:41:10.000Z">
+<meta property="og:image" content="https://xianrong.github.io/Img/CAShapeLayer1.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/CAShapeLayer2.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/CAShapeLayerMask.jpg">
+<meta property="og:updated_time" content="2017-12-06T07:49:22.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贝塞尔曲线（转）">
-<meta name="twitter:description" content="Bézier curve(贝塞尔曲线)是应用于二维图形应用程序的数学曲线。 曲线定义：起始点、终止点（也称锚点）、控制点。通过调整控制点，贝塞尔曲线的形状会发生变化。 1962年，法国数学家Pierre Bézier第一个研究了这种矢量绘制曲线的方法，并给出了详细的计算公式，因此按照这样的公式绘制出来的曲线就用他的姓氏来命名，称为贝塞尔曲线。">
-<meta name="twitter:image" content="https://xianrong.github.io/Img/BezierCurve1.gif">
+<meta name="twitter:title" content="CAShapeLayer融合绘图">
+<meta name="twitter:description" content="CAShapeLayer属于Core Animation框架下。CAShapeLayer 是 CALayer 的子类，但是比 CALayer 更灵活，可以画出各种图形。CAShapeLayer 还有一个神奇的属性 path 用这个属性配合上 UIBezierPath 这个类就可以达到超神的效果。">
+<meta name="twitter:image" content="https://xianrong.github.io/Img/CAShapeLayer1.png">
 
 
 
@@ -144,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/11/07/贝塞尔曲线(转)/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2017/11/07/CAShapeLayer融合绘图/"/>
 
 
 
 
 
-  <title>贝塞尔曲线（转） | XR</title>
+  <title>CAShapeLayer融合绘图 | XR</title>
   
 
 
@@ -293,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/07/贝塞尔曲线(转)/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/07/CAShapeLayer融合绘图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -310,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">贝塞尔曲线（转）</h1>
+          <h1 class="post-title" itemprop="name headline">CAShapeLayer融合绘图</h1>
         
 
         <div class="post-meta">
@@ -322,7 +316,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T11:47:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T17:53:12+08:00">
                 2017-11-07
               </time>
             
@@ -387,11 +381,10 @@
       
 
       
-        <p>Bézier curve(贝塞尔曲线)是应用于二维图形应用程序的数学曲线。 曲线定义：起始点、终止点（也称锚点）、控制点。通过调整控制点，贝塞尔曲线的形状会发生变化。 1962年，法国数学家Pierre Bézier第一个研究了这种矢量绘制曲线的方法，并给出了详细的计算公式，因此按照这样的公式绘制出来的曲线就用他的姓氏来命名，称为贝塞尔曲线。<br><a id="more"></a><br>以下公式中：B(t)为t时间下点的坐标；P0为起点,Pn为终点,Pi为控制点。</p>
-<h3 id="一阶贝塞尔曲线-线段-："><a href="#一阶贝塞尔曲线-线段-：" class="headerlink" title="一阶贝塞尔曲线(线段)："></a>一阶贝塞尔曲线(线段)：</h3><p><img src="/Img/BezierCurve1.gif" alt="Image text"><br><img src="/Img/BezierCurve2.gif" alt="Image text"><br>意义：由 P0 至 P1 的连续点，描述的一条线段</p>
-<h3 id="二阶贝塞尔曲线-抛物线-："><a href="#二阶贝塞尔曲线-抛物线-：" class="headerlink" title="二阶贝塞尔曲线(抛物线)："></a>二阶贝塞尔曲线(抛物线)：</h3><p><img src="/Img/BezierCurve3.gif" alt="Image text"><br><img src="/Img/BezierCurve4.gif" alt="Image text"><br>原理: 由 P0 至 P1 的连续点 Q0，描述一条线段。<br>      由 P1 至 P2 的连续点 Q1，描述一条线段。<br>      由 Q0 至 Q1 的连续点 B(t)，描述一条二次贝塞尔曲线。<br>经验：P1-P0为曲线在P0处的切线。</p>
-<h3 id="三阶贝塞尔曲线："><a href="#三阶贝塞尔曲线：" class="headerlink" title="三阶贝塞尔曲线："></a>三阶贝塞尔曲线：</h3><p><img src="/Img/BezierCurve5.gif" alt="Image text"><br><img src="/Img/BezierCurve6.gif" alt="Image text"></p>
-<h3 id="高阶贝塞尔曲线通用公式："><a href="#高阶贝塞尔曲线通用公式：" class="headerlink" title="高阶贝塞尔曲线通用公式："></a>高阶贝塞尔曲线通用公式：</h3><p><img src="/Img/BezierCurve7.gif" alt="Image text"><br>四阶贝塞尔曲线：<br><img src="/Img/BezierCurve8.gif" alt="Image text"><br>五阶贝塞尔曲线：<br><img src="/Img/BezierCurve9.gif" alt="Image text"></p>
+        <p>CAShapeLayer属于Core Animation框架下。<br>CAShapeLayer 是 CALayer 的子类，但是比 CALayer 更灵活，可以画出各种图形。<br>CAShapeLayer 还有一个神奇的属性 path 用这个属性配合上 UIBezierPath 这个类就可以达到超神的效果。<br><a id="more"></a><br>实现效果：普通图片 和 CAShapeLayer绘制出来的形状 进行融合<br><img src="/Img/CAShapeLayer1.png" alt="Image text">  <img src="/Img/CAShapeLayer2.png" alt="Image text"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">@implementation CAShapeLayer (ViewMask)</div><div class="line">+ (instancetype)createMaskLayerWithView : (UIView *)view&#123;</div><div class="line">    CGFloat viewWidth = CGRectGetWidth(view.frame);</div><div class="line">    CGFloat viewHeight = CGRectGetHeight(view.frame);</div><div class="line">    CGFloat rightSpace = 10.;</div><div class="line">    CGFloat topSpace = 15.;</div><div class="line">    CGPoint point1 = CGPointMake(0, 0);</div><div class="line">    CGPoint point2 = CGPointMake(viewWidth-rightSpace, 0);</div><div class="line">    CGPoint point3 = CGPointMake(viewWidth-rightSpace, topSpace);</div><div class="line">    CGPoint point4 = CGPointMake(viewWidth, topSpace);</div><div class="line">    CGPoint point5 = CGPointMake(viewWidth-rightSpace, topSpace+10.);</div><div class="line">    CGPoint point6 = CGPointMake(viewWidth-rightSpace, viewHeight);</div><div class="line">    CGPoint point7 = CGPointMake(0, viewHeight);</div><div class="line">    UIBezierPath *path = [UIBezierPath bezierPath];</div><div class="line">    [path moveToPoint:point1];</div><div class="line">    [path addLineToPoint:point2];</div><div class="line">    [path addLineToPoint:point3];</div><div class="line">    [path addLineToPoint:point4];</div><div class="line">    [path addLineToPoint:point5];</div><div class="line">    [path addLineToPoint:point6];</div><div class="line">    [path addLineToPoint:point7];</div><div class="line">    [path closePath];</div><div class="line">    CAShapeLayer *layer = [CAShapeLayer layer];</div><div class="line">    layer.path = path.CGPath;</div><div class="line">    <span class="built_in">return</span> layer;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UIView *view = [[UIView alloc] initWithFrame:CGRectMake(40, 50, 80, 100)];</div><div class="line">view.backgroundColor = [UIColor orangeColor];</div><div class="line">[self.view addSubview:view];</div><div class="line">CAShapeLayer *layer = [CAShapeLayer createMaskLayerWithView:view];</div><div class="line">view.layer.mask = layer;</div></pre></td></tr></table></figure>
+<h4 id="Mask"><a href="#Mask" class="headerlink" title="Mask"></a>Mask</h4><p>CALayer有一个属性叫做mask，通常被称为蒙版图层，这个属性本身也是CALayer类型，有和其他图层一样的绘制和布局属性。它类似于一个子视图，相对于父图层（即拥有该属性的图层）布局，但是它却不是一个普通的子视图。不同于一般的subLayer，mask定义了父图层的可见区域，简单点说就是最终父视图显示的形态是父视图自身和它的属性mask的交集部分。<br><img src="/Img/CAShapeLayerMask.jpg" alt="Image text"><br>mask图层的color属性是无关紧要的，真正重要的是它的轮廓，mask属性就像一个切割机，父视图被mask切割，相交的部分会留下，其他的部分则被丢弃。<br>CALayer的蒙版图层真正厉害的地方在于蒙版图层不局限于静态图，任何有图层构成的都可以作为mask属性，这意味着蒙版可以通过代码甚至是动画实时生成。</p>
 
       
     </div>
@@ -451,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/07/UICollectionView实现多选且组内单选/" rel="next" title="UICollectionView实现多选且组内单选">
-                <i class="fa fa-chevron-left"></i> UICollectionView实现多选且组内单选
+              <a href="/2017/11/07/贝塞尔曲线/" rel="next" title="贝塞尔曲线">
+                <i class="fa fa-chevron-left"></i> 贝塞尔曲线
               </a>
             
           </div>
@@ -461,8 +454,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/07/CAShapeLayer(转)/" rel="prev" title="CAShapeLayer(转)">
-                CAShapeLayer(转) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/10/iOS学习渠道/" rel="prev" title="iOS学习渠道">
+                iOS学习渠道 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,7 +533,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -551,7 +544,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -562,7 +555,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -597,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一阶贝塞尔曲线-线段-："><span class="nav-number">1.</span> <span class="nav-text">一阶贝塞尔曲线(线段)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二阶贝塞尔曲线-抛物线-："><span class="nav-number">2.</span> <span class="nav-text">二阶贝塞尔曲线(抛物线)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三阶贝塞尔曲线："><span class="nav-number">3.</span> <span class="nav-text">三阶贝塞尔曲线：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶贝塞尔曲线通用公式："><span class="nav-number">4.</span> <span class="nav-text">高阶贝塞尔曲线通用公式：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mask"><span class="nav-number">1.</span> <span class="nav-text">Mask</span></a></li></ol></div>
             
 
           </div>

@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="绘图," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="// 图片加载pod ‘Kingfisher’ // 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’">
-<meta name="keywords" content="iOS">
+<meta name="description" content="使用Core Graphics框架下的Quartz 2D实现渐变效果Quartz 2D 的渐变方式分为两种：1、线性渐变：渐变色以直线方式从开始位置逐渐向结束位置渐变2、放射性渐变：以中心点为圆心从起始渐变色向四周辐射，直到终止渐变色使用中我们可以直接绘制一个渐变，也可以将渐变填充到现有的图形路径上 使用CAGradientLayer来实现渐变背景CAGradientLayer 是 CALayer">
+<meta name="keywords" content="绘图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift第三方框架">
-<meta property="og:url" content="https://xianrong.github.io/2017/09/15/Swift第三方框架/index.html">
+<meta property="og:title" content="渐变色效果">
+<meta property="og:url" content="https://xianrong.github.io/2017/12/06/渐变色效果/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="// 图片加载pod ‘Kingfisher’ // 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’">
+<meta property="og:description" content="使用Core Graphics框架下的Quartz 2D实现渐变效果Quartz 2D 的渐变方式分为两种：1、线性渐变：渐变色以直线方式从开始位置逐渐向结束位置渐变2、放射性渐变：以中心点为圆心从起始渐变色向四周辐射，直到终止渐变色使用中我们可以直接绘制一个渐变，也可以将渐变填充到现有的图形路径上 使用CAGradientLayer来实现渐变背景CAGradientLayer 是 CALayer">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T07:06:46.314Z">
+<meta property="og:updated_time" content="2017-12-06T08:04:59.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift第三方框架">
-<meta name="twitter:description" content="// 图片加载pod ‘Kingfisher’ // 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’">
+<meta name="twitter:title" content="渐变色效果">
+<meta name="twitter:description" content="使用Core Graphics框架下的Quartz 2D实现渐变效果Quartz 2D 的渐变方式分为两种：1、线性渐变：渐变色以直线方式从开始位置逐渐向结束位置渐变2、放射性渐变：以中心点为圆心从起始渐变色向四周辐射，直到终止渐变色使用中我们可以直接绘制一个渐变，也可以将渐变填充到现有的图形路径上 使用CAGradientLayer来实现渐变背景CAGradientLayer 是 CALayer">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/09/15/Swift第三方框架/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2017/12/06/渐变色效果/"/>
 
 
 
 
 
-  <title>Swift第三方框架 | XR</title>
+  <title>渐变色效果 | XR</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/15/Swift第三方框架/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/12/06/渐变色效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swift第三方框架</h1>
+          <h1 class="post-title" itemprop="name headline">渐变色效果</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T09:54:38+08:00">
-                2017-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-06T15:54:15+08:00">
+                2017-12-06
               </time>
             
 
@@ -335,8 +335,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/绘图/" itemprop="url" rel="index">
+                    <span itemprop="name">绘图</span>
                   </a>
                 </span>
 
@@ -377,15 +377,8 @@
       
 
       
-        <p>// 图片加载<br>pod ‘Kingfisher’</p>
-<p>// 函数式链式编程<br>pod ‘RxSwift’<br>pod ‘RxCocoa’<br>pod ‘RxDataSources’</p>
-<a id="more"></a>
-<p>// json-&gt;model<br>pod ‘HandyJSON’</p>
-<p>// 布局约束<br>pod ‘SnapKit’</p>
-<p>// 网络请求<br>pod ‘Moya/RxSwift’<br>pod ‘Alamofire’</p>
-<p>//  日期格式化<br>pod ‘SwiftDate’</p>
-<p>//<br> pod ‘Then’</p>
-<p>//  表单组件<br> pod ‘SwiftForms’</p>
+        <h3 id="使用Core-Graphics框架下的Quartz-2D实现渐变效果"><a href="#使用Core-Graphics框架下的Quartz-2D实现渐变效果" class="headerlink" title="使用Core Graphics框架下的Quartz 2D实现渐变效果"></a>使用Core Graphics框架下的Quartz 2D实现渐变效果</h3><p>Quartz 2D 的渐变方式分为两种：<br>1、线性渐变：渐变色以直线方式从开始位置逐渐向结束位置渐变<br>2、放射性渐变：以中心点为圆心从起始渐变色向四周辐射，直到终止渐变色<br>使用中我们可以直接绘制一个渐变，也可以将渐变填充到现有的图形路径上</p>
+<h3 id="使用CAGradientLayer来实现渐变背景"><a href="#使用CAGradientLayer来实现渐变背景" class="headerlink" title="使用CAGradientLayer来实现渐变背景"></a>使用CAGradientLayer来实现渐变背景</h3><p>CAGradientLayer 是 CALayer 的子类，可以理解为一个渐变层。如果使用的是透明的颜色，还可以做到透明渐变。<br>CAGradientLayer 目前只能实现线性渐变，还不能实现放射性渐变。<br>CAGradientLayer 对象最主要的就是如下 4 个属性：<br>1、colors：颜色数组，定义渐变层的各个颜色。<br>2、locations（可选）：决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致。<br>3、startPoint（可选）：渲染的起始位置，默认值是：[.5,0]（具体坐标系参考下图）<br>4、endPoint（可选）：渲染的终止位置，默认值是：[.5,1]（具体坐标系参考下图）</p>
 
       
     </div>
@@ -432,7 +425,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/绘图/" rel="tag"># 绘图</a>
           
         </div>
       
@@ -445,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/ReactiveSwift示例/" rel="next" title="ReactiveSwift示例">
-                <i class="fa fa-chevron-left"></i> ReactiveSwift示例
+              <a href="/2017/11/14/汇编语言(转)/" rel="next" title="汇编语言(转)">
+                <i class="fa fa-chevron-left"></i> 汇编语言(转)
               </a>
             
           </div>
@@ -455,8 +448,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/26/OC与Swift混合编程/" rel="prev" title="OC与Swift混合编程">
-                OC与Swift混合编程 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/12/js的CRUD/" rel="prev" title="js的CRUD">
+                js的CRUD <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -509,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/coder.png"
@@ -572,6 +574,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Core-Graphics框架下的Quartz-2D实现渐变效果"><span class="nav-number">1.</span> <span class="nav-text">使用Core Graphics框架下的Quartz 2D实现渐变效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CAGradientLayer来实现渐变背景"><span class="nav-number">2.</span> <span class="nav-text">使用CAGradientLayer来实现渐变背景</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
