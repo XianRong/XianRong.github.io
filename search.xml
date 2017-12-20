@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[JAVA入坑]]></title>
-    <url>%2F2017%2F12%2F19%2FJAVA%E5%85%A5%E5%9D%91%2F</url>
-    <content type="text"><![CDATA[前期准备JVM (Java Virtual Machine)，是Java语言的运行环境JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持，JRE里包含JVMJDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等，JDK里包含JRE。JDK目录：bin 编译器+解释+其它可执行文件db JAVA DB数据库include 用于本地代码的头文件src.zip JDK类库源代码文件jre java运行环境lib 相关类库注：(.java文件)编译生成字节码(.class文件)的名称跟里面代码的class名称是一致的。 如果在代码里的class前添加public关键字，那么(.java文件)名称必须和代码里的class的名称一致。反编译工具：XJad 到官网下载对应系统的JDK下载安装IntelliJ IDEA 熟悉基础语法示例代码demo练习项目实战]]></content>
+    <title><![CDATA[Java入坑]]></title>
+    <url>%2F2017%2F12%2F19%2FJava%E5%85%A5%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。JDK目录：bin （编译器+解释+其它可执行文件）db （JAVA DB数据库）include （用于本地代码的头文件）src.zip （JDK类库源代码文件）jre （java运行环境）lib （相关类库）注意：(.java文件)编译生成字节码(.class文件)的名称跟里面代码的class名称是一致的。 如果在代码里的class前添加public关键字，那么(.java文件)名称必须和代码里的class的名称一致。反编译工具：XJad 到官网下载对应系统的JDK下载安装IntelliJ IDEA 熟悉基础语法基本数据类型：存放于栈中 引用数据类型： Static关键字：1、确定修饰的内容属于类，附着类的的加载而加载（当JVM把class字节码加载到虚拟机时，static修饰的成员已经自动的加载到内存中）2、可以直接使用当前类的类名访问static成员3、可以通过对象访问static成员（static修饰的成员被该类型的所有对象共享，本质上依然是使用的类名访问，可通过代码反编译查看验证）4、静态方法(static修饰的方法)只能访问静态成员（static修饰的成员） 包(package)：1、划分方便管理，避免名字冲突2、不同包中的类的名字可以相同，当调用时需要加上包名加以区分3、包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类4、包语法：包名.子包名.子子包名5、包名定义：全部小写，域名倒写.模块名.组件名6、类的名称：包名.类名 访问修饰符:属性: this关键字:类似于OC的self 示例代码demo练习项目实战]]></content>
       <categories>
-        <category>JAVA</category>
+        <category>Java</category>
       </categories>
       <tags>
-        <tag>JAVA</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -34,14 +34,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[js的CRUD]]></title>
-    <url>%2F2017%2F12%2F12%2Fjs%E7%9A%84CRUD%2F</url>
+    <title><![CDATA[JS的CRUD]]></title>
+    <url>%2F2017%2F12%2F12%2FJS%E7%9A%84CRUD%2F</url>
     <content type="text"><![CDATA[window1、window的特点所有全局变量都是它的变量所有全局函数都是它的函数2、通过JS代码动态跳转页面12location.href = 'http://www.baidu.com';window.loction.href = 'http://www.baidu.com'; document1、document的用途：可以用来获得网页中的任何一个元素可以创建HTML元素动态的获取网页中所有的节点可以动态的对节点进行CRUD（增删改查）……2、常用方法getElementById (id名)getElementsByClassName (className)getElementsByName (标签的内部属性name)getElementsByTagName (标签名) Create1、write直接写入1234document.write('hello world!');document.write('&lt;img src="img/img_03.jpg"&gt;');document.write('&lt;input&gt;');document.write('&lt;input type="date"&gt;'); 2、先拿到修改再添加1234567var btn = document.createElement('button');btn.innerHTML = '我们不一样';btn.style.border = '5px solid #ddd';btn.style.background = 'red';// 把按钮加入到指定的div标签里var div = document.getElementsByClassName('test')[0];div.appendChild(btn); Delete12var img = document.getElementsByClassName('icon')[0];img.remove(); Update123var a = document.getElementsByClassName('gx')[0];a.href = 'https://www.baidu.com';a.target = '_blank'; Retrieve1234567891011121314console.log(document.body.children);console.log(document.body.innerHTML);console.log(document.body.outerHTML);function find(obj)&#123; for(var i = 0; i &lt; obj.length; i++)&#123; console.log(obj[i]); &#125;&#125;find(document.body.children);var dives = document.getElementsByClassName('test1');find(dives); 其它构造函数 实例化对象12345678910111213141516function Dog(name, age) = &#123; this.name = name; this.age = age; this.run = function()&#123; console.log(this.name + '- run'); &#125;; this.eat = function(meat)&#123; console.log(this.name + '-eat-' + meat); &#125;;&#125;;var dog1 = new Dog('wangcai', 5);var dog2 = new Dog('hhhhh');dog1.run();dog2.run();// 如果没有传值，则会是undifiend || 和 &amp;&amp;提出需求： var name1 = ‘’; var name2 = ‘name2’; var name3 = ‘name3’;找出这三个中第一个有值的赋给name12var name = name1 || name2 || name3;// js中||运算符的返回值：返回第一个为真（有值就为真）的值 123456var age = 18;if (age &gt;= 18)&#123; console.log('成年了！！！');&#125;// 等价于上面：（age &gt;= 18） &amp;&amp; console.log('成年了');]]></content>
       <categories>
-        <category>js</category>
+        <category>JS</category>
       </categories>
       <tags>
-        <tag>js</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
