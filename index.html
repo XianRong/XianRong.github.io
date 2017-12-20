@@ -375,15 +375,17 @@
 
       
         
-          <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>JVM (Java Virtual Machine)：Java虚拟机。<br>JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。<br>JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。<br><img src="/Img/java_JDK.png" alt="Image text"><br>JDK目录：<br>bin （编译器+解释+其它可执行文件）<br>db  （JAVA DB数据库）<br>include （用于本地代码的头文件）<br>src.zip （JDK类库源代码文件）<br>jre （java运行环境）<br>lib （相关类库）<br><img src="/Img/java_JVM.png" alt="Image text"><br>注意：(.java文件)编译生成字节码(.class文件)的名称跟里面代码的class名称是一致的。<br>    如果在代码里的class前添加public关键字，那么(.java文件)名称必须和代码里的class的名称一致。<br>反编译工具：XJad</p>
-<p>到<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">官网</a>下载对应系统的JDK<br>下载安装<a href="http://www.jetbrains.com/idea/" target="_blank" rel="external">IntelliJ IDEA</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/19/Java入坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>JVM (Java Virtual Machine)：Java虚拟机。<br>JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。<br>JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。<br><img src="/Img/java_jdkn.png" alt="Image text"><br>JDK目录：<br>bin （编译器+解释+其它可执行文件）<br>db  （JAVA DB数据库）<br>include （用于本地代码的头文件）<br>src.zip （JDK类库源代码文件）<br>jre （java运行环境）<br>lib （相关类库）<br><img src="/Img/java_jvmn.png" alt="Image text"><br>注意：(.java文件)编译生成字节码(.class文件)的名称跟里面代码的class名称是一致的。<br>    如果在代码里的class前添加public关键字，那么(.java文件)名称必须和代码里的class的名称一致。<br>反编译工具：XJad</p>
+<p>到<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">官网</a>下载对应系统的JDK<br>下载安装<a href="http://www.jetbrains.com/idea/" target="_blank" rel="external">IntelliJ IDEA</a></p>
+<h3 id="熟悉基础语法"><a href="#熟悉基础语法" class="headerlink" title="熟悉基础语法"></a>熟悉基础语法</h3><p>基本数据类型：存放于栈中<br><img src="/Img/java_jbsjlx.png" alt="Image text"></p>
+<p>引用数据类型：<br><img src="/Img/java_yysjlx.png" alt="Image text"></p>
+<p>Static关键字：<br>1、确定修饰的内容属于类，附着类的的加载而加载（当JVM把class字节码加载到虚拟机时，static修饰的成员已经自动的加载到内存中）<br>2、可以直接使用当前类的类名访问static成员<br>3、可以通过对象访问static成员（static修饰的成员被该类型的所有对象共享，本质上依然是使用的类名访问，可通过代码反编译查看验证）<br>4、静态方法(static修饰的方法)只能访问静态成员（static修饰的成员）</p>
+<p>包(package)：<br>1、划分方便管理，避免名字冲突<br>2、不同包中的类的名字可以相同，当调用时需要加上包名加以区分<br>3、包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类<br>4、包语法：包名.子包名.子子包名<br>5、包名定义：全部小写，域名倒写.模块名.组件名<br>6、类的名称：包名.类名</p>
+<p>访问修饰符:<br><img src="/Img/java_fwxsf.png" alt="Image text"><br>属性:<br><img src="/Img/java_sx.png" alt="Image text"></p>
+<p>this关键字:类似于OC的self</p>
+<h3 id="示例代码demo练习"><a href="#示例代码demo练习" class="headerlink" title="示例代码demo练习"></a>示例代码demo练习</h3><h3 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h3>
+          
         
       
     </div>
