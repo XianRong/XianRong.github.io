@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/12/19/Java入坑/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/12/22/Mac系统上IntellijIdea-tomcat-mysql环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -302,7 +302,321 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/19/Java入坑/" itemprop="url">Java入坑</a></h1>
+                <a class="post-title-link" href="/2017/12/22/Mac系统上IntellijIdea-tomcat-mysql环境搭建/" itemprop="url">Mac系统上IntellijIdea+tomcat+mysql环境搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T10:42:36+08:00">
+                2017-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Apache-Tomcat安装"><a href="#Apache-Tomcat安装" class="headerlink" title="Apache Tomcat安装"></a>Apache Tomcat安装</h3><p>Mac系统自带的Apache是普通服务器，本身只支持html即普通网页，可以通过插件支持PHP,还可以与Tomcat连通(单向Apache连接Tomcat,就是说通过Apache可以访问Tomcat资源。Tomcat无法取访问Appache资源)。Appache只支持静态网页，但像asp,php,cgi,jsp等动态就需要Tomcat来处理。</p>
+<p>1、下载<a href="http://tomcat.apache.org" target="_blank" rel="external">Apache Tomcat</a>，在Download里选择对应版本，选择Core里的zip或者tar.gz都可以（这里下载8.5.24版本）<br>2、拷贝Tomcat到目录：/Library 中，并把文件夹名由“apache-tomcat-8.5.24”改为“Tomcat”<br>3、终端执行sudo chmod 755 /Library/Tomcat/bin/*.sh按回车键后输入管理员密码<br>4、终端执行sudo sh /Library/Tomcat/bin/startup.sh<br>若出现如下提示则表示安装并运行成功：<br>Using CATALINA_BASE: /Library/Tomcat<br>Using CATALINA_HOME: /Library/Tomcat<br>Using CATALINA_TMPDIR: /Library/Tomcat/temp<br>Using JRE_HOME: /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home<br>注释：sudo通常为系统超级管理员；755代表用户对该文件拥有读、写、执行的权限，同组其他人员拥有执行和读的权限，没有写的权限，其他用户的权限和同组人员权限一样。777代表user、group、others都有读写和可执行权限。<br>5、打开浏览器，输入 <a href="http://localhost:8080/出现Apache" target="_blank" rel="external">http://localhost:8080/出现Apache</a> Tomcat页面即表示成功运行<br>6、在终端中输入命令 sudo sh /Library/Tomcat/bin/shutdown.sh 回车之后可以关闭Tomcat。<br>7、IP地址过滤tomcat使用一种叫做valves（阀）的机制过滤ip地址。常见的阀（valves）有RemovteAddrValve，可以进行IP地址过滤。阀可以应用在3个级别：Engin、Host、Context。<br>如果你只允许本机地址（localhost）对tomcat服务器进行访问，可以在server.xml中使用下列语句：</p>
+<p><engine name="”Catalina”" defaulthost="”localhost”" debug="”0”"></engine></p>
+<p><valve classname="”org.apache.catalina.valves.RemoteAddrValve”" allow="127.0.0.1,0:0:0:0:0:0:0:1%0,::1"><br>Tomcat会使用java.util.regex对IP地址进行匹配。</valve></p>
+<h3 id="数据库mysql安装"><a href="#数据库mysql安装" class="headerlink" title="数据库mysql安装"></a>数据库mysql安装</h3><p>1、下载安装mysql<br>2、下载安装mysql图形管理工具软件MySQL Workbench<br>3、启动mysql,打开MySQL Workbench,点击New Connection，连接本地数据库<br><img src="/Img/java_mysl.png" alt="Image text"></p>
+<h3 id="IntelliJ-IDEA下载安装"><a href="#IntelliJ-IDEA下载安装" class="headerlink" title="IntelliJ IDEA下载安装"></a>IntelliJ IDEA下载安装</h3><p>IntelliJ IDEA官网下载旗舰版，使用注册码进行安装。（条件允许请支持正版）<br><a href="http://idea.lanyus.com" target="_blank" rel="external">IntelliJ IDEA破解</a>，（IDEA最新版2017.3.1的破解码破解失败，这里下载使用的是2017.2.5版本）<br>点击Create New Project创建webApp项目<br><img src="/Img/java_webApp.png" alt="Image text"></p>
+<h4 id="IntelliJ-IDEA配置Tomcat"><a href="#IntelliJ-IDEA配置Tomcat" class="headerlink" title="IntelliJ IDEA配置Tomcat"></a>IntelliJ IDEA配置Tomcat</h4><p>右上角点击Edit configurations添加Tomcat<br><img src="/Img/java_configurationTomcat.png" alt="Image text"></p>
+<p>点击运行，报错提示（这是由于安装的Tomcat访问权限问题）<br><img src="/Img/java_rooError.png" alt="Image text"><br>解决办法：终端输入sudo chmod -R 777 /Library/Tomcat/conf/（路径请修改为自己本地安装的路径）</p>
+<p>再次点击运行，居然还报错。。。。<br><img src="/Img/java_duankouError.png" alt="Image text"><br>说是本地8080端口已被占用，原来是自己之前在终端手动启动了Tomcat<br>解决办法：先手动关闭Tomcat，再运行IDEA(因为运行IntelliJ IDEA项目默认会去启动Tomcat)</p>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>DNS（Domain Name System，域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。通过主机名，最终得到该主机名对应的IP地址的过程叫做域名解析（或主机名解析）。DNS协议运行在UDP协议之上，使用端口号53</p>
+<p>网络访问服务器过程中会先找本地hosts文件有没有该域名对应的IP，如果有就访问，如果没有则去访问DNS服务器，NDS服务器将域名解析为IP，再进行访问。</p>
+<p>获取百度IP （4是指访问请求四次）<br>ping -c 4 www.baidu.com  </p>
+<p>127.0.0.1 IP是本地环回地址<br>ping -c 4 127.0.0.1  不通，诊断问题：网卡坏了，或者说网卡没有插好</p>
+<p>本地hosts文件作用：本地缓存域名与IP地址映射<br>查看hosts文件：cat /etc/hosts</p>
+<p>修改hosts文件，添加域名和IP地址映射关系</p>
+<blockquote>
+<p>sudo vi /etc/hosts (vi是一个编辑文件的命令 sudo使用管理员权限)<br>输入i编辑文件<br>自己添加百度ip地址的映射 127.0.0.1 www.baidu.com<br>退出保存 按esc ,接:wq</p>
+</blockquote>
+<p>删除hosts文件添加的记录</p>
+<blockquote>
+<p>sudo vi /etc/hosts<br>把光标移动到要删除的行<br>输入 dd<br>退出保存 按esc ,接:wq<br>   :wq!是强制退出</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/12/21/配置mac本地服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/21/配置mac本地服务器/" itemprop="url">配置mac本地服务器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T19:42:17+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="apache服务器配置"><a href="#apache服务器配置" class="headerlink" title="apache服务器配置"></a>apache服务器配置</h3><p>mac中已经默认安装了apache服务器，也就是网站服务器，默认该服务是没有启动的</p>
+<p>1、终端启动服务器：sudo apachectl -k start<br>输入电脑密码，接着出现类似信息：<br>AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using xianrongdeMacBook-Pro.local. Set the ‘ServerName’ directive globally to suppress this message<br>此条信息可以忽略<br>如果强迫症犯了，可以输入sudo vi /etc/apache2/httpd.conf进入配置文件。输入i进入编辑状态，查找到#ServerName www.example.com:80这一行，在下一行输入ServerName localhost:80，然后按esc键退出，再输入:wq！保存配置文件。</p>
+<p>2、在浏览器输入<a href="http://localhost后页面显示It" target="_blank" rel="external">http://localhost后页面显示It</a> works!说明启动成功</p>
+<p>3、默认服务器资源文件是放在/Library/WebServer/Documents/这个目录下的，上面访问看到的It works！就是该路径下的index.html.en文件里的内容。</p>
+<p>4、自定义网站资源文件放置路径：</p>
+<p>   #DocumentRoot “/Library/WebServer/Documents”</p>
+<p>   #<directory "="" library="" webserver="" documents"=""><br>   在配置文件里找到上面这两行，在前面添加#注释掉，按照同样的格式从新自定义自己的路径和目录即可<br>   DocumentRoot “/Users/xianrong/Sites”<br>   <directory "="" users="" xianrong="" sites"=""></directory></directory></p>
+<p>5、重启服务器：sudo apachectl -k restart</p>
+<p>6、这时就可以通过<a href="http://localhost/index.html这样访问资源文件了（测试资源文件为index.html）" target="_blank" rel="external">http://localhost/index.html这样访问资源文件了（测试资源文件为index.html）</a></p>
+<p>7、关闭服务器：sudo apachectl -k stop（或sudo httpd -k stop）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/12/19/JAVA入坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/19/JAVA入坑/" itemprop="url">JAVA入坑</a></h1>
         
 
         <div class="post-meta">
@@ -337,8 +651,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
                   </a>
                 </span>
 
@@ -384,7 +698,11 @@
 <p>包(package)：<br>1、划分方便管理，避免名字冲突<br>2、不同包中的类的名字可以相同，当调用时需要加上包名加以区分<br>3、包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类<br>4、包语法：包名.子包名.子子包名<br>5、包名定义：全部小写，域名倒写.模块名.组件名<br>6、类的名称：包名.类名</p>
 <p>访问修饰符:<br><img src="/Img/java_fwxsf.png" alt="Image text"><br>属性:<br><img src="/Img/java_sx.png" alt="Image text"></p>
 <p>this关键字:类似于OC的self</p>
-<h3 id="示例代码demo练习"><a href="#示例代码demo练习" class="headerlink" title="示例代码demo练习"></a>示例代码demo练习</h3><h3 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h3>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><p><a href="https://dom4j.github.io" target="_blank" rel="external">Dom4J</a>（Dom for java）:xml解析</p>
+<h3 id="示例代码demo练习"><a href="#示例代码demo练习" class="headerlink" title="示例代码demo练习"></a>示例代码demo练习</h3><h3 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h3><h3 id="CS与BS"><a href="#CS与BS" class="headerlink" title="CS与BS"></a>CS与BS</h3><p>CS (Client - Server):客户端 - 服务器，特点是和服务器通讯，Java Swing方向<br>BS（Browser - Server):浏览器 - 服务器，网站就是BS，Java EE方向<br>在开发上来说，最大区别就是 View 层和 Controller 层的设计思路。</p>
+<p>CS 结构三层沟通都在一台电脑，一个数据的流动几乎没有限制，所以最好自己脑中要清晰划分三层。总之，就是切记不要写那种所有逻辑堆在 Swing 类里面的糟糕程序就好了。写 CS 可以熟悉线程和 Socket 编程。</p>
+<p>BS 时刻记住那时个网站。不求甚解的话 Model - Java类，Controller - 继承处理  HTTP 请求的类，View - JSP。动态网页其实就是服务器计算出来的「死的」html，用浏览器运行 .jsp/.php 文件是错误的。同理，用户不填个 html 表单服务器是获得不了多少对业务逻辑有意义的数据的。也不要想着怎么修改/获取浏览器属性，那是 Javascript 的事。总之，就是注意理解区分客户端和服务器的工作流程，BS 下数据的流动方式、方向限制多得多。最后，BS 还要考虑存储（数据库）、要写得一手好 html、CSS、Javascript，实际布网站还要懂不少 *nix，计算机网络等等的知识。</p>
+
           
         
       
@@ -1435,299 +1753,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/13/泛型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/13/泛型/" itemprop="url">泛型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T10:02:30+08:00">
-                2017-11-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>使用泛型代码，你可以 写出可重用的函数和数据结构，只要它们满足你所定义的约束，它们就能够适用于各种类型。<br>比如，像是 Array 和 Set 等多个类型，实际上是它们中的元素类型就是泛型抽象。<br>我们也可以 创建泛型方法，它们可以对输入或者输出的类型进行泛型处理。<br>func identity<a>(input: A) -&gt; A 就定义了一个可以作用于任意类型 A 的函数。<br>某种意义上，我们甚至可以认为带有关联类型的协议是 “泛型协议”。关联类型允许我们对特定的实现进行抽 象。IteratorProtocol 协议就是一个这样的例子:它所生成的 Element 就是一个泛型。</a></p>
-<p>泛型编程的目的是表达算法或者数据结构所要求的核心接口。<br>使用泛型数据类型来重构代码，能使它们易于测试，更加灵活。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/13/泛型/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/12/链式编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/12/链式编程/" itemprop="url">链式编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T22:51:35+08:00">
-                2017-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>链式编程：将多个操作通过点号（.）链接在一起成为一句代码，代表作：用OC写的masonry框架<br>我们平时编码习惯是把事情封装到一个方法中。而链式编程思想则是把要做的事情封装到block，给外界提供一个返回这个Block的方法<br>链式编程思想方法的特点：<br>（1）方法的返回值必须是block<br>（2）block参数：放需要操作的内容<br>（3）block返回值:方法调用者<br>链式编程的优点：增加代码可读性，利用block的特点使代码高聚合<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/12/链式编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1778,7 +1803,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
