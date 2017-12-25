@@ -102,16 +102,16 @@
 <meta property="og:site_name" content="XR">
 <meta property="og:description" content="Apache Tomcat安装Mac系统自带的Apache是普通服务器，本身只支持html即普通网页，可以通过插件支持PHP,还可以与Tomcat连通(单向Apache连接Tomcat,就是说通过Apache可以访问Tomcat资源。Tomcat无法取访问Appache资源)。Appache只支持静态网页，但像asp,php,cgi,jsp等动态就需要Tomcat来处理。 1、下载Apache T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xianrong.github.io/Img/java_mysl.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_webApp.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_configurationTomcat.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_rooError.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_duankouError.png">
-<meta property="og:updated_time" content="2017-12-25T06:58:05.217Z">
+<meta property="og:image" content="https://xianrong.github.io/Img/java_mysl.png">
+<meta property="og:updated_time" content="2017-12-25T07:18:40.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac系统上IntellijIdea+tomcat+mysql环境搭建">
 <meta name="twitter:description" content="Apache Tomcat安装Mac系统自带的Apache是普通服务器，本身只支持html即普通网页，可以通过插件支持PHP,还可以与Tomcat连通(单向Apache连接Tomcat,就是说通过Apache可以访问Tomcat资源。Tomcat无法取访问Appache资源)。Appache只支持静态网页，但像asp,php,cgi,jsp等动态就需要Tomcat来处理。 1、下载Apache T">
-<meta name="twitter:image" content="https://xianrong.github.io/Img/java_mysl.png">
+<meta name="twitter:image" content="https://xianrong.github.io/Img/java_webApp.png">
 
 
 
@@ -384,14 +384,18 @@
 
       
         <h3 id="Apache-Tomcat安装"><a href="#Apache-Tomcat安装" class="headerlink" title="Apache Tomcat安装"></a>Apache Tomcat安装</h3><p>Mac系统自带的Apache是普通服务器，本身只支持html即普通网页，可以通过插件支持PHP,还可以与Tomcat连通(单向Apache连接Tomcat,就是说通过Apache可以访问Tomcat资源。Tomcat无法取访问Appache资源)。Appache只支持静态网页，但像asp,php,cgi,jsp等动态就需要Tomcat来处理。</p>
-<p>1、下载<a href="http://tomcat.apache.org" target="_blank" rel="external">Apache Tomcat</a>，在Download里选择对应版本，选择Core里的zip或者tar.gz都可以（这里下载8.5.24版本）<br>2、拷贝Tomcat到目录：/Library 中，并把文件夹名由“apache-tomcat-8.5.24”改为“Tomcat”<br>3、终端执行sudo chmod 755 /Library/Tomcat/bin/*.sh按回车键后输入管理员密码<br>4、终端执行sudo sh /Library/Tomcat/bin/startup.sh<br>若出现如下提示则表示安装并运行成功：<br>Using CATALINA_BASE: /Library/Tomcat<br>Using CATALINA_HOME: /Library/Tomcat<br>Using CATALINA_TMPDIR: /Library/Tomcat/temp<br>Using JRE_HOME: /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home<br>注释：sudo通常为系统超级管理员；755代表用户对该文件拥有读、写、执行的权限，同组其他人员拥有执行和读的权限，没有写的权限，其他用户的权限和同组人员权限一样。777代表user、group、others都有读写和可执行权限。<br>5、打开浏览器，输入 <a href="http://localhost:8080/出现Apache" target="_blank" rel="external">http://localhost:8080/出现Apache</a> Tomcat页面即表示成功运行<br>6、在终端中输入命令 sudo sh /Library/Tomcat/bin/shutdown.sh 回车之后可以关闭Tomcat。<br>7、IP地址过滤tomcat使用一种叫做valves（阀）的机制过滤ip地址。常见的阀（valves）有RemovteAddrValve，可以进行IP地址过滤。阀可以应用在3个级别：Engin、Host、Context。<br>如果你只允许本机地址（localhost）对tomcat服务器进行访问，可以在server.xml中使用下列语句：</p>
-<p><engine name="”Catalina”" defaulthost="”localhost”" debug="”0”"></engine></p>
-<p><valve classname="”org.apache.catalina.valves.RemoteAddrValve”" allow="127.0.0.1,0:0:0:0:0:0:0:1%0,::1"><br>Tomcat会使用java.util.regex对IP地址进行匹配。</valve></p>
-<h3 id="数据库mysql安装"><a href="#数据库mysql安装" class="headerlink" title="数据库mysql安装"></a>数据库mysql安装</h3><p>1、下载安装mysql<br>2、下载安装mysql图形管理工具软件MySQL Workbench<br>3、启动mysql,打开MySQL Workbench,点击New Connection，连接本地数据库<br><img src="/Img/java_mysl.png" alt="Image text"></p>
+<p>1、下载<a href="http://tomcat.apache.org" target="_blank" rel="external">Apache Tomcat</a>，在Download里选择对应版本，选择Core里的zip或者tar.gz都可以（这里下载8.5.24版本）<br><a id="more"></a><br>2、拷贝Tomcat到目录：/Library 中，并把文件夹名由“apache-tomcat-8.5.24”改为“Tomcat”</p>
+<p>3、终端执行sudo chmod 755 /Library/Tomcat/bin/*.sh按回车键后输入管理员密码</p>
+<p>4、终端执行sudo sh /Library/Tomcat/bin/startup.sh<br>若出现如下提示则表示安装并运行成功：<br>Using CATALINA_BASE: /Library/Tomcat<br>Using CATALINA_HOME: /Library/Tomcat<br>Using CATALINA_TMPDIR: /Library/Tomcat/temp<br>Using JRE_HOME: /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home<br>注释：sudo通常为系统超级管理员；755代表用户对该文件拥有读、写、执行的权限，同组其他人员拥有执行和读的权限，没有写的权限，其他用户的权限和同组人员权限一样。777代表user、group、others都有读写和可执行权限。</p>
+<p>5、打开浏览器，输入 <a href="http://localhost:8080/出现Apache" target="_blank" rel="external">http://localhost:8080/出现Apache</a> Tomcat页面即表示成功运行</p>
+<p>6、在终端中输入命令 sudo sh /Library/Tomcat/bin/shutdown.sh 回车之后可以关闭Tomcat。 </p>
+<p>7、IP地址过滤tomcat使用一种叫做valves（阀）的机制过滤ip地址。常见的阀（valves）有RemovteAddrValve，可以进行IP地址过滤。阀可以应用在3个级别：Engin、Host、Context。<br>如果你只允许本机地址（localhost）对tomcat服务器进行访问，可以在server.xml中使用下列语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;Engine name=”Catalina” defaultHost=”localhost” debug=”0”&gt;</div><div class="line">&lt;Valve className=”org.apache.catalina.valves.RemoteAddrValve”</div><div class="line">allow=<span class="string">"127.0.0.1,0:0:0:0:0:0:0:1%0,::1"</span>/&gt;</div></pre></td></tr></table></figure></p>
+<p>Tomcat会使用java.util.regex对IP地址进行匹配。</p>
 <h3 id="IntelliJ-IDEA下载安装"><a href="#IntelliJ-IDEA下载安装" class="headerlink" title="IntelliJ IDEA下载安装"></a>IntelliJ IDEA下载安装</h3><p>IntelliJ IDEA官网下载旗舰版，使用注册码进行安装。（条件允许请支持正版）<br><a href="http://idea.lanyus.com" target="_blank" rel="external">IntelliJ IDEA破解</a>，（IDEA最新版2017.3.1的破解码破解失败，这里下载使用的是2017.2.5版本）<br>点击Create New Project创建webApp项目<br><img src="/Img/java_webApp.png" alt="Image text"></p>
 <h4 id="IntelliJ-IDEA配置Tomcat"><a href="#IntelliJ-IDEA配置Tomcat" class="headerlink" title="IntelliJ IDEA配置Tomcat"></a>IntelliJ IDEA配置Tomcat</h4><p>右上角点击Edit configurations添加Tomcat<br><img src="/Img/java_configurationTomcat.png" alt="Image text"></p>
 <p>点击运行，报错提示（这是由于安装的Tomcat访问权限问题）<br><img src="/Img/java_rooError.png" alt="Image text"><br>解决办法：终端输入sudo chmod -R 777 /Library/Tomcat/conf/（路径请修改为自己本地安装的路径）</p>
 <p>再次点击运行，居然还报错。。。。<br><img src="/Img/java_duankouError.png" alt="Image text"><br>说是本地8080端口已被占用，原来是自己之前在终端手动启动了Tomcat<br>解决办法：先手动关闭Tomcat，再运行IDEA(因为运行IntelliJ IDEA项目默认会去启动Tomcat)</p>
+<h3 id="数据库mysql安装"><a href="#数据库mysql安装" class="headerlink" title="数据库mysql安装"></a>数据库mysql安装</h3><p>1、下载安装mysql<br>2、下载安装mysql图形管理工具软件MySQL Workbench<br>3、启动mysql,打开MySQL Workbench,点击New Connection，连接本地数据库<br><img src="/Img/java_mysl.png" alt="Image text"></p>
 <h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>DNS（Domain Name System，域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。通过主机名，最终得到该主机名对应的IP地址的过程叫做域名解析（或主机名解析）。DNS协议运行在UDP协议之上，使用端口号53</p>
 <p>网络访问服务器过程中会先找本地hosts文件有没有该域名对应的IP，如果有就访问，如果没有则去访问DNS服务器，NDS服务器将域名解析为IP，再进行访问。</p>
 <p>获取百度IP （4是指访问请求四次）<br>ping -c 4 www.baidu.com  </p>
@@ -606,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Tomcat安装"><span class="nav-number">1.</span> <span class="nav-text">Apache Tomcat安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库mysql安装"><span class="nav-number">2.</span> <span class="nav-text">数据库mysql安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ-IDEA下载安装"><span class="nav-number">3.</span> <span class="nav-text">IntelliJ IDEA下载安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IntelliJ-IDEA配置Tomcat"><span class="nav-number">3.1.</span> <span class="nav-text">IntelliJ IDEA配置Tomcat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析"><span class="nav-number">4.</span> <span class="nav-text">域名解析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Tomcat安装"><span class="nav-number">1.</span> <span class="nav-text">Apache Tomcat安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ-IDEA下载安装"><span class="nav-number">2.</span> <span class="nav-text">IntelliJ IDEA下载安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IntelliJ-IDEA配置Tomcat"><span class="nav-number">2.1.</span> <span class="nav-text">IntelliJ IDEA配置Tomcat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库mysql安装"><span class="nav-number">3.</span> <span class="nav-text">数据库mysql安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析"><span class="nav-number">4.</span> <span class="nav-text">域名解析</span></a></li></ol></div>
             
 
           </div>

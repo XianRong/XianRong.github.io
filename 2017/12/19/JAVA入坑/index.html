@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。JDK目录：bin （编译器+解释+其它可执行文件）db  （JAV">
+<meta name="description" content="前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。">
 <meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA入坑">
 <meta property="og:url" content="https://xianrong.github.io/2017/12/19/JAVA入坑/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。JDK目录：bin （编译器+解释+其它可执行文件）db  （JAV">
+<meta property="og:description" content="前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_jdkn.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_jvmn.png">
@@ -108,10 +108,10 @@
 <meta property="og:image" content="https://xianrong.github.io/Img/java_yysjlx.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_fwxsf.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_sx.png">
-<meta property="og:updated_time" content="2017-12-21T13:32:50.862Z">
+<meta property="og:updated_time" content="2017-12-25T07:19:14.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA入坑">
-<meta name="twitter:description" content="前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。JDK目录：bin （编译器+解释+其它可执行文件）db  （JAV">
+<meta name="twitter:description" content="前期准备JVM (Java Virtual Machine)：Java虚拟机。JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。">
 <meta name="twitter:image" content="https://xianrong.github.io/Img/java_jdkn.png">
 
 
@@ -384,7 +384,7 @@
       
 
       
-        <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>JVM (Java Virtual Machine)：Java虚拟机。<br>JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。<br>JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。<br><img src="/Img/java_jdkn.png" alt="Image text"><br>JDK目录：<br>bin （编译器+解释+其它可执行文件）<br>db  （JAVA DB数据库）<br>include （用于本地代码的头文件）<br>src.zip （JDK类库源代码文件）<br>jre （java运行环境）<br>lib （相关类库）<br><img src="/Img/java_jvmn.png" alt="Image text"><br>注意：(.java文件)编译生成字节码(.class文件)的名称跟里面代码的class名称是一致的。<br>    如果在代码里的class前添加public关键字，那么(.java文件)名称必须和代码里的class的名称一致。<br>反编译工具：XJad</p>
+        <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>JVM (Java Virtual Machine)：Java虚拟机。<br>JRE (Java Runtime Environment)：Java运行环境，如果要运行Java程序，就需要JRE的支持。<br>JDK (Java Development Kit)：Java开发工具，包含开发Java程序的所有工具,如javac和java等。<br><img src="/Img/java_jdkn.png" alt="Image text"><br><a id="more"></a><br>JDK目录：<br>bin （编译器+解释+其它可执行文件）<br>db  （JAVA DB数据库）<br>include （用于本地代码的头文件）<br>src.zip （JDK类库源代码文件）<br>jre （java运行环境）<br>lib （相关类库）<br><img src="/Img/java_jvmn.png" alt="Image text"><br>注意：(.java文件)编译生成字节码(.class文件)的名称跟里面代码的class名称是一致的。<br>    如果在代码里的class前添加public关键字，那么(.java文件)名称必须和代码里的class的名称一致。<br>反编译工具：XJad</p>
 <p>到<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">官网</a>下载对应系统的JDK<br>下载安装<a href="http://www.jetbrains.com/idea/" target="_blank" rel="external">IntelliJ IDEA</a></p>
 <h3 id="熟悉基础语法"><a href="#熟悉基础语法" class="headerlink" title="熟悉基础语法"></a>熟悉基础语法</h3><p>基本数据类型：存放于栈中<br><img src="/Img/java_jbsjlx.png" alt="Image text"></p>
 <p>引用数据类型：<br><img src="/Img/java_yysjlx.png" alt="Image text"></p>
@@ -394,8 +394,6 @@
 <p>this关键字:类似于OC的self</p>
 <h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><p><a href="https://dom4j.github.io" target="_blank" rel="external">Dom4J</a>（Dom for java）:xml解析</p>
 <h3 id="示例代码demo练习"><a href="#示例代码demo练习" class="headerlink" title="示例代码demo练习"></a>示例代码demo练习</h3><h3 id="项目实战"><a href="#项目实战" class="headerlink" title="项目实战"></a>项目实战</h3><h3 id="CS与BS"><a href="#CS与BS" class="headerlink" title="CS与BS"></a>CS与BS</h3><p>CS (Client - Server):客户端 - 服务器，特点是和服务器通讯，Java Swing方向<br>BS（Browser - Server):浏览器 - 服务器，网站就是BS，Java EE方向<br>在开发上来说，最大区别就是 View 层和 Controller 层的设计思路。</p>
-<p>CS 结构三层沟通都在一台电脑，一个数据的流动几乎没有限制，所以最好自己脑中要清晰划分三层。总之，就是切记不要写那种所有逻辑堆在 Swing 类里面的糟糕程序就好了。写 CS 可以熟悉线程和 Socket 编程。</p>
-<p>BS 时刻记住那时个网站。不求甚解的话 Model - Java类，Controller - 继承处理  HTTP 请求的类，View - JSP。动态网页其实就是服务器计算出来的「死的」html，用浏览器运行 .jsp/.php 文件是错误的。同理，用户不填个 html 表单服务器是获得不了多少对业务逻辑有意义的数据的。也不要想着怎么修改/获取浏览器属性，那是 Javascript 的事。总之，就是注意理解区分客户端和服务器的工作流程，BS 下数据的流动方式、方向限制多得多。最后，BS 还要考虑存储（数据库）、要写得一手好 html、CSS、Javascript，实际布网站还要懂不少 *nix，计算机网络等等的知识。</p>
 
       
     </div>

@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="XR">
 <meta property="og:description" content="apache服务器配置mac中已经默认安装了apache服务器，也就是网站服务器，默认该服务是没有启动的 1、终端启动服务器：sudo apachectl -k start输入电脑密码，接着出现类似信息：AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using xianr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-22T04:05:58.993Z">
+<meta property="og:updated_time" content="2017-12-25T07:18:11.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置mac本地服务器">
 <meta name="twitter:description" content="apache服务器配置mac中已经默认安装了apache服务器，也就是网站服务器，默认该服务是没有启动的 1、终端启动服务器：sudo apachectl -k start输入电脑密码，接着出现类似信息：AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using xianr">
@@ -378,12 +378,9 @@
 
       
         <h3 id="apache服务器配置"><a href="#apache服务器配置" class="headerlink" title="apache服务器配置"></a>apache服务器配置</h3><p>mac中已经默认安装了apache服务器，也就是网站服务器，默认该服务是没有启动的</p>
-<p>1、终端启动服务器：sudo apachectl -k start<br>输入电脑密码，接着出现类似信息：<br>AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using xianrongdeMacBook-Pro.local. Set the ‘ServerName’ directive globally to suppress this message<br>此条信息可以忽略<br>如果强迫症犯了，可以输入sudo vi /etc/apache2/httpd.conf进入配置文件。输入i进入编辑状态，查找到#ServerName www.example.com:80这一行，在下一行输入ServerName localhost:80，然后按esc键退出，再输入:wq！保存配置文件。</p>
-<p>2、在浏览器输入<a href="http://localhost后页面显示It" target="_blank" rel="external">http://localhost后页面显示It</a> works!说明启动成功</p>
+<p>1、终端启动服务器：sudo apachectl -k start<br>输入电脑密码，接着出现类似信息：<br>AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using xianrongdeMacBook-Pro.local. Set the ‘ServerName’ directive globally to suppress this message<br>此条信息可以忽略<br>如果强迫症犯了，可以输入sudo vi /etc/apache2/httpd.conf进入配置文件。输入i进入编辑状态，查找到#ServerName www.example.com:80这一行，在下一行输入ServerName localhost:80，然后按esc键退出，再输入:wq！保存配置文件。<br><a id="more"></a><br>2、在浏览器输入<a href="http://localhost后页面显示It" target="_blank" rel="external">http://localhost后页面显示It</a> works!说明启动成功</p>
 <p>3、默认服务器资源文件是放在/Library/WebServer/Documents/这个目录下的，上面访问看到的It works！就是该路径下的index.html.en文件里的内容。</p>
-<p>4、自定义网站资源文件放置路径：</p>
-<p>   #DocumentRoot “/Library/WebServer/Documents”</p>
-<p>   #<directory "="" library="" webserver="" documents"=""><br>   在配置文件里找到上面这两行，在前面添加#注释掉，按照同样的格式从新自定义自己的路径和目录即可<br>   DocumentRoot “/Users/xianrong/Sites”<br>   <directory "="" users="" xianrong="" sites"=""></directory></directory></p>
+<p>4、自定义网站资源文件放置路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#DocumentRoot "/Library/WebServer/Documents"</span></div><div class="line"><span class="comment">#&lt;Directory "/Library/WebServer/Documents"&gt;</span></div><div class="line">在配置文件里找到上面这两行，在前面添加<span class="comment">#注释掉，按照同样的格式从新自定义自己的路径和目录即可</span></div><div class="line">DocumentRoot <span class="string">"/Users/xianrong/Sites"</span></div><div class="line">&lt;Directory <span class="string">"/Users/xianrong/Sites"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>5、重启服务器：sudo apachectl -k restart</p>
 <p>6、这时就可以通过<a href="http://localhost/index.html这样访问资源文件了（测试资源文件为index.html）" target="_blank" rel="external">http://localhost/index.html这样访问资源文件了（测试资源文件为index.html）</a></p>
 <p>7、关闭服务器：sudo apachectl -k stop（或sudo httpd -k stop）</p>
