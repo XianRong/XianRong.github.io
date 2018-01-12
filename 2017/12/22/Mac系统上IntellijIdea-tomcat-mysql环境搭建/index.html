@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://xianrong.github.io/Img/java_rooError.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_duankouError.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/java_mysl.png">
-<meta property="og:updated_time" content="2017-12-25T07:18:40.421Z">
+<meta property="og:updated_time" content="2017-12-26T09:07:47.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac系统上IntellijIdea+tomcat+mysql环境搭建">
 <meta name="twitter:description" content="Apache Tomcat安装Mac系统自带的Apache是普通服务器，本身只支持html即普通网页，可以通过插件支持PHP,还可以与Tomcat连通(单向Apache连接Tomcat,就是说通过Apache可以访问Tomcat资源。Tomcat无法取访问Appache资源)。Appache只支持静态网页，但像asp,php,cgi,jsp等动态就需要Tomcat来处理。 1、下载Apache T">
@@ -396,7 +396,9 @@
 <p>点击运行，报错提示（这是由于安装的Tomcat访问权限问题）<br><img src="/Img/java_rooError.png" alt="Image text"><br>解决办法：终端输入sudo chmod -R 777 /Library/Tomcat/conf/（路径请修改为自己本地安装的路径）</p>
 <p>再次点击运行，居然还报错。。。。<br><img src="/Img/java_duankouError.png" alt="Image text"><br>说是本地8080端口已被占用，原来是自己之前在终端手动启动了Tomcat<br>解决办法：先手动关闭Tomcat，再运行IDEA(因为运行IntelliJ IDEA项目默认会去启动Tomcat)</p>
 <h3 id="数据库mysql安装"><a href="#数据库mysql安装" class="headerlink" title="数据库mysql安装"></a>数据库mysql安装</h3><p>1、下载安装mysql<br>2、下载安装mysql图形管理工具软件MySQL Workbench<br>3、启动mysql,打开MySQL Workbench,点击New Connection，连接本地数据库<br><img src="/Img/java_mysl.png" alt="Image text"></p>
-<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>DNS（Domain Name System，域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。通过主机名，最终得到该主机名对应的IP地址的过程叫做域名解析（或主机名解析）。DNS协议运行在UDP协议之上，使用端口号53</p>
+<h3 id="Maven下载及配置"><a href="#Maven下载及配置" class="headerlink" title="Maven下载及配置"></a>Maven下载及配置</h3><p><a href="http://maven.apache.org/download.cgi#" target="_blank" rel="external">Maven</a>官网下载apache-maven-3.5.2-bin.tar.gz<br>解压后把文件夹改名为Maven并拷贝到/Library/路径下<br>终端输入vi ~/.bash_profile进入配置文件<br>添加下列两行代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> M2_HOME=/Library/Maven</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$M2_HOME</span>/bin</div></pre></td></tr></table></figure></p>
+<p>退出保存后，终端输入source ~/.bash_profile使其生效<br>终端输入mvn -v查看Maven已安装成功的版本</p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><h4 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h4><p>DNS（Domain Name System，域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。通过主机名，最终得到该主机名对应的IP地址的过程叫做域名解析（或主机名解析）。DNS协议运行在UDP协议之上，使用端口号53</p>
 <p>网络访问服务器过程中会先找本地hosts文件有没有该域名对应的IP，如果有就访问，如果没有则去访问DNS服务器，NDS服务器将域名解析为IP，再进行访问。</p>
 <p>获取百度IP （4是指访问请求四次）<br>ping -c 4 www.baidu.com  </p>
 <p>127.0.0.1 IP是本地环回地址<br>ping -c 4 127.0.0.1  不通，诊断问题：网卡坏了，或者说网卡没有插好</p>
@@ -409,6 +411,7 @@
 <blockquote>
 <p>sudo vi /etc/hosts<br>把光标移动到要删除的行<br>输入 dd<br>退出保存 按esc ,接:wq<br>   :wq!是强制退出</p>
 </blockquote>
+<h3 id="记住登录"><a href="#记住登录" class="headerlink" title="记住登录"></a>记住登录</h3><p><a href="http://www.cnblogs.com/junhuawang/p/6692628.html" target="_blank" rel="external">Cookie和Session机制详解</a></p>
 
       
     </div>
@@ -610,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Tomcat安装"><span class="nav-number">1.</span> <span class="nav-text">Apache Tomcat安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ-IDEA下载安装"><span class="nav-number">2.</span> <span class="nav-text">IntelliJ IDEA下载安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IntelliJ-IDEA配置Tomcat"><span class="nav-number">2.1.</span> <span class="nav-text">IntelliJ IDEA配置Tomcat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库mysql安装"><span class="nav-number">3.</span> <span class="nav-text">数据库mysql安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析"><span class="nav-number">4.</span> <span class="nav-text">域名解析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Tomcat安装"><span class="nav-number">1.</span> <span class="nav-text">Apache Tomcat安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ-IDEA下载安装"><span class="nav-number">2.</span> <span class="nav-text">IntelliJ IDEA下载安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IntelliJ-IDEA配置Tomcat"><span class="nav-number">2.1.</span> <span class="nav-text">IntelliJ IDEA配置Tomcat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库mysql安装"><span class="nav-number">3.</span> <span class="nav-text">数据库mysql安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven下载及配置"><span class="nav-number">4.</span> <span class="nav-text">Maven下载及配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它"><span class="nav-number">5.</span> <span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#域名解析"><span class="nav-number">5.1.</span> <span class="nav-text">域名解析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记住登录"><span class="nav-number">6.</span> <span class="nav-text">记住登录</span></a></li></ol></div>
             
 
           </div>
@@ -633,7 +636,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
