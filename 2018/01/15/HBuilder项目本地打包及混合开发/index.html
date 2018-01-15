@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="跨平台," />
 
 
 
@@ -94,18 +94,21 @@
 
 
 
-<meta name="description" content="// 图片加载pod ‘Kingfisher’ // 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’">
-<meta name="keywords" content="iOS">
+<meta name="description" content="最近接触了一个DCloud（数字天堂）平台的HBuilder（IDE）编写的移动APP项目，该平台提供了MUI、5+Runtime、Native.js做支持快发，再通过云打包和本地打包两种方式，实现一套代码打包成为两端（iOS和安卓）的APP。MUI：前端UI框架5+Runtime：增强版的手机浏览器引擎Native.js：封装一条通过JS语法直接调用Native接口通道，通过plus.ios可调">
+<meta name="keywords" content="跨平台">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift第三方框架">
-<meta property="og:url" content="https://xianrong.github.io/2017/09/15/Swift第三方框架/index.html">
+<meta property="og:title" content="HBuilder项目本地打包及混合开发">
+<meta property="og:url" content="https://xianrong.github.io/2018/01/15/HBuilder项目本地打包及混合开发/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="// 图片加载pod ‘Kingfisher’ // 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’">
+<meta property="og:description" content="最近接触了一个DCloud（数字天堂）平台的HBuilder（IDE）编写的移动APP项目，该平台提供了MUI、5+Runtime、Native.js做支持快发，再通过云打包和本地打包两种方式，实现一套代码打包成为两端（iOS和安卓）的APP。MUI：前端UI框架5+Runtime：增强版的手机浏览器引擎Native.js：封装一条通过JS语法直接调用Native接口通道，通过plus.ios可调">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-27T04:30:00.229Z">
+<meta property="og:image" content="https://xianrong.github.io/Img/hbuiderOcPage.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/launchWebApp.png">
+<meta property="og:updated_time" content="2018-01-15T09:04:40.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift第三方框架">
-<meta name="twitter:description" content="// 图片加载pod ‘Kingfisher’ // 函数式链式编程pod ‘RxSwift’pod ‘RxCocoa’pod ‘RxDataSources’">
+<meta name="twitter:title" content="HBuilder项目本地打包及混合开发">
+<meta name="twitter:description" content="最近接触了一个DCloud（数字天堂）平台的HBuilder（IDE）编写的移动APP项目，该平台提供了MUI、5+Runtime、Native.js做支持快发，再通过云打包和本地打包两种方式，实现一套代码打包成为两端（iOS和安卓）的APP。MUI：前端UI框架5+Runtime：增强版的手机浏览器引擎Native.js：封装一条通过JS语法直接调用Native接口通道，通过plus.ios可调">
+<meta name="twitter:image" content="https://xianrong.github.io/Img/hbuiderOcPage.png">
 
 
 
@@ -134,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/09/15/Swift第三方框架/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2018/01/15/HBuilder项目本地打包及混合开发/"/>
 
 
 
 
 
-  <title>Swift第三方框架 | XR</title>
+  <title>HBuilder项目本地打包及混合开发 | XR</title>
   
 
 
@@ -283,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/15/Swift第三方框架/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2018/01/15/HBuilder项目本地打包及混合开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -300,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swift第三方框架</h1>
+          <h1 class="post-title" itemprop="name headline">HBuilder项目本地打包及混合开发</h1>
         
 
         <div class="post-meta">
@@ -312,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T09:54:38+08:00">
-                2017-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T10:53:23+08:00">
+                2018-01-15
               </time>
             
 
@@ -335,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/跨平台/" itemprop="url" rel="index">
+                    <span itemprop="name">跨平台</span>
                   </a>
                 </span>
 
@@ -377,16 +380,12 @@
       
 
       
-        <p>// 图片加载<br>pod ‘Kingfisher’</p>
-<p>// 函数式链式编程<br>pod ‘RxSwift’<br>pod ‘RxCocoa’<br>pod ‘RxDataSources’</p>
-<a id="more"></a>
-<p>// json-&gt;model<br>pod ‘HandyJSON’</p>
-<p>// 布局约束<br>pod ‘SnapKit’</p>
-<p>// 网络请求<br>pod ‘Moya/RxSwift’<br>pod ‘Alamofire’</p>
-<p>//  日期格式化<br>pod ‘SwiftDate’</p>
-<p>//<br> pod ‘Then’</p>
-<p>//  表单组件<br> pod ‘SwiftForms’</p>
-<p>// 加密库<br>pod ‘CryptoSwift’</p>
+        <p>最近接触了一个DCloud（数字天堂）平台的HBuilder（IDE）编写的移动APP项目，该平台提供了MUI、5+Runtime、Native.js做支持快发，再通过云打包和本地打包两种方式，实现一套代码打包成为两端（iOS和安卓）的APP。<br>MUI：前端UI框架<br>5+Runtime：增强版的手机浏览器引擎<br>Native.js：封装一条通过JS语法直接调用Native接口通道，通过plus.ios可调用几乎所有的系统API。<br>HBuilder的云端打包可以很方便的打包出两端的包（不能超过40M），此处不再累赘。</p>
+<p>项目需求：改造一个基于HBuider开发的移动APP项目，把其中一个直播页面使用iOS原生控制器，加载腾讯云SDK拉流实现直播画面。<br>目的：在不大量改动原项目基础上，提高直播页用户体验。<br>方案一：整个直播页面上视频层和交互控件都使用原生控件,使用js与原生之间的交互。<br>方案二：使用原生控制器加载视频层放于最底下，上面交互控件直接使用webView加载一个透明背景的H5页面。这样业务逻辑处理更多使用原始项目的js本身。<br>该项目涉及到的有本地打包、H5前端与iOS原生交互的两个部分。<br><a id="more"></a></p>
+<h3 id="本地打包"><a href="#本地打包" class="headerlink" title="本地打包"></a>本地打包</h3><p>参考官方文档<a href="http://ask.dcloud.net.cn/docs/#//ask.dcloud.net.cn/article/104" target="_blank" rel="external">HTML5+SDK</a><br>下载HTML5+的SDK<br>对照Feature-iOS.xls文件按需导入对应的系统库(framework)、静态库(.a)、资源包（.bundle）<br>导入inc文件夹和control.xml文件<br>以资源文件的方式导入HBuilder项目<br><img src="/Img/hbuiderOcPage.png" alt="Image text"><br><img src="/Img/launchWebApp.png" alt="Image text"></p>
+<h3 id="混合交互"><a href="#混合交互" class="headerlink" title="混合交互"></a>混合交互</h3><p>iOS原生加载html5入口页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">PDRCore* pCoreHandle = [PDRCore Instance];</div><div class="line">pCoreHandle.coreDeleagete = self;</div><div class="line">pCoreHandle.persentViewController = self;</div><div class="line">[pCoreHandle setContainerView:self.view];</div><div class="line"></div><div class="line">NSString* pWWWPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@<span class="string">"Pandora/apps/H5FBED132/www"</span>];</div><div class="line">NSString* pArgus = @<span class="string">"id=plus.runtime.arguments"</span>;</div><div class="line">pAppHandle = [[[PDRCore Instance] appManager] openAppAtLocation:pWWWPath withIndexPath:@<span class="string">"/form_mobile/login/login.html"</span> withArgs:pArgus withDelegate:nil];</div></pre></td></tr></table></figure></p>
+<p>js方法跳转iOS原生控制器页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getProductById(id,room_no,live_id,product_number)&#123;</div><div class="line">    var newVCobj = plus.ios.newObject(<span class="string">"ShowVC"</span>);</div><div class="line">    var UIApplicationClass = plus.ios.importClass(<span class="string">"UIApplication"</span>);</div><div class="line">    var UIAppObj = UIApplicationClass.sharedApplication();</div><div class="line">    var del = plus.ios.invoke(UIAppObj,<span class="string">"delegate"</span>);</div><div class="line">    var appWindowObj = plus.ios.invoke(del,<span class="string">"window"</span>);</div><div class="line">    var appRootController = plus.ios.invoke(appWindowObj,<span class="string">"rootViewController"</span>);</div><div class="line">    plus.ios.invoke(appRootController,<span class="string">"pushViewController:animated:"</span>,newVCobj,<span class="string">"YES"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>iOS原生控制器跳转html5页面</p>
 
       
     </div>
@@ -433,7 +432,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/跨平台/" rel="tag"># 跨平台</a>
           
         </div>
       
@@ -446,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/ReactiveSwift示例/" rel="next" title="ReactiveSwift示例">
-                <i class="fa fa-chevron-left"></i> ReactiveSwift示例
+              <a href="/2017/12/22/Mac系统上IntellijIdea-tomcat-mysql环境搭建/" rel="next" title="Mac系统上IntellijIdea+tomcat+mysql环境搭建">
+                <i class="fa fa-chevron-left"></i> Mac系统上IntellijIdea+tomcat+mysql环境搭建
               </a>
             
           </div>
@@ -455,10 +454,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/26/OC与Swift混合编程/" rel="prev" title="OC与Swift混合编程">
-                OC与Swift混合编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/coder.png"
@@ -573,6 +577,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地打包"><span class="nav-number">1.</span> <span class="nav-text">本地打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合交互"><span class="nav-number">2.</span> <span class="nav-text">混合交互</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
