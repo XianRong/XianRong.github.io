@@ -103,7 +103,7 @@
 <meta property="og:description" content="使用Swift后端开源框架Perfect，需要最新版本的Swift 4.0 创建Swift软件包1、创建名为myServer的项目文件夹12mkdir myServercd myServer 2、初始化项目1swift package init --type=executable 3、打开Package.swift文件进行编辑(要求Swift编译的最低版本为3.0.0)1234567891011l">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/swiftServerSizeProjectSeting.png">
-<meta property="og:updated_time" content="2018-01-26T03:11:20.449Z">
+<meta property="og:updated_time" content="2018-01-26T08:11:36.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Swift构建服务端">
 <meta name="twitter:description" content="使用Swift后端开源框架Perfect，需要最新版本的Swift 4.0 创建Swift软件包1、创建名为myServer的项目文件夹12mkdir myServercd myServer 2、初始化项目1swift package init --type=executable 3、打开Package.swift文件进行编辑(要求Swift编译的最低版本为3.0.0)1234567891011l">
@@ -385,9 +385,10 @@
 <p>3、打开Package.swift文件进行编辑(要求Swift编译的最低版本为3.0.0)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> package = Package(</div><div class="line">    name: <span class="string">"myServer"</span>,</div><div class="line">    dependencies: [</div><div class="line">        .package(url: <span class="string">"https://github.com/PerfectlySoft/Perfect-HTTPServer.git"</span>, from: <span class="string">"3.0.0"</span>)</div><div class="line">    ],</div><div class="line">    targets: [</div><div class="line">        .target(</div><div class="line">            name: <span class="string">"myServer"</span>,</div><div class="line">            dependencies: [<span class="string">"PerfectHTTPServer"</span>]),</div><div class="line">    ]</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>4、编译和运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">swift build</div><div class="line">.build/debug/myServer</div></pre></td></tr></table></figure></p>
 <h3 id="设置服务器"><a href="#设置服务器" class="headerlink" title="设置服务器"></a>设置服务器</h3><p>1、在main.swift文件编写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import PerfectHTTP</div><div class="line">import PerfectHTTPServer</div><div class="line"></div><div class="line">//注册路由和请求/响应句柄</div><div class="line">var routes = Routes()</div><div class="line">routes.add(method:.get,uri:<span class="string">"/"</span>)&#123;request,response <span class="keyword">in</span></div><div class="line">    response.setHeader(.contentType, value: <span class="string">"text/html"</span>)</div><div class="line">    response.appendBody(string: <span class="string">"&lt;html&gt;&lt;title&gt;Hello, world!&lt;/title&gt;&lt;body&gt;Hello, world!&lt;/body&gt;&lt;/html&gt;"</span>)</div><div class="line">        .completed()</div><div class="line">&#125;</div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">    // 启动HTTP服务器</div><div class="line">    try HTTPServer.launch(.server(name:<span class="string">"www.example.ca"</span>,port:8181,routes:routes))</div><div class="line">&#125;catch&#123;</div><div class="line">    fatalError(<span class="string">"\(error)"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、再次编译运行可看到[INFO] Starting HTTP server www.example.ca on :::8181,此时服务器已启动运行，<br>浏览器访问<a href="http://127.0.0.1:8181/" target="_blank" rel="external">http://localhost:8181/</a>就可以看到欢迎信息了。<br>control+c可停止服务器。<br>3、利用Swift软件包管理器（SPM）为项目生产Xcode工程，方便运行和调试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swift package generate-xcodeproj</div></pre></td></tr></table></figure></p>
+<p>2、再次编译运行可看到[INFO] Starting HTTP server www.example.ca on :::8181,此时服务器已启动运行，浏览器访问<a href="http://127.0.0.1:8181/" target="_blank" rel="external">http://localhost:8181/</a>就可以看到欢迎信息了。<br>control+c可停止服务器。<br>3、利用Swift软件包管理器（SPM）为项目生产Xcode工程，方便运行和调试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swift package generate-xcodeproj</div></pre></td></tr></table></figure></p>
 <p>4、打开工程，在”Library Search Paths“检索项目软件库中增加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(PROJECT_DIR) - Recursive</div></pre></td></tr></table></figure></p>
 <p>5、请选择 “My Mac”，选择”myServer”。现在您就可以在Xcode中运行调试您的服务器了。<br><img src="http://ouakkqmoq.bkt.clouddn.com/swiftServerSizeProjectSeting.png" alt="Image text"></p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>编译debug版本的使用：swift build，可执行文件被放在.build/debug/隐藏目录下；<br>编译release版本的使用：swift build -c release,可执行文件被放到.build/release/路径下；<br>清理编译临时文件，删除.build，使用：swift build –clean<br>清理.build目录和Packages目录，使用：swift build –clean=dist</p>
 
       
     </div>
@@ -456,6 +457,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/30/项目组件化开发/" rel="prev" title="项目组件化开发">
+                项目组件化开发 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -532,7 +537,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -589,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Swift软件包"><span class="nav-number">1.</span> <span class="nav-text">创建Swift软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置服务器"><span class="nav-number">2.</span> <span class="nav-text">设置服务器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Swift软件包"><span class="nav-number">1.</span> <span class="nav-text">创建Swift软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置服务器"><span class="nav-number">2.</span> <span class="nav-text">设置服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">3.</span> <span class="nav-text">补充</span></a></li></ol></div>
             
 
           </div>

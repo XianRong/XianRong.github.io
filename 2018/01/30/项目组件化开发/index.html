@@ -94,23 +94,18 @@
 
 
 
-<meta name="description" content="使用UIBezierPath类可以创建基于矢量的路径，这个类在UIKit中。此类是Core Graphics框架关于path的一个封装。使用此类可以定义简单的形状，如椭圆或者矩形，或者有多个直线和曲线段组成的形状。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta name="description" content="本地私有库实现1、进入ProjectBase文件夹目录1234git initgit add .git commit -m &quot;初始化本地私有库&quot;pod spec create ProjectBase 2、修改.podspec文件内容：123s.description  = &quot;分类、工具类等&quot;s.license      = &quot;MIT&quot;s.source       = &amp;#123; :git =&amp;g">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIBezierPath">
-<meta property="og:url" content="https://xianrong.github.io/2017/08/19/UIBezierPath/index.html">
+<meta property="og:title" content="项目组件化开发">
+<meta property="og:url" content="https://xianrong.github.io/2018/01/30/项目组件化开发/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="使用UIBezierPath类可以创建基于矢量的路径，这个类在UIKit中。此类是Core Graphics框架关于path的一个封装。使用此类可以定义简单的形状，如椭圆或者矩形，或者有多个直线和曲线段组成的形状。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta property="og:description" content="本地私有库实现1、进入ProjectBase文件夹目录1234git initgit add .git commit -m &quot;初始化本地私有库&quot;pod spec create ProjectBase 2、修改.podspec文件内容：123s.description  = &quot;分类、工具类等&quot;s.license      = &quot;MIT&quot;s.source       = &amp;#123; :git =&amp;g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xianrong.github.io/Img/bezierPahtPic.png">
-<meta property="og:image" content="https://xianrong.github.io/Img/UIBezierPathCircle.png">
-<meta property="og:image" content="https://xianrong.github.io/Img/UIBezierPathTwo.png">
-<meta property="og:image" content="https://xianrong.github.io/Img/UIBezierPathThree.png">
-<meta property="og:updated_time" content="2018-01-26T03:14:24.248Z">
+<meta property="og:updated_time" content="2018-01-31T01:19:26.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIBezierPath">
-<meta name="twitter:description" content="使用UIBezierPath类可以创建基于矢量的路径，这个类在UIKit中。此类是Core Graphics框架关于path的一个封装。使用此类可以定义简单的形状，如椭圆或者矩形，或者有多个直线和曲线段组成的形状。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
-<meta name="twitter:image" content="https://xianrong.github.io/Img/bezierPahtPic.png">
+<meta name="twitter:title" content="项目组件化开发">
+<meta name="twitter:description" content="本地私有库实现1、进入ProjectBase文件夹目录1234git initgit add .git commit -m &quot;初始化本地私有库&quot;pod spec create ProjectBase 2、修改.podspec文件内容：123s.description  = &quot;分类、工具类等&quot;s.license      = &quot;MIT&quot;s.source       = &amp;#123; :git =&amp;g">
 
 
 
@@ -139,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/08/19/UIBezierPath/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2018/01/30/项目组件化开发/"/>
 
 
 
 
 
-  <title>UIBezierPath | XR</title>
+  <title>项目组件化开发 | XR</title>
   
 
 
@@ -288,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/08/19/UIBezierPath/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2018/01/30/项目组件化开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -305,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">UIBezierPath</h1>
+          <h1 class="post-title" itemprop="name headline">项目组件化开发</h1>
         
 
         <div class="post-meta">
@@ -317,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T18:17:46+08:00">
-                2017-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T09:20:40+08:00">
+                2018-01-30
               </time>
             
 
@@ -382,8 +377,26 @@
       
 
       
-        <p>使用UIBezierPath类可以创建基于矢量的路径，这个类在UIKit中。此类是Core Graphics框架关于path的一个封装。使用此类可以定义简单的形状，如椭圆或者矩形，或者有多个直线和曲线段组成的形状。<br><img src="/Img/bezierPahtPic.png" alt="Image text"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">class BezierPathView: UIView &#123;</div><div class="line"></div><div class="line">    override func draw(_ rect: CGRect) &#123;</div><div class="line">     </div><div class="line">        // 画矩形</div><div class="line">        <span class="built_in">let</span> bp = UIBezierPath(rect:CGRect(x: 10, y: 30, width: 30, height: 50))</div><div class="line">        UIColor.green.set()</div><div class="line">        bp.fill()</div><div class="line">        </div><div class="line">        // 画椭圆(如果宽高相等则为圆)</div><div class="line">        <span class="built_in">let</span> ovel = UIBezierPath(ovalIn: CGRect(x: 50, y: 30, width: 60, height: 40))</div><div class="line">        UIColor.red.set()</div><div class="line">        ovel.fill()</div><div class="line">        </div><div class="line">        // 画圆角的矩形（圆角值为8）</div><div class="line">        <span class="built_in">let</span> roundeRect1 = UIBezierPath(roundedRect: CGRect(x: 120, y: 30, width: 60, height: 40), cornerRadius: 8)</div><div class="line">        UIColor.orange.set()</div><div class="line">        roundeRect1.fill()</div><div class="line">        </div><div class="line">        // 画矩形，指定某个或多个角设置圆角</div><div class="line">        <span class="built_in">let</span> roundeRect2 = UIBezierPath(roundedRect: CGRect(x: 190, y: 30, width: 60, height: 40), byRoundingCorners: [.topLeft,.bottomRight], cornerRadii: CGSize(width: 20, height: 60))</div><div class="line">        UIColor.blue.set()</div><div class="line">        roundeRect2.fill()</div><div class="line">        </div><div class="line">        // 画圆弧1</div><div class="line">        <span class="built_in">let</span> arcPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 120), radius: 40, startAngle:2 * .pi, endAngle: .pi/2, clockwise: <span class="literal">true</span>)</div><div class="line">        UIColor.brown.set()</div><div class="line">        arcPath.stroke()</div><div class="line">        </div><div class="line">        // 画圆弧2</div><div class="line">        <span class="built_in">let</span> arcPath2 = UIBezierPath()</div><div class="line">        arcPath2.addArc(withCenter: CGPoint(x: 250, y: 120), radius: 40, startAngle: .pi, endAngle: .pi * 2, clockwise: <span class="literal">false</span>)</div><div class="line">        arcPath2.stroke()</div><div class="line">        </div><div class="line">        // 二阶贝赛尔曲线(起点、终点、一个控制点)</div><div class="line">        <span class="built_in">let</span> twoPath = UIBezierPath()</div><div class="line">        twoPath.move(to: CGPoint(x: 20, y: 250))</div><div class="line">        twoPath.addQuadCurve(to: CGPoint(x: 100, y: 250), controlPoint: CGPoint(x: 80, y: 180))</div><div class="line">        </div><div class="line">        <span class="built_in">let</span> twoPath1 = UIBezierPath()</div><div class="line">        twoPath1.move(to: CGPoint(x: 150, y: 250))</div><div class="line">        twoPath1.addQuadCurve(to: CGPoint(x: 230, y: 250), controlPoint: CGPoint(x: 190, y: 180))</div><div class="line">        </div><div class="line">        twoPath1.append(twoPath) //拼接路径</div><div class="line">        UIColor.black.set()</div><div class="line">        twoPath1.lineWidth = 2.0</div><div class="line">        twoPath1.lineCapStyle = .square</div><div class="line">        twoPath1.lineJoinStyle = .round</div><div class="line">        twoPath1.stroke()</div><div class="line">        </div><div class="line">        // 三阶贝赛尔曲线(起点、终点、两个控制点)</div><div class="line">        <span class="built_in">let</span> threePath = UIBezierPath()</div><div class="line">        threePath.move(to: CGPoint(x: 20, y: 350))</div><div class="line">        threePath.addCurve(to: CGPoint(x: 300, y: 350), controlPoint1: CGPoint(x: 100, y: 250), controlPoint2: CGPoint(x: 180, y: 450))</div><div class="line">        UIColor.orange.set()</div><div class="line">        threePath.stroke() </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>圆弧起始点<br><img src="/Img/UIBezierPathCircle.png" alt="Image text"><br>二阶贝塞尔曲线示意图<br><img src="/Img/UIBezierPathTwo.png" alt="Image text"><br>三阶贝塞尔曲线示意图<br><img src="/Img/UIBezierPathThree.png" alt="Image text"></p>
+        <h4 id="本地私有库实现"><a href="#本地私有库实现" class="headerlink" title="本地私有库实现"></a>本地私有库实现</h4><p>1、进入ProjectBase文件夹目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"初始化本地私有库"</span></div><div class="line">pod spec create ProjectBase</div></pre></td></tr></table></figure></p>
+<p><img src="" alt="Image text"><br>2、修改.podspec文件内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">s.description  = <span class="string">"分类、工具类等"</span></div><div class="line">s.license      = <span class="string">"MIT"</span></div><div class="line">s.source       = &#123; :git =&gt; <span class="string">""</span>, :tag =&gt; <span class="string">"#&#123;s.version&#125;"</span> &#125;</div></pre></td></tr></table></figure></p>
+<p>3、在项目的Podfile文件中添加：pod ‘ProjectBase’, :path =&gt;’/Users/xianrong/Desktop/组件化/ProjectBase’<br>注意：该路径为找得到.podspec的本地路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure></p>
+<p>附上.podspec文件内容含义：<br>s.name：名称，pod search 搜索的关键词<br>s.version：版本号<br>s.ios.deployment_target:支持的pod最低版本<br>s.summary: 简介<br>s.homepage:项目主页地址<br>s.license:许可证，例如s.license= { :type =&gt; “MIT”, :file =&gt; “LICENSE” }<br>s.author:作者<br>s.social_media_url:社交网址,这里我写的微博默认是Twitter,如果你写Twitter的话,你的podspec发布成功后会@你<br>s.source:项目的地址<br>s.source_files:需要包含的源文件，<br>s.resources: 资源文件<br>s.requires_arc: 是否支持ARC<br>s.dependency：依赖库，不能依赖未发布的库<br>s.dependency：依赖库，如有多个可以这样写s.dependency  = ‘AFNetworking’</p>
+<p>source_files:写法及含义<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"Classes/*"</span></div><div class="line"><span class="string">"Classes/**/*.&#123;h,m&#125;"</span></div><div class="line"><span class="string">"Classes/**/*.h"</span></div></pre></td></tr></table></figure></p>
+<p>“<em>” 表示匹配所有文件<br>“</em>.{h,m}” 表示匹配所有以.h和.m结尾的文件<br>“**” 表示匹配所有子目录</p>
+<h4 id="远程私有库实现"><a href="#远程私有库实现" class="headerlink" title="远程私有库实现"></a>远程私有库实现</h4><p>一、创建远程索引库<br>1、在第三方代码托管网站<a href="https://coding.net创建私有远程仓库，命名为PrivatePodspec" target="_blank" rel="external">https://coding.net创建私有远程仓库，命名为PrivatePodspec</a><br>2、使用终端命令生成ssh对称密码对<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen</div></pre></td></tr></table></figure></p>
+<p>在/Users/xianrong/.ssh 路径可以查看到id_rsa和id_rsa.pub这两个文件，它们分别为私钥和公钥<br>3、使用公钥在coding网站上的账户-&gt;SSH公钥上进行设置。<br>4、把远程的私有库拉取到本地<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod repo add ProjectBase git@git.coding.net:Captain-XR/PrivatePodspec.git</div></pre></td></tr></table></figure></p>
+<p>可在/Users/xianrong/.cocoapods/repos/ProjectBase路径下查看到，也可以使用终端命令pod repo查看</p>
+<p>二、创建远程代码库<br>1、在第三方代码托管网站<a href="https://coding.net创建私有远程仓库，命名为PrivateLib" target="_blank" rel="external">https://coding.net创建私有远程仓库，命名为PrivateLib</a><br>2、创建本地代码库<br>cd /Users/xianrong/Desktop/组件化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod lib create ProjectBase</div></pre></td></tr></table></figure></p>
+<p>3、把要上传的代码拷贝到ProjectBase/ProjectBase/Classes/路径下，并把ReplaceMe文件删除。<br>4、进入ProjectBase/Example/路径下进行安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure></p>
+<p>5、把本地代码提交到远程代码库PrivateLib<br>cd /Users/xianrong/Desktop/组件化/ProjectBase<br>进入到ProjectBase 路径下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">"初始化基础组件"</span></div></pre></td></tr></table></figure></p>
+<p>修改ProjectBase.podspec文件内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s.summary          = <span class="string">'ProjectBase.'</span></div><div class="line">s.description      = &lt;&lt;-DESC</div><div class="line">ProjectBase.包含了基本的配置，分类，宏文件，工具类等等</div><div class="line">                       DESC</div><div class="line">s.homepage         = <span class="string">'https://coding.net/u/Captain-XR/p/PrivateLib'</span></div><div class="line">s.source           = &#123; :git =&gt; <span class="string">'https://git.coding.net/Captain-XR/PrivateLib.git'</span>, :tag =&gt; s.version.to_s &#125;</div></pre></td></tr></table></figure></p>
+<p>提交更改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">"配置spec文件"</span></div></pre></td></tr></table></figure></p>
+<p>对刚才修改的spec进行本地验证（非必须）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod lib lint</div></pre></td></tr></table></figure></p>
+<p>添加远程仓库地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote  <span class="comment">#查看有无origin</span></div><div class="line">git remote rm origin    <span class="comment">#移除</span></div><div class="line">git remote add origin git@git.coding.net:Captain-XR/PrivateLib.git   <span class="comment">#添加远程仓库，url或ssh</span></div><div class="line">git remote -v  <span class="comment">#查看现有远程仓库的地址</span></div></pre></td></tr></table></figure></p>
+<p>提交代码到远程<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod push origin master</div></pre></td></tr></table></figure></p>
+<p>本地打标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag <span class="string">'0.1.0'</span></div></pre></td></tr></table></figure></p>
+<p>远程打标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push --tags</div></pre></td></tr></table></figure></p>
+<p>远程验证（非必须）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec lint</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -443,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/18/Quartz2D/" rel="next" title="Quartz2D">
-                <i class="fa fa-chevron-left"></i> Quartz2D
+              <a href="/2018/01/26/使用Swift构建服务端/" rel="next" title="使用Swift构建服务端">
+                <i class="fa fa-chevron-left"></i> 使用Swift构建服务端
               </a>
             
           </div>
@@ -452,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/08/直播小总结/" rel="prev" title="直播小总结">
-                直播小总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -507,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/coder.png"
@@ -570,6 +588,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地私有库实现"><span class="nav-number">1.</span> <span class="nav-text">本地私有库实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程私有库实现"><span class="nav-number">2.</span> <span class="nav-text">远程私有库实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

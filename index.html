@@ -283,6 +283,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2018/01/30/项目组件化开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/30/项目组件化开发/" itemprop="url">项目组件化开发</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T09:20:40+08:00">
+                2018-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="本地私有库实现"><a href="#本地私有库实现" class="headerlink" title="本地私有库实现"></a>本地私有库实现</h4><p>1、进入ProjectBase文件夹目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"初始化本地私有库"</span></div><div class="line">pod spec create ProjectBase</div></pre></td></tr></table></figure></p>
+<p><img src="" alt="Image text"><br>2、修改.podspec文件内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">s.description  = <span class="string">"分类、工具类等"</span></div><div class="line">s.license      = <span class="string">"MIT"</span></div><div class="line">s.source       = &#123; :git =&gt; <span class="string">""</span>, :tag =&gt; <span class="string">"#&#123;s.version&#125;"</span> &#125;</div></pre></td></tr></table></figure></p>
+<p>3、在项目的Podfile文件中添加：pod ‘ProjectBase’, :path =&gt;’/Users/xianrong/Desktop/组件化/ProjectBase’<br>注意：该路径为找得到.podspec的本地路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure></p>
+<p>附上.podspec文件内容含义：<br>s.name：名称，pod search 搜索的关键词<br>s.version：版本号<br>s.ios.deployment_target:支持的pod最低版本<br>s.summary: 简介<br>s.homepage:项目主页地址<br>s.license:许可证，例如s.license= { :type =&gt; “MIT”, :file =&gt; “LICENSE” }<br>s.author:作者<br>s.social_media_url:社交网址,这里我写的微博默认是Twitter,如果你写Twitter的话,你的podspec发布成功后会@你<br>s.source:项目的地址<br>s.source_files:需要包含的源文件，<br>s.resources: 资源文件<br>s.requires_arc: 是否支持ARC<br>s.dependency：依赖库，不能依赖未发布的库<br>s.dependency：依赖库，如有多个可以这样写s.dependency  = ‘AFNetworking’</p>
+<p>source_files:写法及含义<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"Classes/*"</span></div><div class="line"><span class="string">"Classes/**/*.&#123;h,m&#125;"</span></div><div class="line"><span class="string">"Classes/**/*.h"</span></div></pre></td></tr></table></figure></p>
+<p>“<em>” 表示匹配所有文件<br>“</em>.{h,m}” 表示匹配所有以.h和.m结尾的文件<br>“**” 表示匹配所有子目录</p>
+<h4 id="远程私有库实现"><a href="#远程私有库实现" class="headerlink" title="远程私有库实现"></a>远程私有库实现</h4><p>一、创建远程索引库<br>1、在第三方代码托管网站<a href="https://coding.net创建私有远程仓库，命名为PrivatePodspec" target="_blank" rel="external">https://coding.net创建私有远程仓库，命名为PrivatePodspec</a><br>2、使用终端命令生成ssh对称密码对<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen</div></pre></td></tr></table></figure></p>
+<p>在/Users/xianrong/.ssh 路径可以查看到id_rsa和id_rsa.pub这两个文件，它们分别为私钥和公钥<br>3、使用公钥在coding网站上的账户-&gt;SSH公钥上进行设置。<br>4、把远程的私有库拉取到本地<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod repo add ProjectBase git@git.coding.net:Captain-XR/PrivatePodspec.git</div></pre></td></tr></table></figure></p>
+<p>可在/Users/xianrong/.cocoapods/repos/ProjectBase路径下查看到，也可以使用终端命令pod repo查看</p>
+<p>二、创建远程代码库<br>1、在第三方代码托管网站<a href="https://coding.net创建私有远程仓库，命名为PrivateLib" target="_blank" rel="external">https://coding.net创建私有远程仓库，命名为PrivateLib</a><br>2、创建本地代码库<br>cd /Users/xianrong/Desktop/组件化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod lib create ProjectBase</div></pre></td></tr></table></figure></p>
+<p>3、把要上传的代码拷贝到ProjectBase/ProjectBase/Classes/路径下，并把ReplaceMe文件删除。<br>4、进入ProjectBase/Example/路径下进行安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure></p>
+<p>5、把本地代码提交到远程代码库PrivateLib<br>cd /Users/xianrong/Desktop/组件化/ProjectBase<br>进入到ProjectBase 路径下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">"初始化基础组件"</span></div></pre></td></tr></table></figure></p>
+<p>修改ProjectBase.podspec文件内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s.summary          = <span class="string">'ProjectBase.'</span></div><div class="line">s.description      = &lt;&lt;-DESC</div><div class="line">ProjectBase.包含了基本的配置，分类，宏文件，工具类等等</div><div class="line">                       DESC</div><div class="line">s.homepage         = <span class="string">'https://coding.net/u/Captain-XR/p/PrivateLib'</span></div><div class="line">s.source           = &#123; :git =&gt; <span class="string">'https://git.coding.net/Captain-XR/PrivateLib.git'</span>, :tag =&gt; s.version.to_s &#125;</div></pre></td></tr></table></figure></p>
+<p>提交更改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">"配置spec文件"</span></div></pre></td></tr></table></figure></p>
+<p>对刚才修改的spec进行本地验证（非必须）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod lib lint</div></pre></td></tr></table></figure></p>
+<p>添加远程仓库地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote  <span class="comment">#查看有无origin</span></div><div class="line">git remote rm origin    <span class="comment">#移除</span></div><div class="line">git remote add origin git@git.coding.net:Captain-XR/PrivateLib.git   <span class="comment">#添加远程仓库，url或ssh</span></div><div class="line">git remote -v  <span class="comment">#查看现有远程仓库的地址</span></div></pre></td></tr></table></figure></p>
+<p>提交代码到远程<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod push origin master</div></pre></td></tr></table></figure></p>
+<p>本地打标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag <span class="string">'0.1.0'</span></div></pre></td></tr></table></figure></p>
+<p>远程打标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push --tags</div></pre></td></tr></table></figure></p>
+<p>远程验证（非必须）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec lint</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2018/01/26/使用Swift构建服务端/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -382,9 +543,10 @@
 <p>3、打开Package.swift文件进行编辑(要求Swift编译的最低版本为3.0.0)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> package = Package(</div><div class="line">    name: <span class="string">"myServer"</span>,</div><div class="line">    dependencies: [</div><div class="line">        .package(url: <span class="string">"https://github.com/PerfectlySoft/Perfect-HTTPServer.git"</span>, from: <span class="string">"3.0.0"</span>)</div><div class="line">    ],</div><div class="line">    targets: [</div><div class="line">        .target(</div><div class="line">            name: <span class="string">"myServer"</span>,</div><div class="line">            dependencies: [<span class="string">"PerfectHTTPServer"</span>]),</div><div class="line">    ]</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>4、编译和运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">swift build</div><div class="line">.build/debug/myServer</div></pre></td></tr></table></figure></p>
 <h3 id="设置服务器"><a href="#设置服务器" class="headerlink" title="设置服务器"></a>设置服务器</h3><p>1、在main.swift文件编写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import PerfectHTTP</div><div class="line">import PerfectHTTPServer</div><div class="line"></div><div class="line">//注册路由和请求/响应句柄</div><div class="line">var routes = Routes()</div><div class="line">routes.add(method:.get,uri:<span class="string">"/"</span>)&#123;request,response <span class="keyword">in</span></div><div class="line">    response.setHeader(.contentType, value: <span class="string">"text/html"</span>)</div><div class="line">    response.appendBody(string: <span class="string">"&lt;html&gt;&lt;title&gt;Hello, world!&lt;/title&gt;&lt;body&gt;Hello, world!&lt;/body&gt;&lt;/html&gt;"</span>)</div><div class="line">        .completed()</div><div class="line">&#125;</div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">    // 启动HTTP服务器</div><div class="line">    try HTTPServer.launch(.server(name:<span class="string">"www.example.ca"</span>,port:8181,routes:routes))</div><div class="line">&#125;catch&#123;</div><div class="line">    fatalError(<span class="string">"\(error)"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、再次编译运行可看到[INFO] Starting HTTP server www.example.ca on :::8181,此时服务器已启动运行，<br>浏览器访问<a href="http://127.0.0.1:8181/" target="_blank" rel="external">http://localhost:8181/</a>就可以看到欢迎信息了。<br>control+c可停止服务器。<br>3、利用Swift软件包管理器（SPM）为项目生产Xcode工程，方便运行和调试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swift package generate-xcodeproj</div></pre></td></tr></table></figure></p>
+<p>2、再次编译运行可看到[INFO] Starting HTTP server www.example.ca on :::8181,此时服务器已启动运行，浏览器访问<a href="http://127.0.0.1:8181/" target="_blank" rel="external">http://localhost:8181/</a>就可以看到欢迎信息了。<br>control+c可停止服务器。<br>3、利用Swift软件包管理器（SPM）为项目生产Xcode工程，方便运行和调试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swift package generate-xcodeproj</div></pre></td></tr></table></figure></p>
 <p>4、打开工程，在”Library Search Paths“检索项目软件库中增加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(PROJECT_DIR) - Recursive</div></pre></td></tr></table></figure></p>
 <p>5、请选择 “My Mac”，选择”myServer”。现在您就可以在Xcode中运行调试您的服务器了。<br><img src="http://ouakkqmoq.bkt.clouddn.com/swiftServerSizeProjectSeting.png" alt="Image text"></p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>编译debug版本的使用：swift build，可执行文件被放在.build/debug/隐藏目录下；<br>编译release版本的使用：swift build -c release,可执行文件被放到.build/release/路径下；<br>清理编译临时文件，删除.build，使用：swift build –clean<br>清理.build目录和Packages目录，使用：swift build –clean=dist</p>
 
           
         
@@ -1589,152 +1751,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/14/汇编语言(转)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/14/汇编语言(转)/" itemprop="url">汇编语言(转)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T07:11:48+08:00">
-                2017-11-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/汇编/" itemprop="url" rel="index">
-                    <span itemprop="name">汇编</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>汇编语言（Assembly Language）：用符号代替0和1，比机器语言便于阅读和记忆。<br>学习汇编语言的用途：弄清代码的本质<br>推荐阅读：《汇编语言》王爽<br><img src="/Img/hbyy01.png" alt="Image text"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/14/汇编语言(转)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1785,7 +1801,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
