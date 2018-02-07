@@ -283,6 +283,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/12/06/渐变色效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XianRong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/coder.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/06/渐变色效果/" itemprop="url">渐变色效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-06T15:54:15+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index">
+                    <span itemprop="name">OC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="使用Core-Graphics框架下的Quartz-2D实现渐变效果"><a href="#使用Core-Graphics框架下的Quartz-2D实现渐变效果" class="headerlink" title="使用Core Graphics框架下的Quartz 2D实现渐变效果"></a>使用Core Graphics框架下的Quartz 2D实现渐变效果</h3><p>Quartz 2D 的渐变方式分为两种：<br>1、线性渐变：渐变色以直线方式从开始位置逐渐向结束位置渐变<br>2、放射性渐变：以中心点为圆心从起始渐变色向四周辐射，直到终止渐变色<br>使用中我们可以直接绘制一个渐变，也可以将渐变填充到现有的图形路径上</p>
+<h3 id="使用CAGradientLayer来实现渐变背景"><a href="#使用CAGradientLayer来实现渐变背景" class="headerlink" title="使用CAGradientLayer来实现渐变背景"></a>使用CAGradientLayer来实现渐变背景</h3><p>CAGradientLayer 是 CALayer 的子类，可以理解为一个渐变层。如果使用的是透明的颜色，还可以做到透明渐变。<br>CAGradientLayer 目前只能实现线性渐变，还不能实现放射性渐变。<br>CAGradientLayer 对象最主要的就是如下 4 个属性：<br>1、colors：颜色数组，定义渐变层的各个颜色。<br>2、locations（可选）：决定每个渐变颜色的终止位置，这些值必须是递增的，数组的长度和 colors 的长度最好一致。<br>3、startPoint（可选）：渲染的起始位置，默认值是：[.5,0]（具体坐标系参考下图）<br>4、endPoint（可选）：渲染的终止位置，默认值是：[.5,1]（具体坐标系参考下图）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/14/汇编语言(转)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1581,152 +1724,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/10/17/Swift的协议/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XianRong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/coder.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XR">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/17/Swift的协议/" itemprop="url">Swift的协议</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T10:55:40+08:00">
-                2017-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我们知道Swift拥有函数、泛型、协议的特性，它们之间的协同工作能让代码的动态特性变得异常强大。<br>Swift 协议可以被用作代理，也可以让你对接口进行抽象 (比如 IteratorProtocol 和 Sequence)。<br>Swift 协议与 OC 的协议最大的不同：<br>（1）可以让结构体和枚举类型满足协议<br>（2）可以有关联类型<br>（3）通过协议扩展的方式为协议添加方法实现<br>协议允许我们进行动态派发，也就是说，在运行时程序会根据消息接收者的类型去选择正确的<br>方法实现。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/17/Swift的协议/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1777,7 +1774,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1788,7 +1785,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1799,7 +1796,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
