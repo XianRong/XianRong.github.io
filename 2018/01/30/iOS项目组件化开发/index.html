@@ -94,22 +94,22 @@
 
 
 
-<meta name="description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。（强依赖：模块A调用模块B的服务，不需要在A模块中impor">
+<meta name="description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
 <meta name="keywords" content="组件化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS项目组件化开发">
 <meta property="og:url" content="https://xianrong.github.io/2018/01/30/iOS项目组件化开发/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。（强依赖：模块A调用模块B的服务，不需要在A模块中impor">
+<meta property="og:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_hb.jpg">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_sx.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_fangan.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_cengji.png">
-<meta property="og:updated_time" content="2018-02-07T03:43:47.076Z">
+<meta property="og:updated_time" content="2018-02-09T08:19:03.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS项目组件化开发">
-<meta name="twitter:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。（强依赖：模块A调用模块B的服务，不需要在A模块中impor">
+<meta name="twitter:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
 <meta name="twitter:image" content="https://xianrong.github.io/Img/Component_hb.jpg">
 
 
@@ -382,7 +382,7 @@
       
 
       
-        <h3 id="组件化概述"><a href="#组件化概述" class="headerlink" title="组件化概述"></a>组件化概述</h3><p>随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。<br>组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。<br><img src="/Img/Component_hb.jpg" alt="Image text"><br>组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。<br>（强依赖：模块A调用模块B的服务，不需要在A模块中import B）<br><img src="/Img/Component_sx.png" alt="Image text"><br>每个组件使用pod远程私有库以独立工程的形式存在。<br><img src="/Img/Component_fangan.png" alt="Image text"><br><img src="/Img/Component_cengji.png" alt="Image text"><br>难点：解决组件之前的交互通信；基于不同业务进行的项目架构组件划分；需要处理的细节多。<br>组件间的通信是有成本的，尽量将业务封装在组件内部，对外统一提供简单的接口，即“高内聚，低耦合”原则。</p>
+        <h3 id="组件化概述"><a href="#组件化概述" class="headerlink" title="组件化概述"></a>组件化概述</h3><p>随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。<br>组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。<br><img src="/Img/Component_hb.jpg" alt="Image text"><br><a id="more"></a><br>组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。<br>（强依赖：模块A调用模块B的服务，不需要在A模块中import B）<br><img src="/Img/Component_sx.png" alt="Image text"><br>每个组件使用pod远程私有库以独立工程的形式存在。<br><img src="/Img/Component_fangan.png" alt="Image text"><br>自顶向下设计，自低向上实现<br><img src="/Img/Component_cengji.png" alt="Image text"><br>难点：解决组件之间的交互通信；基于不同业务进行的项目架构组件划分；需要处理的细节多。<br>组件间的通信是有成本的，尽量将业务封装在组件内部，对外统一提供简单的接口，即“高内聚，低耦合”原则。</p>
 <p>组件化开发带来的好处：<br>1、业务划分更清晰，接受容易，可按组件分配开发任务；<br>2、开发测试过程中，可以只编译某组件部分代码，不需要编译整个项目代码；<br>3、排查问题容易，某个组件出现问题，直接对组件进行处理；<br>4、集成方便，像搭积木一样组装。项目维护性强。</p>
 <p>混编模块化划分不应该从业务拆分，而是从底层抽离，例如 Extension、工具类等</p>
 <h3 id="中间件设计方案参考"><a href="#中间件设计方案参考" class="headerlink" title="中间件设计方案参考"></a>中间件设计方案参考</h3><p>1、URL-Block方案<br>参考蘑菇街的组件化方案<br>MGJRouter的url-block好处：参数类型无数量限定，传递灵活，返回值类型无限定<br>问题：产生很多硬编码的URL和参数<br>不过蘑菇街也提供了补充方案：<br>（1）开发了web页面统一来管理所有的URL和参数。<br>（2）提供了Protocol方案做补充，将所有涉及到硬编码的都放在组件的PublicHeader.h中。（Protocol方案调用和维护较麻烦一些）。</p>
