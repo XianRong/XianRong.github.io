@@ -94,22 +94,26 @@
 
 
 
-<meta name="description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
+<meta name="description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发思维。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
 <meta name="keywords" content="组件化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS项目组件化开发">
 <meta property="og:url" content="https://xianrong.github.io/2018/01/30/iOS项目组件化开发/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
+<meta property="og:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发思维。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_hb.jpg">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_sx.png">
-<meta property="og:image" content="https://xianrong.github.io/Img/Component_fangan.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/Component_jiagoushiyitu.png">
 <meta property="og:image" content="https://xianrong.github.io/Img/Component_cengji.png">
-<meta property="og:updated_time" content="2018-02-09T08:19:03.195Z">
+<meta property="og:image" content="https://xianrong.github.io/Img/Component_szgccdzjj.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/Component_mgjroter.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/Component_targetaction.png">
+<meta property="og:image" content="https://xianrong.github.io/Img/Component_Lotusoot.png">
+<meta property="og:updated_time" content="2018-02-27T09:25:45.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS项目组件化开发">
-<meta name="twitter:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
+<meta name="twitter:description" content="组件化概述随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发思维。组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。">
 <meta name="twitter:image" content="https://xianrong.github.io/Img/Component_hb.jpg">
 
 
@@ -382,13 +386,13 @@
       
 
       
-        <h3 id="组件化概述"><a href="#组件化概述" class="headerlink" title="组件化概述"></a>组件化概述</h3><p>随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发方案。<br>组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。<br><img src="/Img/Component_hb.jpg" alt="Image text"><br><a id="more"></a><br>组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。<br>（强依赖：模块A调用模块B的服务，不需要在A模块中import B）<br><img src="/Img/Component_sx.png" alt="Image text"><br>每个组件使用pod远程私有库以独立工程的形式存在。<br><img src="/Img/Component_fangan.png" alt="Image text"><br>自顶向下设计，自低向上实现<br><img src="/Img/Component_cengji.png" alt="Image text"><br>难点：解决组件之间的交互通信；基于不同业务进行的项目架构组件划分；需要处理的细节多。<br>组件间的通信是有成本的，尽量将业务封装在组件内部，对外统一提供简单的接口，即“高内聚，低耦合”原则。</p>
-<p>组件化开发带来的好处：<br>1、业务划分更清晰，接受容易，可按组件分配开发任务；<br>2、开发测试过程中，可以只编译某组件部分代码，不需要编译整个项目代码；<br>3、排查问题容易，某个组件出现问题，直接对组件进行处理；<br>4、集成方便，像搭积木一样组装。项目维护性强。</p>
-<p>混编模块化划分不应该从业务拆分，而是从底层抽离，例如 Extension、工具类等</p>
-<h3 id="中间件设计方案参考"><a href="#中间件设计方案参考" class="headerlink" title="中间件设计方案参考"></a>中间件设计方案参考</h3><p>1、URL-Block方案<br>参考蘑菇街的组件化方案<br>MGJRouter的url-block好处：参数类型无数量限定，传递灵活，返回值类型无限定<br>问题：产生很多硬编码的URL和参数<br>不过蘑菇街也提供了补充方案：<br>（1）开发了web页面统一来管理所有的URL和参数。<br>（2）提供了Protocol方案做补充，将所有涉及到硬编码的都放在组件的PublicHeader.h中。（Protocol方案调用和维护较麻烦一些）。</p>
-<p>2、Target-Action方案<br>参考Casa Taloyum的<a href="https://casatwy.com/iOS-Modulization.html" target="_blank" rel="external">iOS应用架构谈 组件化方案</a></p>
-<p>3、协议方案<br>参考<a href="https://github.com/Vegetarians/Lotusoot" target="_blank" rel="external">Lotusoot</a></p>
-<h4 id="组件统一披露API"><a href="#组件统一披露API" class="headerlink" title="组件统一披露API"></a>组件统一披露API</h4><p>1、需要提供哪些服务给外界<br>2、外界需要给我提供哪些服务（让外界以block的形式，或者通知的形式传递数据到组件内部，内部做相应处理）</p>
+        <h3 id="组件化概述"><a href="#组件化概述" class="headerlink" title="组件化概述"></a>组件化概述</h3><p>随着项目Swift化、跨平台混合开发、业务越来越复杂等的因素，不管是老项目重构还是新项目开发，都需要引入组件化架构开发思维。<br>组件化开发方案在业务类型多、开发团队大、多APP多功能有交叉、多语言混编的项目所体现出来的优势尤为明显。<br><img src="/Img/Component_hb.jpg" alt="Image text"><br><a id="more"></a><br>组件化开发带来的好处：<br>1、业务划分更清晰，接受容易，可按组件分配开发任务；<br>2、开发测试过程中，可以只编译某组件部分代码，不需要编译整个项目代码；<br>3、组件二进制化可加快项目编译速度；<br>4、排查问题容易，某个组件出现问题，直接对组件进行处理；<br>5、集成方便，像搭积木一样组装，项目维护性强。</p>
+<p>组件化的思想其实就是解决模块业务之间的强依赖，引入一个中间层（中间人）进行解耦，让中间层进行统一调度。<br>（强依赖：模块A调用模块B的服务，需要在A模块中import B）<br><img src="/Img/Component_sx.png" alt="Image text"><br>每个组件使用pod远程私有库以独立工程的形式存在。<br><img src="/Img/Component_jiagoushiyitu.png" alt="Image text"><br>自顶向下设计，自低向上实现<br><img src="/Img/Component_cengji.png" alt="Image text"><br>难点：解决组件之间的交互通信；基于不同业务进行的项目架构组件划分；需要处理的细节多。<br>组件间的通信是有成本的，尽量将业务封装在组件内部，对外统一提供简单的接口，即“高内聚，低耦合”原则。<br>混编模块化划分不应该从业务拆分，而是从底层抽离，例如 Extension、工具类等</p>
+<h3 id="组件间的通讯"><a href="#组件间的通讯" class="headerlink" title="组件间的通讯"></a>组件间的通讯</h3><p>一个组件内部需要调用另外一个组件中的服务，或者打开另外一个组件中的控制器并传值</p>
+<h4 id="宿主工程充当中间件"><a href="#宿主工程充当中间件" class="headerlink" title="宿主工程充当中间件"></a>宿主工程充当中间件</h4><p><img src="/Img/Component_szgccdzjj.png" alt="Image text"><br>组件统一披露API：<br>需要提供哪些服务给外界；<br>外界需要给我提供哪些服务（让外界以block的形式，或者通知的形式传递数据到组件内部，内部做相应处理）</p>
+<h4 id="引入中间件-amp-中间件设计方案参考"><a href="#引入中间件-amp-中间件设计方案参考" class="headerlink" title="引入中间件 &amp; 中间件设计方案参考"></a>引入中间件 &amp; 中间件设计方案参考</h4><p>1、MGJRouter方案<br><img src="/Img/Component_mgjroter.png" alt="Image text"><br>在组件内部任何地方调用/注册服务，可以不统一接口服务；<br>每个业务组件都需要依赖这个框架；<br>硬解码，url-block维护成本较高；<br>不过蘑菇街也提供了Protocol方案做补充，将所有涉及到硬编码的都放在组件的PublicHeader.h中。<br>详细参考<a href="https://github.com/meili/MGJRouter" target="_blank" rel="external">MGJRouter</a></p>
+<p>2、Target-Action方案<br><img src="/Img/Component_targetaction.png" alt="Image text"><br>每个组件提供一个统一披露的接口文件；<br>中间件维护分类扩展（每个组件对应一个分类扩展，硬解码写在分类扩展内部，通过运行时进行物理解耦）；<br>组件和框架之间无依赖关系。<br>详细参考Casa Taloyum的<a href="https://casatwy.com/iOS-Modulization.html" target="_blank" rel="external">iOS应用架构谈 组件化方案</a></p>
+<p>3、Swift/OC混编的Lotusoot方案<br><img src="/Img/Component_Lotusoot.png" alt="Image text"><br>详细参考<a href="https://github.com/Vegetarians/Lotusoot" target="_blank" rel="external">Lotusoot</a><br><a href="http://zhoulingyu.com/2017/11/29/iOS-modularized-tool-Lotusoot/" target="_blank" rel="external">Lotusoot解说</a></p>
 
       
     </div>
@@ -594,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件化概述"><span class="nav-number">1.</span> <span class="nav-text">组件化概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中间件设计方案参考"><span class="nav-number">2.</span> <span class="nav-text">中间件设计方案参考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件统一披露API"><span class="nav-number">2.1.</span> <span class="nav-text">组件统一披露API</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件化概述"><span class="nav-number">1.</span> <span class="nav-text">组件化概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件间的通讯"><span class="nav-number">2.</span> <span class="nav-text">组件间的通讯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主工程充当中间件"><span class="nav-number">2.1.</span> <span class="nav-text">宿主工程充当中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入中间件-amp-中间件设计方案参考"><span class="nav-number">2.2.</span> <span class="nav-text">引入中间件 & 中间件设计方案参考</span></a></li></ol></li></ol></div>
             
 
           </div>
