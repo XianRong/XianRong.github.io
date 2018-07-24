@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>https://xianrong.github.io/2018/01/15/HBuilder%E9%A1%B9%E7%9B%AE%E6%9C%AC%E5%9C%B0%E6%89%93%E5%8C%85%E5%8F%8A%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2018-03-01T04:02:02.488Z</lastmod>
-    <data>
-        <display>
-        <title>HBuilder项目本地打包及混合开发</title>
-        <pubTime>2018-01-15T02:53:23.000Z</pubTime>
-        
-        <tag>跨平台</tag>
-         
-         
-           
-             
-              <breadCrumb title="跨平台" url="https://xianrong.github.io/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://xianrong.github.io/2018/02/07/iOS%E7%A7%81%E6%9C%89%E5%BA%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2018-03-01T03:59:02.565Z</lastmod>
+    <lastmod>2018-04-11T03:07:50.846Z</lastmod>
     <data>
         <display>
         <title>iOS私有库实现方案</title>
@@ -44,8 +24,48 @@
 
     
   <url>
+    <loc>https://xianrong.github.io/2018/03/22/Xcode-shell-%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2018-03-22T01:41:02.599Z</lastmod>
+    <data>
+        <display>
+        <title>Xcode shell 打包脚本</title>
+        <pubTime>2018-03-22T01:35:12.000Z</pubTime>
+        
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="OC" url="https://xianrong.github.io/categories/OC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://xianrong.github.io/2017/12/13/iOS%E4%B8%8EJS%E4%BA%A4%E4%BA%92/</loc>
+    <lastmod>2018-03-06T02:56:26.264Z</lastmod>
+    <data>
+        <display>
+        <title>iOS与JS交互</title>
+        <pubTime>2017-12-13T09:07:13.000Z</pubTime>
+        
+        <tag>跨平台</tag>
+         
+         
+           
+             
+              <breadCrumb title="跨平台" url="https://xianrong.github.io/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://xianrong.github.io/2018/01/30/iOS%E9%A1%B9%E7%9B%AE%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2018-03-01T03:38:43.615Z</lastmod>
+    <lastmod>2018-03-01T16:29:45.346Z</lastmod>
     <data>
         <display>
         <title>iOS项目组件化开发</title>
@@ -57,6 +77,26 @@
            
              
               <breadCrumb title="组件化" url="https://xianrong.github.io/categories/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://xianrong.github.io/2018/01/15/HBuilder%E9%A1%B9%E7%9B%AE%E6%9C%AC%E5%9C%B0%E6%89%93%E5%8C%85%E5%8F%8A%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2018-03-01T04:02:02.488Z</lastmod>
+    <data>
+        <display>
+        <title>HBuilder项目本地打包及混合开发</title>
+        <pubTime>2018-01-15T02:53:23.000Z</pubTime>
+        
+        <tag>跨平台</tag>
+         
+         
+           
+             
+              <breadCrumb title="跨平台" url="https://xianrong.github.io/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
           
         </display>
     </data>
@@ -670,26 +710,6 @@
         <display>
         <title>JS的CRUD</title>
         <pubTime>2017-12-12T07:56:57.000Z</pubTime>
-        
-        <tag>跨平台</tag>
-         
-         
-           
-             
-              <breadCrumb title="跨平台" url="https://xianrong.github.io/categories/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://xianrong.github.io/2017/12/13/iOS%E4%B8%8EJS%E4%BA%A4%E4%BA%92/</loc>
-    <lastmod>2018-01-15T09:04:01.764Z</lastmod>
-    <data>
-        <display>
-        <title>iOS与JS交互</title>
-        <pubTime>2017-12-13T09:07:13.000Z</pubTime>
         
         <tag>跨平台</tag>
          

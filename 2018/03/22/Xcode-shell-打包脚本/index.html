@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、选">
+<meta name="description" content="自动打包是基于xcodebuild工具进行打包的，可以在终端man xcodebuild指令可了解xcodebuild工具接着可通过xcodebuild –help可直接得到其使用示例">
 <meta name="keywords" content="OC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UICollectionView实现多选且组内单选">
-<meta property="og:url" content="https://xianrong.github.io/2017/11/07/UICollectionView实现多选且组内单选/index.html">
+<meta property="og:title" content="Xcode shell 打包脚本">
+<meta property="og:url" content="https://xianrong.github.io/2018/03/22/Xcode-shell-打包脚本/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、选">
+<meta property="og:description" content="自动打包是基于xcodebuild工具进行打包的，可以在终端man xcodebuild指令可了解xcodebuild工具接着可通过xcodebuild –help可直接得到其使用示例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T03:13:18.621Z">
+<meta property="og:updated_time" content="2018-03-22T01:41:02.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UICollectionView实现多选且组内单选">
-<meta name="twitter:description" content="1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];4、选">
+<meta name="twitter:title" content="Xcode shell 打包脚本">
+<meta name="twitter:description" content="自动打包是基于xcodebuild工具进行打包的，可以在终端man xcodebuild指令可了解xcodebuild工具接着可通过xcodebuild –help可直接得到其使用示例">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/11/07/UICollectionView实现多选且组内单选/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2018/03/22/Xcode-shell-打包脚本/"/>
 
 
 
 
 
-  <title>UICollectionView实现多选且组内单选 | XR</title>
+  <title>Xcode shell 打包脚本 | XR</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/11/07/UICollectionView实现多选且组内单选/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2018/03/22/Xcode-shell-打包脚本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">UICollectionView实现多选且组内单选</h1>
+          <h1 class="post-title" itemprop="name headline">Xcode shell 打包脚本</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T09:58:34+08:00">
-                2017-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T09:35:12+08:00">
+                2018-03-22
               </time>
             
 
@@ -377,7 +377,7 @@
       
 
       
-        <p>1、设置UICollectionView可以多选：self.collectionV.allowsMultipleSelection = YES;<br>2、在数据模型中添加select属性作为记录状态，添加indexPath属性作为拿去对应的Cell<br>3、取消选中：[collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];<br>4、选中：[collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];<br>5、获取所有选中的：NSArray * selectIndexPaths = collectionView.indexPathsForSelectedItems;<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">    CommodityTypeCell * cell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    [cell setBackgroundColor:[UIColor grayColor]];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (collectionView.indexPathsForSelectedItems.count!=self.commodity.proAttributeList.count) &#123;</div><div class="line">        // 做对应的业务处理（比如商品分类标签，改为显示价格区间）</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    </div><div class="line">//     取消当前组内已选中的</div><div class="line">    CommodityType * <span class="built_in">type</span> = self.commodity.proAttributeList[indexPath.section];</div><div class="line">    <span class="keyword">for</span> (SkuList * skut <span class="keyword">in</span> type.attribute_vals) &#123;</div><div class="line">        <span class="keyword">if</span> (skut.select == YES) &#123;</div><div class="line">            skut.select = NO;</div><div class="line">            CommodityTypeCell * oldCell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:skut.indexPath];</div><div class="line">            [oldCell setBackgroundColor:[UIColor grayColor]];</div><div class="line">            [collectionView deselectItemAtIndexPath:skut.indexPath animated:YES];// 取消选中</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 选中当前点击的item</div><div class="line">    SkuList * sku = type.attribute_vals[indexPath.item];</div><div class="line">    sku.select = YES;</div><div class="line">    sku.indexPath = indexPath;</div><div class="line">    CommodityTypeCell * cell = (CommodityTypeCell*)[collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];// 需要添加选中</div><div class="line">    [cell setBackgroundColor:[UIColor orangeColor]];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (collectionView.indexPathsForSelectedItems.count!=self.commodity.proAttributeList.count) &#123;</div><div class="line">        // 做对应的业务处理（比如商品分类标签，显示该商品的唯一价格和库存）</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>自动打包是基于xcodebuild工具进行打包的，可以在终端man xcodebuild指令可了解xcodebuild工具<br>接着可通过xcodebuild –help可直接得到其使用示例</p>
 
       
     </div>
@@ -437,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/17/Swift的协议/" rel="next" title="Swift的协议">
-                <i class="fa fa-chevron-left"></i> Swift的协议
+              <a href="/2018/02/07/iOS私有库实现方案/" rel="next" title="iOS私有库实现方案">
+                <i class="fa fa-chevron-left"></i> iOS私有库实现方案
               </a>
             
           </div>
@@ -446,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/07/贝塞尔曲线/" rel="prev" title="贝塞尔曲线">
-                贝塞尔曲线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
