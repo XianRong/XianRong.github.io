@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="XR">
 <meta property="og:description" content="闭源库可以分为静态库和动态库静态库 有.a 文件/.framework 文件     （白色的文件）动态库 有.dylib/.framework 文件      （黑色的文件） 静态库支持的架构：（不同机型的CPU对应不同的架构）模拟器：4s —— 5 :     i386       5s – X :     x86_64 真机：3gs – 4s :     armv7     5/5c :">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-26T03:22:49.032Z">
+<meta property="og:updated_time" content="2018-07-28T10:16:31.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组件静态库化">
 <meta name="twitter:description" content="闭源库可以分为静态库和动态库静态库 有.a 文件/.framework 文件     （白色的文件）动态库 有.dylib/.framework 文件      （黑色的文件） 静态库支持的架构：（不同机型的CPU对应不同的架构）模拟器：4s —— 5 :     i386       5s – X :     x86_64 真机：3gs – 4s :     armv7     5/5c :">
@@ -379,8 +379,7 @@
       
         <p>闭源库可以分为静态库和动态库<br>静态库 有.a 文件/.framework 文件     （白色的文件）<br>动态库 有.dylib/.framework 文件      （黑色的文件）</p>
 <p>静态库支持的架构：（不同机型的CPU对应不同的架构）<br>模拟器：4s —— 5 :     i386<br>       5s – X :     x86_64</p>
-<p>真机：3gs – 4s :     armv7<br>     5/5c :          armv7s(armv7兼容armv7s)<br>     5s–X :         arm64</p>
-<p>查看静态库支持的架构：lipo -info 库文件<br>合成静态库：lipo -create 静态库文件A 静态库文件B -output xxxxx.a<br>分解静态库：lipo -remove i386 复合的静态库文件 -output xxxx.a<br>获取指定架构的静态库：lipo -thin arm64 复合的静态库文件 -output xxxx.a</p>
+<p>真机：3gs – 4s :     armv7<br>     5/5c :          armv7s(armv7兼容armv7s)<br>     5s–X :         arm64<br><a id="more"></a><br>查看静态库支持的架构：lipo -info 库文件<br>合成静态库：lipo -create 静态库文件A 静态库文件B -output xxxxx.a<br>分解静态库：lipo -remove i386 复合的静态库文件 -output xxxx.a<br>获取指定架构的静态库：lipo -thin arm64 复合的静态库文件 -output xxxx.a</p>
 <p>系统默认选中那个模拟器便编译成对应架构的静态库。这个可不太方便。<br>解决办法：不止编译当前活跃架构，而是编译所有架构。<br>Build Settings -&gt;  Build Active Architecture Only -&gt;No<br>但是现在老机型基本逐渐淘汰了，一般常用的就两个架构了：x86_64  arm64</p>
 <p>查看framework支持的架构：lipo -info XXXX.framework/XXXX<br>查看framework的信息：file framework里的执行文件</p>
 <h4 id="点A静态库文件制作"><a href="#点A静态库文件制作" class="headerlink" title="点A静态库文件制作"></a>点A静态库文件制作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1、创建点A文件项目 -Framework &amp; library --&gt; static library</div><div class="line">2、把要编译成.a文件的源代码导入到项目</div><div class="line">3、把.h文件暴露到public 里面（Build Phases/点+号，添加new headers phase文件/Headers/public）</div><div class="line">4、选中EditScheme -&gt; Run -&gt; Info -&gt; Build Configuration -&gt; Release</div><div class="line">5、选模拟器，然后<span class="built_in">command</span> + b，再选iOS Device ,然后再<span class="built_in">command</span> + b</div><div class="line">6、打开项目的Products - 选中点a文件，右键show In Finder</div><div class="line">7、使用终端lipo 命令，将真机和模拟器的.a文件进行合并</div><div class="line">lipo -create Release-iphoneos/libMJExtension.a Release-iphonesimulator/libMJExtension.a -output libMJExtension.a</div><div class="line">8、将.h文件和.a文件和.bundle文件存放在同一个文件下，就可以用了</div></pre></td></tr></table></figure>
@@ -544,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="直播APP主要实现的流程1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动">
+<meta name="description" content="CFNetwork是核心服务框架中的一个框架，提供了抽象概念的网络协议库。这些抽象概念使得执行各种网络任务变得更容易，例如：1、使用BSD套接字2、使用SSL或TLS创建加密连接3、解析DNS主机4、使用HTTP，验证HTTP和HTTP服务器5、使用FTP服务器6、发布、解析和浏览Bonjour 服务">
 <meta name="keywords" content="OC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="直播试炼">
-<meta property="og:url" content="https://xianrong.github.io/2017/09/10/直播试炼/index.html">
+<meta property="og:title" content="CFNetwork">
+<meta property="og:url" content="https://xianrong.github.io/2018/07/29/CFNetwork/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="直播APP主要实现的流程1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动">
+<meta property="og:description" content="CFNetwork是核心服务框架中的一个框架，提供了抽象概念的网络协议库。这些抽象概念使得执行各种网络任务变得更容易，例如：1、使用BSD套接字2、使用SSL或TLS创建加密连接3、解析DNS主机4、使用HTTP，验证HTTP和HTTP服务器5、使用FTP服务器6、发布、解析和浏览Bonjour 服务">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiaGou.png">
-<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiShuDian.jpg">
-<meta property="og:updated_time" content="2018-01-26T03:20:42.957Z">
+<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/cfnetworkcengji.png">
+<meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/cfstreamAPI.png">
+<meta property="og:updated_time" content="2018-07-29T09:44:23.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="直播试炼">
-<meta name="twitter:description" content="直播APP主要实现的流程1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动">
-<meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiaGou.png">
+<meta name="twitter:title" content="CFNetwork">
+<meta name="twitter:description" content="CFNetwork是核心服务框架中的一个框架，提供了抽象概念的网络协议库。这些抽象概念使得执行各种网络任务变得更容易，例如：1、使用BSD套接字2、使用SSL或TLS创建加密连接3、解析DNS主机4、使用HTTP，验证HTTP和HTTP服务器5、使用FTP服务器6、发布、解析和浏览Bonjour 服务">
+<meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/cfnetworkcengji.png">
 
 
 
@@ -137,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://xianrong.github.io/2017/09/10/直播试炼/"/>
+  <link rel="canonical" href="https://xianrong.github.io/2018/07/29/CFNetwork/"/>
 
 
 
 
 
-  <title>直播试炼 | XR</title>
+  <title>CFNetwork | XR</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2017/09/10/直播试炼/">
+    <link itemprop="mainEntityOfPage" href="https://xianrong.github.io/2018/07/29/CFNetwork/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XianRong">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">直播试炼</h1>
+          <h1 class="post-title" itemprop="name headline">CFNetwork</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T18:33:30+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T14:05:49+08:00">
+                2018-07-29
               </time>
             
 
@@ -380,16 +380,21 @@
       
 
       
-        <h4 id="直播APP主要实现的流程"><a href="#直播APP主要实现的流程" class="headerlink" title="直播APP主要实现的流程"></a>直播APP主要实现的流程</h4><p>1.采集、2.滤镜处理、3.编码、4.推流、5.CDN分发、6.拉流、7.解码、8.播放、9.聊天互动<br><a id="more"></a></p>
-<h4 id="直播APP架构"><a href="#直播APP架构" class="headerlink" title="直播APP架构"></a>直播APP架构</h4><p><img src="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiaGou.png" alt="Image text"></p>
-<h4 id="直播APP技术点"><a href="#直播APP技术点" class="headerlink" title="直播APP技术点"></a>直播APP技术点</h4><p><img src="http://ouakkqmoq.bkt.clouddn.com/ZhiBoJiShuDian.jpg" alt="Image text"></p>
-<h4 id="已有框架的支撑"><a href="#已有框架的支撑" class="headerlink" title="已有框架的支撑"></a>已有框架的支撑</h4><p>1、视频采集端<br>LFLiveKit：一个OC写的可读性非常好的开源推流框架</p>
-<p>2、视频处理框架<br><a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="external">GPUImage</a>：一个基于OpenGL ES的一个强大的图像/视频处理框架,封装好了各种滤镜同时也可以编写自定义的滤镜,其本身内置了多达120多种常见的滤镜效果。</p>
-<p>美颜功能也可以直接使用的是BeautifyFace，它可以很快速的实现美颜功能，效果不错，它的底层还是基于的GPUImage</p>
-<p>3、视频播放端<br><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">ijkplayer</a>:一个基于FFmpeg的开源Android/iOS视频播放器<br>把ijkplayer编译成对应使用的平台，最好把IJKMediaPlayer打包成静态库，然后倒入到项目中，有直播的拉流地址就可以播放啦<br>映客主播url:<a href="http://116.211.167.106/api/live/aggregation?uid=133825214&amp;interest=1" target="_blank" rel="external">http://116.211.167.106/api/live/aggregation?uid=133825214&amp;interest=1</a></p>
-<p>FFmpeg：是一个跨平台的开源视频框架,能实现如视频编码,解码,转码,串流,播放等丰富的功能。其支持的视频格式以及播放协议非常丰富,几乎包含了所有音视频编解码、封装格式以及播放协议。</p>
-<p>4、配置流媒体服务器尝试<br>在Mac上搭建nginx+rtmp服务器<br>nginx:免费开源web服务器，用它来做hls或者rtmp流媒体服务器是非常不错</p>
-<p>5、聊天互动<br>使用网易云信、腾讯云、融云等第三方SDK</p>
+        <p>CFNetwork是核心服务框架中的一个框架，提供了抽象概念的网络协议库。这些抽象概念使得执行各种网络任务变得更容易，例如：<br>1、使用BSD套接字<br>2、使用SSL或TLS创建加密连接<br>3、解析DNS主机<br>4、使用HTTP，验证HTTP和HTTP服务器<br>5、使用FTP服务器<br>6、发布、解析和浏览Bonjour 服务<br><a id="more"></a></p>
+<h3 id="CFNetwork框架结构"><a href="#CFNetwork框架结构" class="headerlink" title="CFNetwork框架结构"></a>CFNetwork框架结构</h3><p>1、CFNetwork概念（CFNetwork Concepts ）描述了每个CFNetwork API及它们是如何交互的。<br>2、使用流（Working with Streams ）描述了如何使用CFStream API来发送和接收网络数据。<br>3、与HTTP服务器通信（Communicating with HTTP Servers ）描述了如何发送和接收HTTP消息。<br>4、与身份验证HTTP服务器通信（Communicating with Authenticating HTTP Servers）描述了如何与安全HTTP服务器通信。<br>5、使用FTP服务器（Working with FTP Servers）描述了如何从一个FTP服务器上上传和下载文件，以及如何下载目录列表。<br>6、使用网络诊断（Using Network Diagnostics ）描述了如何为应用添加网络诊断。</p>
+<h3 id="CFNetwork-概念"><a href="#CFNetwork-概念" class="headerlink" title="CFNetwork 概念"></a>CFNetwork 概念</h3><p>CFNetwork是一个低级别高性能的框架，使你能够精细的控制协议栈。它是BSD套接字的扩展，标准套接字抽象API提供对象来简化任务，例如与FTP和HTTP服务器通信或解析DNS主机。CFNetwork物理上和理论上都基于BSD套接字。<br><img src="http://ouakkqmoq.bkt.clouddn.com/cfnetworkcengji.png" alt="Image text"><br>CFNetwork相对BSD套接字有很多优点，它提供了run-loop集成，因此，如果你的应用程序是基于运行循环，你可以使用网络协议，而不用实现线程。CFNetwork还包含大量的对象可帮助你使用网络协议，而不用实现具体的细节。例如，你可以使用FTP协议，而不用实现CFFTP API的所有细节。如果你了解网络协议，需要它们提供低级别的控制，但是不想自己实现，这时CFNetwork可能是正确的选择。</p>
+<p>使用CFNetwork替代Foundation 级别网络API有很多好处。CFNetwork更侧重于网络协议，而Foundation 级别API侧重于数据访问，例如通过HTTP或FTP传输数据。虽然框架API提供了一些可配置性，但CFNetwork提供了更多。关于框架网络类的更多信息，请参阅URL加载系统编程指南 <a href="https://developer.apple.com/documentation/foundation/url_loading_system#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Loading System Programming Guide</a></p>
+<p>CFNetwork依赖的两个API：CFSocket和CFStream是核心基础框架的一部分。</p>
+<h4 id="CFSocket-API"><a href="#CFSocket-API" class="headerlink" title="CFSocket API"></a>CFSocket API</h4><p>套接字是网络通信的底层。一个套接字类似于电话插孔。它允许你连接到另一个套接字（通过本地或网络）并发送数据给该套接字。</p>
+<p>最常见的套接字是BSD套接字。CFSocket是BSD套接字的一个抽象概念。CFSocket提供几乎BSD套接字的所有功能，使用很少的开销将套接字集成到一个运行循环中。CFSocket并不局限于基于流套接字（例如，TCP），它可以处理任何类型的套接字。</p>
+<p>你可以使用CFSocketCreate 函数从头创建一个CFSocket对象，或者使用CFSocketCreateWithNative 函数创建。然后你可以使用函数CFSocketCreateRunLoopSource 创建一个运行循环源，并使用函数CFRunLoopAddSource将其添加到运行循环。这样，当CFSocket对象接收到一条消息时，你的CFSocket回调函数会运行起来。</p>
+<p>关于更多CFSocket API的信息，可阅读CFSocket参考<a href="https://developer.apple.com/documentation/corefoundation/cfsocket-rg7#//apple_ref/doc/uid/20001445" target="_blank" rel="external">CFSocket Reference</a>。</p>
+<h4 id="CFStream-API"><a href="#CFStream-API" class="headerlink" title="CFStream API"></a>CFStream API</h4><p>读写流:CFReadStream 和CFWriteStream<br>流是一个字节序列串行传输的通信路径。流是单向路径，所以需要一个双向通信，一个输入（读取）流和一个输出（写入）流。<br><img src="http://ouakkqmoq.bkt.clouddn.com/cfstreamAPI.png" alt="Image text"><br>CFStream构建在CFSocket之上，在CFHTTP和CFFTP之下。如上图可以看出，尽管CFStream不是CFNetwork正式的部分，但它是几乎所有CFNetwork的基础。</p>
+<p>CFStream内置支持安全套接字层（SSL）协议。你可以设置包含流SSL信息的字典，例如属性的安全级别或自签证书。然后传递它给你的流，正如kCFStreamPropertySSLSettings 属性设置流为SSL流。</p>
+<p>使用流<a href="https://developer.apple.com/library/archive/documentation/Networking/Conceptual/CFNetwork/CFStreamTasks/CFStreamTasks.html#//apple_ref/doc/uid/TP30001132-CH6-SW1" target="_blank" rel="external">Working with Streams</a>章节描述了如何使用读写流。</p>
+<h4 id="CFHTTP-API"><a href="#CFHTTP-API" class="headerlink" title="CFHTTP API"></a>CFHTTP API</h4><p>发送和接收HTTP消息可使用CFHTTP API。正如CFFTP是FTP协议的抽象，CFHTTP是HTTP协议的抽象。<br>超文本传输协议（HTTP）是一种客户端和服务器端的请求/响应协议。</p>
+<p>使用CFHTTP的更多例子在与HTTP服务通信<a href="https://developer.apple.com/library/archive/documentation/Networking/Conceptual/CFNetwork/CFHTTPTasks/CFHTTPTasks.html#//apple_ref/doc/uid/TP30001132-CH5-SW2" target="_blank" rel="external">Communicating with HTTP Servers</a>。</p>
+<p>更多详情请参阅<a href="https://developer.apple.com/library/archive/documentation/Networking/Conceptual/CFNetwork/Concepts/Concepts.html#//apple_ref/doc/uid/TP30001132-CH4-SW10" target="_blank" rel="external">CFNetwork Concepts</a></p>
 
       
     </div>
@@ -449,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/10/iOS项目架构概述/" rel="next" title="iOS项目架构概述">
-                <i class="fa fa-chevron-left"></i> iOS项目架构概述
+              <a href="/2018/07/28/SDK包对应用的增量计算/" rel="next" title="SDK包对应用的增量计算">
+                <i class="fa fa-chevron-left"></i> SDK包对应用的增量计算
               </a>
             
           </div>
@@ -459,8 +464,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/13/ReactiveSwift示例/" rel="prev" title="ReactiveSwift示例">
-                ReactiveSwift示例 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/29/CFSocket探讨/" rel="prev" title="CFSocket探讨">
+                CFSocket探讨 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#直播APP主要实现的流程"><span class="nav-number">1.</span> <span class="nav-text">直播APP主要实现的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直播APP架构"><span class="nav-number">2.</span> <span class="nav-text">直播APP架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直播APP技术点"><span class="nav-number">3.</span> <span class="nav-text">直播APP技术点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已有框架的支撑"><span class="nav-number">4.</span> <span class="nav-text">已有框架的支撑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CFNetwork框架结构"><span class="nav-number">1.</span> <span class="nav-text">CFNetwork框架结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CFNetwork-概念"><span class="nav-number">2.</span> <span class="nav-text">CFNetwork 概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CFSocket-API"><span class="nav-number">2.1.</span> <span class="nav-text">CFSocket API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CFStream-API"><span class="nav-number">2.2.</span> <span class="nav-text">CFStream API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CFHTTP-API"><span class="nav-number">2.3.</span> <span class="nav-text">CFHTTP API</span></a></li></ol></li></ol></div>
             
 
           </div>

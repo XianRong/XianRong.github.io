@@ -94,22 +94,19 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526set -e# Sets the target folders and the final framework product.# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME# 例如: FMK_NAME=&quot;MyFramework&quot;FMK_NAME=&quot;TYRZSDK">
 <meta name="keywords" content="组件化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动化打包.framework">
 <meta property="og:url" content="https://xianrong.github.io/2018/07/26/自动化打包-framework/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="1234567891011121314151617181920212223242526set -e# Sets the target folders and the final framework product.# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME# 例如: FMK_NAME=&quot;MyFramework&quot;FMK_NAME=&quot;TYRZSDK">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/zdhdb_addTarget.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/zdhdb_Aggregate.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/zdhdb_runScript.png">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/zdhdb_shellbinsh.png">
-<meta property="og:updated_time" content="2018-07-28T08:38:58.370Z">
+<meta property="og:updated_time" content="2018-07-28T10:16:58.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自动化打包.framework">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526set -e# Sets the target folders and the final framework product.# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME# 例如: FMK_NAME=&quot;MyFramework&quot;FMK_NAME=&quot;TYRZSDK">
 <meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/zdhdb_addTarget.png">
 
 
@@ -382,8 +379,7 @@
       
 
       
-        <p><img src="http://ouakkqmoq.bkt.clouddn.com/zdhdb_addTarget.png" alt="Image text"></p>
-<p><img src="http://ouakkqmoq.bkt.clouddn.com/zdhdb_Aggregate.png" alt="Image text"></p>
+        <p><img src="http://ouakkqmoq.bkt.clouddn.com/zdhdb_addTarget.png" alt="Image text"><br><a id="more"></a><br><img src="http://ouakkqmoq.bkt.clouddn.com/zdhdb_Aggregate.png" alt="Image text"></p>
 <p><img src="http://ouakkqmoq.bkt.clouddn.com/zdhdb_runScript.png" alt="Image text"></p>
 <p><img src="http://ouakkqmoq.bkt.clouddn.com/zdhdb_shellbinsh.png" alt="Image text"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> -e</div><div class="line"><span class="comment"># Sets the target folders and the final framework product.</span></div><div class="line"><span class="comment"># 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME</span></div><div class="line"><span class="comment"># 例如: FMK_NAME="MyFramework"</span></div><div class="line">FMK_NAME=<span class="string">"TYRZSDK"</span></div><div class="line"><span class="comment"># Install dir will be the final output to the framework.</span></div><div class="line"><span class="comment"># The following line create it in the root folder of the current project.</span></div><div class="line"></div><div class="line">INSTALL_DIR=<span class="variable">$&#123;HOME&#125;</span>/Desktop/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</div><div class="line">DEVICE_DIR=<span class="variable">$&#123;BUILD_DIR&#125;</span>/Release-iphoneos/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</div><div class="line">SIMULATOR_DIR=<span class="variable">$&#123;BUILD_DIR&#125;</span>/Release-iphonesimulator/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</div><div class="line"><span class="comment"># -configuration $&#123;CONFIGURATION&#125;</span></div><div class="line"><span class="comment"># Clean and Building both architectures.</span></div><div class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -sdk iphoneos clean build ONLY_ACTIVE_ARCH=NO BUILD_DIR=<span class="string">"<span class="variable">$&#123;BUILD_DIR&#125;</span>"</span> OBJROOT=<span class="string">"<span class="variable">$&#123;OBJROOT&#125;</span>"</span> BUILD_ROOT=<span class="string">"<span class="variable">$&#123;BUILD_ROOT&#125;</span>"</span> SYMROOT=<span class="string">"<span class="variable">$&#123;SYMROOT&#125;</span>"</span> <span class="variable">$ACTION</span></div><div class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -sdk iphonesimulator clean build ONLY_ACTIVE_ARCH=NO BUILD_DIR=<span class="string">"<span class="variable">$&#123;BUILD_DIR&#125;</span>"</span> OBJROOT=<span class="string">"<span class="variable">$&#123;OBJROOT&#125;</span>"</span> BUILD_ROOT=<span class="string">"<span class="variable">$&#123;BUILD_ROOT&#125;</span>"</span> SYMROOT=<span class="string">"<span class="variable">$&#123;SYMROOT&#125;</span>"</span> <span class="variable">$ACTION</span></div><div class="line"><span class="comment"># Cleaning the oldest.</span></div><div class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">rm -rf <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">mkdir -p <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></div><div class="line">cp -R <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/"</span> <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>/"</span></div><div class="line"><span class="comment"># Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.</span></div><div class="line">lipo -create <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> <span class="string">"<span class="variable">$&#123;SIMULATOR_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -output <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span></div><div class="line"></div><div class="line">open <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></div></pre></td></tr></table></figure>
@@ -455,8 +451,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/26/CFNetwork/" rel="prev" title="CFNetwork">
-                CFNetwork <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/28/Bitcode/" rel="prev" title="Bitcode">
+                Bitcode <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,7 +521,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

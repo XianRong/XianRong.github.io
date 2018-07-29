@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="1、创建一个空的iOS工程，然后选择最低支持系统的版本。 2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。 3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。 4、将SDK包导入工程，重复上述操作，将两次得到的体积相减取绝对值就是增量。 注意事项：iOS 11（不">
+<meta name="description" content="1、创建一个空的iOS工程，然后选择最低支持系统的版本。 2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。 3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。">
 <meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SDK包对应用的增量计算">
 <meta property="og:url" content="https://xianrong.github.io/2018/07/28/SDK包对应用的增量计算/index.html">
 <meta property="og:site_name" content="XR">
-<meta property="og:description" content="1、创建一个空的iOS工程，然后选择最低支持系统的版本。 2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。 3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。 4、将SDK包导入工程，重复上述操作，将两次得到的体积相减取绝对值就是增量。 注意事项：iOS 11（不">
+<meta property="og:description" content="1、创建一个空的iOS工程，然后选择最低支持系统的版本。 2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。 3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouakkqmoq.bkt.clouddn.com/jszlsdk.jpeg">
-<meta property="og:updated_time" content="2018-07-28T09:59:25.784Z">
+<meta property="og:updated_time" content="2018-07-28T10:17:35.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SDK包对应用的增量计算">
-<meta name="twitter:description" content="1、创建一个空的iOS工程，然后选择最低支持系统的版本。 2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。 3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。 4、将SDK包导入工程，重复上述操作，将两次得到的体积相减取绝对值就是增量。 注意事项：iOS 11（不">
+<meta name="twitter:description" content="1、创建一个空的iOS工程，然后选择最低支持系统的版本。 2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。 3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。">
 <meta name="twitter:image" content="http://ouakkqmoq.bkt.clouddn.com/jszlsdk.jpeg">
 
 
@@ -381,8 +381,7 @@
       
         <p>1、创建一个空的iOS工程，然后选择最低支持系统的版本。</p>
 <p>2、然后在Xcode顶部选择“Generic iOS Device”，即打包针对所有iOS设备。</p>
-<p>3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。</p>
-<p>4、将SDK包导入工程，重复上述操作，将两次得到的体积相减取绝对值就是增量。</p>
+<p>3、command+B编译一次，然后查看“Product”，选中.app文件“Show in Finder”，将其压缩成zip，查看体积。<br><a id="more"></a><br>4、将SDK包导入工程，重复上述操作，将两次得到的体积相减取绝对值就是增量。</p>
 <p>注意事项：iOS 11（不包含iOS 11）之前的系统都有32位架构，因而打包得到的App会生成32位和64位的汇编，体积会比iOS 11下打包得到的App增大。<br>处理技巧：可以通过企业证书将被测应用打包ipa精确计算增量，ipa包使用终端命令“size ipa包”，查看不同架构下的包体积，目前SDK包含的架构有：armv7，i386，x86_64，arm64，第二第三个都是模拟器的架构，主要是兼容不同的Mac电脑的CPU，第一个是32位CPU架构的iOS设备，第四个则是64位CPU架构的iOS设备。</p>
 <p>5、计算公式：SDK增量 = 有SDK的.app - 无SDK的.app（注：若iOS11以下的App可能包含32架构的汇编，32和64的汇编体积几乎同等，故需要作除以2的计算，得到预估值）</p>
 <p>补充：测SDK的增量前，关闭SDK的debug断点，能减少大概三分之一。<br><img src="http://ouakkqmoq.bkt.clouddn.com/jszlsdk.jpeg" alt="Image text"></p>
@@ -455,6 +454,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/07/29/CFNetwork/" rel="prev" title="CFNetwork">
+                CFNetwork <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -521,7 +524,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
